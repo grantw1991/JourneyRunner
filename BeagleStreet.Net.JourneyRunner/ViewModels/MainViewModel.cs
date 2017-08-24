@@ -1,24 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading;
-using System.Windows;
 using System.Windows.Input;
 using BeagleStreet.Net.JourneyRunner.Models;
 using BeagleStreet.Net.JourneyRunner.Pages;
 using BeagleStreet.Net.JourneyRunner.Views;
 using BeagleStreet.Net.JourneyRunner.WpfHelpers;
+using BeagleStreet.Test.Support;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
-using Environment = BeagleStreet.Net.JourneyRunner.Models.Environment;
 
 namespace BeagleStreet.Net.JourneyRunner.ViewModels
 {
     public class MainViewModel : BindableBase
     {
+        private IBrowser _browser;
         private IWebDriver _driver;
         private readonly BackgroundWorker _backgroundWorker;
         private readonly ManualResetEvent _pauseEvent = new ManualResetEvent(true);
@@ -26,6 +27,9 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
 
         private bool _isPause = true;
         private string _pauseButtonText;
+        private string _selectedEnvironment;
+        private string _selectedBrand;
+        private string _journeyBaseUrl; 
 
         public ICommand LaunchJourneyCommand { get; set; }
         public ICommand PauseJourneyCommand { get; set; }
@@ -36,7 +40,36 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
 
         public string SelectedBrowser { get; set; } = "Chrome";
         public Journey SelectedJourney { get; set; }
-        public Environment SelectedEnvironment { get; set; }
+
+        public string SelectedEnvironment
+        {
+            get => _selectedEnvironment;
+            set
+            {
+                if (SetProperty(ref _selectedEnvironment, value))
+                {
+                    JourneyBaseUrl = Utilities.GenerateJourneyUrl(SelectedEnvironment, SelectedBrand);
+                }
+            }
+        }
+
+        public string SelectedBrand
+        {
+            get => _selectedBrand;
+            set
+            {
+                if (SetProperty(ref _selectedBrand, value))
+                {
+                    JourneyBaseUrl = Utilities.GenerateJourneyUrl(SelectedEnvironment, SelectedBrand);
+                }
+            }
+        }
+
+        public string JourneyBaseUrl
+        {
+            get => _journeyBaseUrl;
+            set => SetProperty(ref _journeyBaseUrl, value);
+        }
 
         public string PauseButtonText
         {
@@ -44,8 +77,9 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
             set => SetProperty(ref _pauseButtonText, value);
         }
 
-        public List<Journey> Journeys { get; set; }
-        public List<Environment> Environments { get; set; }
+        public ObservableCollection<Journey> Journeys { get; set; }
+        public List<string> Environments { get; set; }
+        public List<string> Brands { get; set; }
 
         public MainViewModel()
         {
@@ -59,6 +93,7 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
             AddJourneyCommand = new RelayCommand(AddJourney);
 
             PopulateDefaultEnvironments();
+            PopulateBrands();
             PopulateJourneys();
 
             _windowService = new WindowService();
@@ -71,27 +106,27 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
             var journeyBuilderViewModel = new JourneyBuilderViewModel();
             if (_windowService.ShowDialog<JourneyBuilderWindow>(journeyBuilderViewModel) == true)
             {
-
+                Journeys.Add(new Journey{Name = "poopoo"});
             }
         }
 
         private void BackgroundWorkerOnDoWork(object sender, DoWorkEventArgs doWorkEventArgs)
         {
-            Journey.Run(_driver, _pauseEvent, SelectedJourney);
+            JourneyRunner.RunApplication(_browser, _pauseEvent, SelectedJourney);
 
             //_driver.Quit();
         }
 
         private void PopulateDefaultEnvironments()
         {
-            Environments = new List<Environment>
-            {
-                new Environment { Name = "INT", BaseUrl = "http://pbo-lifedevap01:8010/BS-INT/" },
-                new Environment { Name = "REG", BaseUrl = "http://pbo-lifedevap01:8010/BS-REG/" },
-                new Environment { Name = "LIVE", BaseUrl = "https://quotes.beaglestreet.com/Z011" }
-            };
-
+            Environments = new List<string> { "LIVE", "INT","REG" };
             SelectedEnvironment = Environments.First();
+        }
+
+        private void PopulateBrands()
+        {
+            Brands = new List<string>{ "Beagle Street", "Budget", "Virgin Money" };
+            SelectedBrand = Brands.First();
         }
 
         private void InitialiseBrowser()
@@ -110,34 +145,22 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
             }
 
             _driver.Manage().Window.Maximize();
-            _driver.Url = SelectedEnvironment.BaseUrl;
+            _driver.Url = JourneyBaseUrl;
+            _browser = new WebDriverBrowser(_driver);
         }
 
         private void Launch()
         {
             InitialiseBrowser();
-
             _backgroundWorker.RunWorkerAsync();
         }
 
         private void PopulateJourneys()
         {
-            Journeys = new List<Journey>
+            Journeys = new ObservableCollection<Journey>
             {
-                new Journey
-                {
-                    Name = "Tester",
-                    Description = "Single application smoker",
-                    CoverDuration = 10,
-                    DateOfBirth = new DateTime(1991, 11, 25),
-                    SingleOrJoint = WhoPage.SingleOrJoint.Single,
-                    TermType = TermTypePage.TermType.Decreasing,
-                    Gender = GenderPage.Gender.Female,
-                    CoverAmount = 100000,
-                    RequiresCriticalIllness = true,
-                    CriticalIllnessAmount = 10000,
-                    IsSmoker = true
-                }
+                Journey.TestSingleApplication(),
+                Journey.TestJointApplication()
             };
 
             SelectedJourney = Journeys.First();

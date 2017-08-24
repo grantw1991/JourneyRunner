@@ -1,16 +1,17 @@
 ﻿using System.Threading;
-using OpenQA.Selenium;
+using BeagleStreet.Net.JourneyRunner.Models;
+using BeagleStreet.Test.Support;
 
 namespace BeagleStreet.Net.JourneyRunner.Pages
 {
-    public class PasswordPage
+    public class PasswordPage : ISitePage
     {
-        public static void Run(IWebDriver driver, ManualResetEvent manualResetEvent)
+        public void Run(IBrowser browser, ManualResetEvent manualResetEvent, Journey journey)
         {
-            driver.FindElement(By.Id("Password")).SendKeys("P@55w0rd");
-            driver.FindElement(By.Id("PasswordConfirmation")).SendKeys("P@55w0rd");
+            browser.EnterTextIntoElement("#Password", "P@55w0rd");
+            browser.EnterTextIntoElement("#PasswordConfirmation", "P@55w0rd");
 
-            driver.FindElement(By.Id("nextPageButton")).Click();
+            browser.ClickElementWithCss("#nextPageButton");
         }
     }
 }

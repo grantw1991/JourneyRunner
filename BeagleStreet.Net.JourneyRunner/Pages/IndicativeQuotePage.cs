@@ -1,13 +1,14 @@
 ﻿using System.Threading;
-using OpenQA.Selenium;
+using BeagleStreet.Net.JourneyRunner.Models;
+using BeagleStreet.Test.Support;
 
 namespace BeagleStreet.Net.JourneyRunner.Pages
 {
-    public class IndicativeQuotePage
+    public class IndicativeQuotePage : ISitePage
     {
-        public static void Run(IWebDriver driver, ManualResetEvent manualResetEvent)
+        public void Run(IBrowser browser, ManualResetEvent manualResetEvent, Journey journey)
         {
-            driver.FindElement(By.Id("nextPageButton")).Click();
+            browser.ClickElementWithCss("#nextPageButton");
         }
     }
 }

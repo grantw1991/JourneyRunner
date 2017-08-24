@@ -52,3 +52,7 @@ C:\projects\Personal\Old\BeagleStreet.Net.JourneyRunner\BeagleStreet.Net.Journey
 C:\projects\Personal\BeagleStreet.Net.JourneyRunner\BeagleStreet.Net.JourneyRunner\obj\Release\BeagleStreet.Net.JourneyRunner.csprojResolveAssemblyReference.cache
 C:\projects\Personal\BeagleStreet.Net.JourneyRunner\BeagleStreet.Net.JourneyRunner\obj\Release\Views\JourneyBuilderWindow.g.cs
 C:\projects\Personal\BeagleStreet.Net.JourneyRunner\BeagleStreet.Net.JourneyRunner\obj\Release\Views\JourneyBuilderWindow.baml
+C:\projects\Personal\BeagleStreet.Net.JourneyRunner\BeagleStreet.Net.JourneyRunner\bin\Release\MahApps.Metro.dll
+C:\projects\Personal\BeagleStreet.Net.JourneyRunner\BeagleStreet.Net.JourneyRunner\bin\Release\System.Windows.Interactivity.dll
+C:\projects\Personal\BeagleStreet.Net.JourneyRunner\BeagleStreet.Net.JourneyRunner\bin\Release\MahApps.Metro.pdb
+C:\projects\Personal\BeagleStreet.Net.JourneyRunner\BeagleStreet.Net.JourneyRunner\bin\Release\MahApps.Metro.xml

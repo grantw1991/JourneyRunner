@@ -1,9 +1,10 @@
 ﻿using System.Threading;
-using OpenQA.Selenium;
+using BeagleStreet.Net.JourneyRunner.Models;
+using BeagleStreet.Test.Support;
 
 namespace BeagleStreet.Net.JourneyRunner.Pages
 {
-    public class TermTypePage
+    public class TermTypePage : ISitePage
     {
         public enum TermType
         {
@@ -11,22 +12,15 @@ namespace BeagleStreet.Net.JourneyRunner.Pages
             Decreasing
         }
 
-        private const string DecreasingTermButton = "ValidAnswers_decreasing";
-        private const string LevelTermButton = "ValidAnswers_level";
-        private const string NextButtonId = "nextPageButton";
+        private const string DecreasingTermButton = ".ValidAnswers_decreasing";
+        private const string LevelTermButton = ".ValidAnswers_level";
+        private const string NextButtonId = "#nextPageButton";
 
-        public TermTypePage(IWebDriver driver, TermType termType)
+        public void Run(IBrowser browser, ManualResetEvent pauseEvent, Journey journey)
         {
-            var selectedItem = termType == TermType.Decreasing ? DecreasingTermButton : LevelTermButton;
-            driver.FindElement(By.ClassName(selectedItem)).Click();
-            driver.FindElement(By.Id(NextButtonId)).Click();
-        }
-
-        public static void Run(IWebDriver driver, ManualResetEvent pauseEvent, TermType termType)
-        {
-            var selectedItem = termType == TermType.Decreasing ? DecreasingTermButton : LevelTermButton;
-            driver.FindElement(By.ClassName(selectedItem)).Click();
-            driver.FindElement(By.Id(NextButtonId)).Click();
+            var selectedItem = journey.TermType == TermType.Decreasing ? DecreasingTermButton : LevelTermButton;
+            browser.ClickElementWithCss(selectedItem);
+            browser.ClickElementWithCss(NextButtonId);
 
             pauseEvent.WaitOne(Timeout.Infinite);
         }

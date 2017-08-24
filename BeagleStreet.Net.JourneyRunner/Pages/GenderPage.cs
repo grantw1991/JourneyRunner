@@ -1,5 +1,6 @@
 ﻿using System.Threading;
-using OpenQA.Selenium;
+using BeagleStreet.Net.JourneyRunner.Models;
+using BeagleStreet.Test.Support;
 
 namespace BeagleStreet.Net.JourneyRunner.Pages
 {
@@ -11,23 +12,15 @@ namespace BeagleStreet.Net.JourneyRunner.Pages
             Female
         }
 
-        private const string male = "ValidAnswers_male";
-        private const string female = "ValidAnswers_female";
+        private const string male = ".ValidAnswers_male";
+        private const string female = ".ValidAnswers_female";
 
-        public GenderPage(IWebDriver driver, Gender gender)
+        public void Run(IBrowser browser, ManualResetEvent pauseEvent, PersonDetails personDetails)
         {
-            var selectedItem = gender == Gender.Female ? female : male;
+            var selectedItem = personDetails.Gender == Gender.Female ? female : male;
 
-            driver.FindElement(By.ClassName(selectedItem)).Click();
-            driver.FindElement(By.Id("nextPageButton")).Click();
-        }
-
-        public static void Run(IWebDriver driver, ManualResetEvent pauseEvent, Gender gender)
-        {
-            var selectedItem = gender == Gender.Female ? female : male;
-
-            driver.FindElement(By.ClassName(selectedItem)).Click();
-            driver.FindElement(By.Id("nextPageButton")).Click();
+            browser.ClickElementWithCss(selectedItem);
+            browser.ClickElementWithCss("#nextPageButton");
 
             pauseEvent.WaitOne(Timeout.Infinite);
         }

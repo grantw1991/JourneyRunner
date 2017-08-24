@@ -1,28 +1,40 @@
 ﻿using System.Threading;
-using OpenQA.Selenium;
+using BeagleStreet.Net.JourneyRunner.Models;
+using BeagleStreet.Test.Support;
 
 namespace BeagleStreet.Net.JourneyRunner.Pages
 {
     public class YourDetailsPage
     {
-        public static void Run(IWebDriver driver, ManualResetEvent manualResetEvent)
+        public void Run(IBrowser browser, ManualResetEvent manualResetEvent, Journey journey)
         {
-            driver.FindElement(By.Id("PD2a_Select")).SendKeys("Mrs");
-            driver.FindElement(By.Id("FirstName")).SendKeys("Grant");
-            driver.FindElement(By.Id("Surname")).SendKeys("Grant");
+            browser.SelectValueFromDropdown("#PD2a_Select", journey.Person1Details.Title.ToString().ToLower());
+            browser.EnterTextIntoElement("#FirstName", journey.Person1Details.FirstName);
+            browser.EnterTextIntoElement("#Surname", journey.Person1Details.Surname);
 
-            driver.FindElement(By.Id("EmailAddress")).SendKeys("Grant@rg.com");
-            driver.FindElement(By.Id("AddressLine1")).SendKeys("3");
-            driver.FindElement(By.Id("PostCode")).SendKeys("pe28gy");
-            driver.FindElement(By.Id("findAddressLink")).Click();
+            browser.EnterTextIntoElement("#EmailAddress", journey.Person1Details.EmailAddress);
+            browser.EnterTextIntoElement("#AddressLine1", journey.Person1Details.DoorNumber);
+            browser.EnterTextIntoElement("#PostCode", journey.Person1Details.Postcode);
+            browser.ClickElementWithCss("#findAddressLink");
 
-            driver.FindElement(By.Id("PhoneNumber")).SendKeys("0123456789");
+            browser.EnterTextIntoElement("#PhoneNumber", journey.Person1Details.PhoneNumber);
 
-            driver.FindElement(By.ClassName("Contact_email")).Click();
-            driver.FindElement(By.ClassName("Contact_telephone")).Click();
-            driver.FindElement(By.ClassName("Contact_post")).Click();
+            if (browser.ElementIsVisible(".Contact_email"))
+            {
+                browser.ClickElementWithCss(".Contact_email");
+                browser.ClickElementWithCss(".Contact_telephone");
+                browser.ClickElementWithCss(".Contact_post");
+            }
 
-            driver.FindElement(By.Id("nextPageButton")).Click();
+            if (journey.SingleOrJoint == WhoPage.SingleOrJoint.Joint)
+            {
+                browser.SelectValueFromDropdown("#PD20a_Select", journey.Person1Details.Title.ToString().ToLower());
+                browser.EnterTextIntoElement("#PartnerFirstName", journey.Person1Details.FirstName);
+                browser.EnterTextIntoElement("#PartnerSurname", journey.Person1Details.Surname);
+                browser.EnterTextIntoElement("#PartnerEmailAddress", journey.Person1Details.EmailAddress);
+            }
+
+            browser.ClickElementWithCss("#nextPageButton");
 
             manualResetEvent.WaitOne(Timeout.Infinite);
         }

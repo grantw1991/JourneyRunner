@@ -1,17 +1,17 @@
-﻿using System.Linq;
-using System.Threading;
-using OpenQA.Selenium;
+﻿using System.Threading;
+using BeagleStreet.Net.JourneyRunner.Models;
+using BeagleStreet.Test.Support;
 
 namespace BeagleStreet.Net.JourneyRunner.Pages
 {
-    public class CoverAmountPage
+    public class CoverAmountPage : ISitePage
     {
-        private const string NextButtonId = "nextPageButton";
+        private const string NextButtonId = "#nextPageButton";
 
-        public static void Run(IWebDriver driver, ManualResetEvent pauseEvent, int amount)
+        public void Run(IBrowser browser, ManualResetEvent pauseEvent, Journey journey)
         {
-            driver.FindElements(By.ClassName("cover-amount__item")).First().Click();
-            driver.FindElement(By.Id(NextButtonId)).Click();
+            browser.ClickElementWithCss(".cover-amount__item");
+            browser.ClickElementWithCss(NextButtonId);
 
             pauseEvent.WaitOne(Timeout.Infinite);
         }

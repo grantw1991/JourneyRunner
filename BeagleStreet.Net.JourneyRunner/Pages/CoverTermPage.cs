@@ -1,14 +1,15 @@
 ﻿using System.Threading;
-using OpenQA.Selenium;
+using BeagleStreet.Net.JourneyRunner.Models;
+using BeagleStreet.Test.Support;
 
 namespace BeagleStreet.Net.JourneyRunner.Pages
 {
-    public class CoverTermPage
+    public class CoverTermPage : ISitePage
     {
-        public static void Run(IWebDriver driver, ManualResetEvent pauseEvent, int years)
+        public void Run(IBrowser browser, ManualResetEvent pauseEvent, Journey journey)
         {
-            driver.FindElement(By.Id("CoverTermList")).SendKeys(years.ToString());
-            driver.FindElement(By.Id("nextPageButton")).Click();
+            browser.SelectValueFromDropdown("#CoverTermList", journey.CoverDuration.ToString());
+            browser.ClickElementWithCss("#nextPageButton");
 
             pauseEvent.WaitOne(Timeout.Infinite);
         }

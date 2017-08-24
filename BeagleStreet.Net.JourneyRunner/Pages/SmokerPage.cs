@@ -1,28 +1,21 @@
 ﻿using System.Threading;
-using OpenQA.Selenium;
+using BeagleStreet.Net.JourneyRunner.Models;
+using BeagleStreet.Test.Support;
 
 namespace BeagleStreet.Net.JourneyRunner.Pages
 {
     public class SmokerPage
     {
-        private const string IsSmokerButton = "ValidAnswers_yes";
-        private const string NotSmokerButton = "ValidAnswers_no";
-        private const string NextButtonId = "nextPageButton";
+        private const string IsSmokerButton = ".ValidAnswers_yes";
+        private const string NotSmokerButton = ".ValidAnswers_no";
+        private const string NextButtonId = "#nextPageButton";
 
-        public SmokerPage(IWebDriver driver, bool isSmoker)
+        public void Run(IBrowser browser, ManualResetEvent pauseEvent, PersonDetails personDetails)
         {
-            var selectedItem = isSmoker ? IsSmokerButton : NotSmokerButton;
+            var selectedItem = personDetails.IsSmoker ? IsSmokerButton : NotSmokerButton;
 
-            driver.FindElement(By.ClassName(selectedItem)).Click();
-            driver.FindElement(By.Id(NextButtonId)).Click();
-        }
-
-        public static void Run(IWebDriver driver, ManualResetEvent pauseEvent, bool isSmoker)
-        {
-            var selectedItem = isSmoker ? IsSmokerButton : NotSmokerButton;
-
-            driver.FindElement(By.ClassName(selectedItem)).Click();
-            driver.FindElement(By.Id(NextButtonId)).Click();
+            browser.ClickElementWithCss(selectedItem);;
+            browser.ClickElementWithCss(NextButtonId);
 
             pauseEvent.WaitOne(Timeout.Infinite);
         }

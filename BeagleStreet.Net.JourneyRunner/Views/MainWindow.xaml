@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:BeagleStreet.Net.JourneyRunner.ViewModels"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         Title="Beagle Street Journey Launcher" Height="350" Width="525">
     
     <Grid>
@@ -26,12 +27,13 @@
         <ListBox Grid.Column="0" Grid.Row="0" ItemsSource="{Binding Journeys}" SelectedItem="{Binding SelectedJourney}" DisplayMemberPath="Name"></ListBox>
         
         <StackPanel Grid.Column="0" Grid.Row="1">
-            <Button Content="+" Width="25" Height="25" Command="{Binding AddJourneyCommand}"></Button>
+            <Button Content="+" Width="25" Height="25" Margin="5" Command="{Binding AddJourneyCommand}"></Button>
         </StackPanel>
         
         <Grid Grid.Column="1" Grid.Row="0">
 
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             
@@ -44,29 +46,25 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             
-            <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding SelectedJourney.Description}" Margin="5" TextWrapping="Wrap"></TextBlock>
-            
-            <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Text="{Binding SelectedJourney.Description}" Margin="5" TextWrapping="Wrap"></TextBlock>
+
+            <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
                 <TextBlock Text="Chrome" Margin="5" />
                 <TextBlock Text="IE" Margin="5" />
                 <TextBlock Text="FireFox" Margin="5" />
             </StackPanel>
-
-            <StackPanel Grid.Row="2" Orientation="Horizontal">
-                <TextBlock Text="Environment" Height="30" Margin="5" VerticalAlignment="Center" Padding="0,5,0,0" />
-                <ComboBox ItemsSource="{Binding Environments}" SelectedItem="{Binding SelectedEnvironment}" DisplayMemberPath="Name" Width="160" Height="25" Margin="5"  />
-            </StackPanel>
-
-            <TextBox Grid.Row="3" Text="{Binding SelectedEnvironment.BaseUrl}" Width="238" HorizontalAlignment="Left" Height="25" Margin="5" />
-
-            <StackPanel Grid.Row="4" Orientation="Horizontal">
-                <TextBlock Text="Time between page (milliseconds)"  Height="30" Margin="5" />
-                <TextBox Width="100" Height="25"></TextBox>
-            </StackPanel>
             
-            <StackPanel Grid.Row="5" Orientation="Horizontal">
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Brand:" Height="30" Margin="5" VerticalAlignment="Center" Padding="0,5,0,0" HorizontalAlignment="Right" />
+            <ComboBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Brands}" SelectedItem="{Binding SelectedBrand}" HorizontalAlignment="Left" Width="160" Height="25" Margin="5"  />
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Environment:" Height="30" Margin="5" VerticalAlignment="Center" Padding="0,5,0,0" HorizontalAlignment="Right" />
+            <ComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Environments}" SelectedItem="{Binding SelectedEnvironment}" HorizontalAlignment="Left" Width="160" Height="25" Margin="5"  />
+
+            <TextBox Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding JourneyBaseUrl}" Width="238" HorizontalAlignment="Left" Height="25" Margin="5" />
+
+            <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
                 <Button Content="Prev" Width="60" Height="30" Margin="5" Command="{Binding GoBackCommand}" />
-                <Button Content="{Binding PauseButtonText, FallbackValue=Pause, TargetNullValue=Pause}" Width="60" Height="30" Margin="5" Command="{Binding PauseJourneyCommand}" />
+                <Button Content="{Binding PauseButtonText, TargetNullValue=Play}" Width="60" Height="30" Margin="5" Command="{Binding PauseJourneyCommand}" />
                 <Button Margin="5" Width="60" Height="30" Content="Stop" Command="{Binding StopJourneyCommand}"  />
                 <Button Content="Next" Width="60" Height="30" Margin="5" Command="{Binding GoForwardCommand}" />
             </StackPanel>
@@ -75,12 +73,14 @@
 
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button HorizontalAlignment="Right" Margin="5" Width="75" Height="25" Content="Launch" Command="{Binding LaunchJourneyCommand}"  />
-            <Button HorizontalAlignment="Right" Margin="5" Width="75" Height="25" Content="Stop" Command="{Binding StopJourneyCommand}"  />
         </StackPanel>
-        
         
     </Grid>
 </Window>
+
+
+
+
 
 
 

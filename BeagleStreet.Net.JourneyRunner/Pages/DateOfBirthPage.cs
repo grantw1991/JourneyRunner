@@ -1,21 +1,15 @@
-﻿using System;
-using System.Threading;
-using OpenQA.Selenium;
+﻿using System.Threading;
+using BeagleStreet.Net.JourneyRunner.Models;
+using BeagleStreet.Test.Support;
 
 namespace BeagleStreet.Net.JourneyRunner.Pages
 {
     public class DateOfBirthPage
     {
-        public DateOfBirthPage(IWebDriver driver, DateTime dateOfBirth)
+        public void Run(IBrowser browser, ManualResetEvent pauseEvent, PersonDetails personDetails)
         {
-            driver.FindElement(By.Id("Answer")).SendKeys(dateOfBirth.ToString("dd/MM/yyyy"));
-            driver.FindElement(By.Id("nextPageButton")).Click();
-        }
-
-        public static void Run(IWebDriver driver, ManualResetEvent pauseEvent, DateTime dateOfBirth)
-        {
-            driver.FindElement(By.Id("Answer")).SendKeys(dateOfBirth.ToString("dd/MM/yyyy"));
-            driver.FindElement(By.Id("nextPageButton")).Click();
+            browser.EnterTextIntoElement("#Answer", personDetails.DateOfBirth.ToString("dd/MM/yyyy"));
+            browser.ClickElementWithCss("#nextPageButton");
 
             pauseEvent.WaitOne(Timeout.Infinite);
         }

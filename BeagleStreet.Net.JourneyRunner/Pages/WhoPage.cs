@@ -1,9 +1,10 @@
 ﻿using System.Threading;
-using OpenQA.Selenium;
+using BeagleStreet.Net.JourneyRunner.Models;
+using BeagleStreet.Test.Support;
 
 namespace BeagleStreet.Net.JourneyRunner.Pages
 {
-    public class WhoPage
+    public class WhoPage : ISitePage
     {
         public enum SingleOrJoint
         {
@@ -11,16 +12,17 @@ namespace BeagleStreet.Net.JourneyRunner.Pages
             Joint
         }
 
-        private const string JustMeButton = "ValidAnswers_just";
-        private const string MeAndAPartnerButton = "ValidAnswers_me";
-        private const string NextButtonId = "nextPageButton";
+        private const string JustMeButton = ".ValidAnswers_just";
+        private const string MeAndAPartnerButton = ".ValidAnswers_me";
+        private const string NextButtonId = "#nextPageButton";
 
-        public static void Run(IWebDriver driver, ManualResetEvent manualResetEvent, SingleOrJoint singleOrJoint)
+        public void Run(IBrowser browser, ManualResetEvent manualResetEvent, Journey journey)
         {
-            var selectedItem = singleOrJoint == SingleOrJoint.Single ? JustMeButton : MeAndAPartnerButton;
+            var selectedItem = journey.SingleOrJoint == SingleOrJoint.Single ? JustMeButton : MeAndAPartnerButton;
 
-            driver.FindElement(By.ClassName(selectedItem)).Click();
-            driver.FindElement(By.Id(NextButtonId)).Click();
+            browser.ClickElementWithCss(selectedItem);
+            browser.ClickElementWithCss(NextButtonId);
+
             manualResetEvent.WaitOne(Timeout.Infinite);
         }
     }

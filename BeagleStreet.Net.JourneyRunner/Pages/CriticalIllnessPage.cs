@@ -1,28 +1,29 @@
 ﻿using System.Threading;
-using OpenQA.Selenium;
+using BeagleStreet.Net.JourneyRunner.Models;
+using BeagleStreet.Test.Support;
 
 namespace BeagleStreet.Net.JourneyRunner.Pages
 {
-    public class CriticalIllnessPage
+    public class CriticalIllnessPage : ISitePage
     {
-        private const string IncludeCriticalIllnessButton = "ValidAnswers_yes";
-        private const string DoNotIncludeCriticalIllnessButton = "ValidAnswers_no";
-        private const string NextButtonId = "nextPageButton";
+        private const string IncludeCriticalIllnessButton = ".ValidAnswers_yes";
+        private const string DoNotIncludeCriticalIllnessButton = ".ValidAnswers_no";
+        private const string NextButtonId = "#nextPageButton";
 
-        public static void Run(IWebDriver driver, ManualResetEvent pauseEvent, bool includeCriticalIllness, int criticalIllnessAmount)
+        public void Run(IBrowser browser, ManualResetEvent pauseEvent, Journey journey)
         {
-            var selectedItem = includeCriticalIllness ? IncludeCriticalIllnessButton : DoNotIncludeCriticalIllnessButton;
+            var selectedItem = journey.RequiresCriticalIllness ? IncludeCriticalIllnessButton : DoNotIncludeCriticalIllnessButton;
 
-            driver.FindElement(By.ClassName(selectedItem)).Click();
+            browser.ClickElementWithCss(selectedItem);
 
-            if (includeCriticalIllness)
+            if (journey.RequiresCriticalIllness)
             {
-                var criticalIllnessBox = driver.FindElement(By.Id("CriticalIllnessAmount"));
+                var criticalIllnessBox = browser.FindElement("#CriticalIllnessAmount");
                 criticalIllnessBox.Clear();
-                criticalIllnessBox.SendKeys(criticalIllnessAmount.ToString());
+                criticalIllnessBox.SendKeys(journey.CriticalIllnessAmount.ToString());
             }
 
-            driver.FindElement(By.Id(NextButtonId)).Click();
+            browser.ClickElementWithCss(NextButtonId);
             pauseEvent.WaitOne(Timeout.Infinite);
         }
     }

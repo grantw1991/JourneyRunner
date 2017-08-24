@@ -54,6 +54,9 @@
     <Reference Include="BeagleStreet.Test.Support, Version=1.0.37.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BeagleStreet.Test.Support.1.0.37\lib\net461\BeagleStreet.Test.Support.dll</HintPath>
     </Reference>
+    <Reference Include="MahApps.Metro, Version=1.5.0.23, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.5.0\lib\net45\MahApps.Metro.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
@@ -63,6 +66,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.5.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -91,12 +97,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="JourneyRunner.cs" />
+    <Compile Include="Models\Height.cs" />
+    <Compile Include="Models\PersonDetails.cs" />
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\Weight.cs" />
+    <Compile Include="Pages\ISitePage.cs" />
+    <Compile Include="Pages\NarcoticsPage.cs" />
+    <Compile Include="Pages\QuestionPage1.cs" />
+    <Compile Include="Pages\ReviewPage.cs" />
+    <Compile Include="Pages\YourFamilyQuestionPage.cs" />
+    <Compile Include="Pages\YourHealthQuestion1Page.cs" />
+    <Compile Include="Pages\YourHealthQuestion2Page.cs" />
+    <Compile Include="Pages\YourHealthQuestion3Page.cs" />
+    <Compile Include="Pages\YourHealthQuestion4Page.cs" />
+    <Compile Include="Pages\YourHealthQuestion5Page.cs" />
+    <Compile Include="Pages\YourHealthQuestion6Page.cs" />
+    <Compile Include="Pages\YourJobQuestionPage.cs" />
+    <Compile Include="Pages\YourLocationPage.cs" />
+    <Compile Include="Pages\YourSizePage.cs" />
+    <Compile Include="Utilities.cs" />
     <Compile Include="WpfHelpers\BindableBase.cs" />
     <Compile Include="Dependency\Configuration.cs" />
     <Compile Include="Dependency\Modules\SeleniumDriverModule.cs" />
     <Compile Include="WpfHelpers\DialogCloser.cs" />
     <Compile Include="WpfHelpers\IWindowService.cs" />
-    <Compile Include="Models\Environment.cs" />
     <Compile Include="Models\Journey.cs" />
     <Compile Include="Pages\IndicativeQuotePage.cs" />
     <Compile Include="Pages\PasswordPage.cs" />
