@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\projects\Personal\BeagleStreet.JourneyRunner\BeagleStreet.JourneyRunner\obj\Debug\
+C:\projects\Personal\BeagleStreet.Net.JourneyRunner\BeagleStreet.Net.JourneyRunner\obj\Debug\
 BeagleStreet.Net.JourneyRunner
 none
 false
 DEBUG;TRACE
-C:\projects\Personal\BeagleStreet.JourneyRunner\BeagleStreet.JourneyRunner\App.xaml
-11892971807
+C:\projects\Personal\BeagleStreet.Net.JourneyRunner\BeagleStreet.Net.JourneyRunner\App.xaml
+21463853689
 
-14-1820008849
-19-1203879251
-Views\MainWindow.xaml;
+51768239215
+22284739621
+Views\JourneyBuilderWindow.xaml;Views\MainWindow.xaml;
 
 False
 

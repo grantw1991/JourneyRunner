@@ -12,7 +12,7 @@ namespace BeagleStreet.Net.JourneyRunner.Pages
             browser.EnterTextIntoElement("#HeightInInches", personDetails.Height.Inches.ToString());
             browser.EnterTextIntoElement("#WeightInStones", personDetails.Weight.Stone.ToString());
             browser.EnterTextIntoElement("#WeightInPounds", personDetails.Weight.Pounds.ToString());
-            browser.EnterTextIntoElement("#Size", personDetails.DressSize.ToString());
+            browser.EnterTextIntoElement("#Size", personDetails.Gender == GenderPage.Gender.Male ? personDetails.InchesInWaistSize.ToString() : personDetails.DressSize.ToString());
 
             browser.ClickElementWithCss("#nextPageButton");
             manualResetEvent.WaitOne(Timeout.Infinite);

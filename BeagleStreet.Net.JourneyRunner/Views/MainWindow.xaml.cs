@@ -1,6 +1,4 @@
-﻿using MahApps.Metro.Controls;
-
-namespace BeagleStreet.Net.JourneyRunner.Views
+﻿namespace BeagleStreet.Net.JourneyRunner.Views
 {
     public partial class MainWindow
     {

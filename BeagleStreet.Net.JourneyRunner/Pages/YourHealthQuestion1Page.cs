@@ -13,7 +13,6 @@ namespace BeagleStreet.Net.JourneyRunner.Pages
             browser.ClickElementWithCss($"[for='Sections_0_Questions_INC12_Answers_{Utilities.ReturnFormattedDecision(personDetails.HasHeartCondition)}']");
             browser.ClickElementWithCss($"[for='Sections_0_Questions_INC13_Answers_{Utilities.ReturnFormattedDecision(personDetails.HasStroke)}']");
             
-
             browser.ClickElementWithCss("#nextPageButton");
             manualResetEvent.WaitOne(Timeout.Infinite);
         }

@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Threading;
 using BeagleStreet.Net.JourneyRunner.Pages;
-using BeagleStreet.Test.Support;
 
 namespace BeagleStreet.Net.JourneyRunner.Models
 {
@@ -20,7 +18,64 @@ namespace BeagleStreet.Net.JourneyRunner.Models
         public PersonDetails Person1Details { get; set; }
         public PersonDetails Person2Details { get; set; }
 
-       public static Journey TestSingleApplication()
+        public static Journey TestSingleMaleApplication()
+        {
+            return new Journey
+            {
+                Name = "Single tester",
+                Description = "Single application",
+                CoverDuration = 10,
+                SingleOrJoint = WhoPage.SingleOrJoint.Single,
+                TermType = TermTypePage.TermType.Decreasing,
+                CoverAmount = 100000,
+                RequiresCriticalIllness = true,
+                CriticalIllnessAmount = 10000,
+
+                Person1Details = new PersonDetails
+                {
+                    DateOfBirth = new DateTime(1991, 11, 25),
+                    Gender = GenderPage.Gender.Male,
+                    IsSmoker = true,
+                    DoorNumber = "3",
+                    EmailAddress = $"grant{new Random().Next(9999999)}@egg.com",
+                    FirstName = "Wright",
+                    Postcode = "pe28gy",
+                    Surname = "wright",
+                    Title = PersonDetails.TitleType.Dr,
+                    PhoneNumber = "01023456789",
+                    Weight = new Weight
+                    {
+                        Stone = 10,
+                        Pounds = 5
+                    },
+                    Height = new Height
+                    {
+                        Feet = 5,
+                        Inches = 7
+                    },
+                    InchesInWaistSize = 36,
+                    HasUsedRecreationalInLast5Years = false,
+                    IsRegularDrinker = false,
+                    SmokerDetails = new SmokerDetails
+                    {
+                        IsNicotineOnly = false,
+                        NumberOfCigarettesADay = 5,
+                        NumberOfCigarsADay = 2,
+                        NumberOfGramsOfChewingTobacco = 3,
+                        NumberOfGramsOfPipeTobacco = 4,
+                        NumberOfPanatelasADay = 7
+                    },
+                    IntendToLiveOutsideOfUkInNext2Years = true, 
+                    TravelInfo = new TravelInfo
+                    {
+                        KnowsWhichCountryTheyWillTravelTo = true,
+                        Country = "China"
+                    }
+                }
+            };
+        }
+
+        public static Journey TestSingleApplication()
         {
             return new Journey
             {
@@ -37,7 +92,7 @@ namespace BeagleStreet.Net.JourneyRunner.Models
                 {
                     DateOfBirth = new DateTime(1991, 11, 25),
                     Gender = GenderPage.Gender.Female,
-                    IsSmoker = false,
+                    IsSmoker = true,
                     DoorNumber = "3",
                     EmailAddress = $"grant{new Random().Next(9999999)}@egg.com",
                     FirstName = "Wright",

@@ -28,6 +28,7 @@ namespace BeagleStreet.Net.JourneyRunner.Models
         public Height Height { get; set; }
         public Weight Weight { get; set; }
         public int DressSize { get; set; }
+        public int InchesInWaistSize { get; set; }
         public bool IsRegularDrinker { get; set; }
         public bool HasUsedRecreationalInLast5Years { get; set; }
         public bool HasLivedInAfricaInLast2Years { get; set; }
@@ -53,5 +54,7 @@ namespace BeagleStreet.Net.JourneyRunner.Models
         public bool HadGout { get; set; }
         public bool BeenPerscribedTreatment { get; set; }
         public bool BeenUnderInvestigationForTreatment { get; set; }
+        public SmokerDetails SmokerDetails { get; set; }
+        public TravelInfo TravelInfo { get; set; }
     }
 }

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading;
 using System.Windows.Input;
 using BeagleStreet.Net.JourneyRunner.Models;
-using BeagleStreet.Net.JourneyRunner.Pages;
 using BeagleStreet.Net.JourneyRunner.Views;
 using BeagleStreet.Net.JourneyRunner.WpfHelpers;
 using BeagleStreet.Test.Support;
@@ -157,13 +155,16 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
 
         private void PopulateJourneys()
         {
+            //Journeys = new ObservableCollection<Journey>(JourneySerializer.DeserializeJourniesFromFiles());
+
             Journeys = new ObservableCollection<Journey>
             {
-                Journey.TestSingleApplication(),
+                Journey.TestSingleMaleApplication(),
+                Journey.TestSingleApplication(), 
                 Journey.TestJointApplication()
             };
 
-            SelectedJourney = Journeys.First();
+            SelectedJourney = Journeys.FirstOrDefault();
         }
         
         private void Pause()

@@ -56,3 +56,5 @@ C:\projects\Personal\BeagleStreet.Net.JourneyRunner\BeagleStreet.Net.JourneyRunn
 C:\projects\Personal\BeagleStreet.Net.JourneyRunner\BeagleStreet.Net.JourneyRunner\bin\Release\System.Windows.Interactivity.dll
 C:\projects\Personal\BeagleStreet.Net.JourneyRunner\BeagleStreet.Net.JourneyRunner\bin\Release\MahApps.Metro.pdb
 C:\projects\Personal\BeagleStreet.Net.JourneyRunner\BeagleStreet.Net.JourneyRunner\bin\Release\MahApps.Metro.xml
+C:\projects\Personal\BeagleStreet.Net.JourneyRunner\BeagleStreet.Net.JourneyRunner\bin\Release\Newtonsoft.Json.dll
+C:\projects\Personal\BeagleStreet.Net.JourneyRunner\BeagleStreet.Net.JourneyRunner\bin\Release\Newtonsoft.Json.xml

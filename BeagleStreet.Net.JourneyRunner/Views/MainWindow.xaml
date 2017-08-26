@@ -26,8 +26,11 @@
 
         <ListBox Grid.Column="0" Grid.Row="0" ItemsSource="{Binding Journeys}" SelectedItem="{Binding SelectedJourney}" DisplayMemberPath="Name"></ListBox>
         
-        <StackPanel Grid.Column="0" Grid.Row="1">
+        <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
             <Button Content="+" Width="25" Height="25" Margin="5" Command="{Binding AddJourneyCommand}"></Button>
+            <Button Content="Open" Width="35" Height="25" Margin="5" ></Button>
+            <Button Content="Copy" Width="35" Height="25" Margin="5" ></Button>
+            <Button Content="Del" Width="35" Height="25" Margin="5" ></Button>
         </StackPanel>
         
         <Grid Grid.Column="1" Grid.Row="0">
@@ -60,7 +63,7 @@
             <TextBlock Grid.Row="3" Grid.Column="0" Text="Environment:" Height="30" Margin="5" VerticalAlignment="Center" Padding="0,5,0,0" HorizontalAlignment="Right" />
             <ComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Environments}" SelectedItem="{Binding SelectedEnvironment}" HorizontalAlignment="Left" Width="160" Height="25" Margin="5"  />
 
-            <TextBox Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding JourneyBaseUrl}" Width="238" HorizontalAlignment="Left" Height="25" Margin="5" />
+            <TextBox Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding JourneyBaseUrl}" Padding="0,3,0,0" Width="238" HorizontalAlignment="Left" Height="25" Margin="5" />
 
             <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
                 <Button Content="Prev" Width="60" Height="30" Margin="5" Command="{Binding GoBackCommand}" />
