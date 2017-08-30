@@ -6,6 +6,13 @@ namespace BeagleStreet.Net.JourneyRunner.Models
 {
     public class PersonDetails
     {
+        public enum ConditionType
+        {
+            HIV, 
+            Hepatitis,
+            Awaiting
+        }
+
         public enum TitleType
         {
             Mr,
@@ -37,6 +44,7 @@ namespace BeagleStreet.Net.JourneyRunner.Models
         public bool HasHeartCondition { get; set; }
         public bool HasStroke { get; set; }
         public bool IsHIVPositive { get; set; }
+        public ConditionType HIVCondition { get; set; }
         public bool HasCancer { get; set; }
         public bool HasMultipleSclerosis { get; set; }
         public bool HasMentalIllness { get; set; }
@@ -56,5 +64,7 @@ namespace BeagleStreet.Net.JourneyRunner.Models
         public bool BeenUnderInvestigationForTreatment { get; set; }
         public SmokerDetails SmokerDetails { get; set; }
         public TravelInfo TravelInfo { get; set; }
+        public HeartConditionDetails HeartConditionDetails { get; set; }
+        public StrokeConditionDetails StrokeConditionDetails { get; set; }
     }
 }

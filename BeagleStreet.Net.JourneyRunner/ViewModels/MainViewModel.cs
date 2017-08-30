@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using BeagleStreet.Net.JourneyRunner.Models;
 using BeagleStreet.Net.JourneyRunner.Views;
@@ -17,24 +18,26 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
 {
     public class MainViewModel : BindableBase
     {
+        #region Class level variables 
+
         private IBrowser _browser;
         private IWebDriver _driver;
         private readonly BackgroundWorker _backgroundWorker;
         private readonly ManualResetEvent _pauseEvent = new ManualResetEvent(true);
         private readonly IWindowService _windowService;
-
-        private bool _isPause = true;
-        private string _pauseButtonText;
+        
         private string _selectedEnvironment;
         private string _selectedBrand;
-        private string _journeyBaseUrl; 
-
-        public ICommand LaunchJourneyCommand { get; set; }
-        public ICommand PauseJourneyCommand { get; set; }
+        private string _journeyBaseUrl;
+        private bool _isJourneyRunning;
+        private string _interviewId;
+        private string _interviewToken; 
+        
         public ICommand GoForwardCommand { get; set; }
         public ICommand GoBackCommand { get; set; }
         public ICommand StopJourneyCommand { get; set; }
         public ICommand AddJourneyCommand { get; set; }
+        public ICommand RunOrPauseJourneyCommand { get; set; }
 
         public string SelectedBrowser { get; set; } = "Chrome";
         public Journey SelectedJourney { get; set; }
@@ -63,27 +66,40 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
             }
         }
 
+        public bool IsJourneyRunning
+        {
+            get => _isJourneyRunning;
+            set => SetProperty(ref _isJourneyRunning, value);
+        }
+
         public string JourneyBaseUrl
         {
             get => _journeyBaseUrl;
             set => SetProperty(ref _journeyBaseUrl, value);
         }
 
-        public string PauseButtonText
+        public string InterviewId
         {
-            get => _pauseButtonText;
-            set => SetProperty(ref _pauseButtonText, value);
+            get => _interviewId;
+            set => SetProperty(ref _interviewId, value);
+        }
+
+        public string InterviewToken
+        {
+            get => _interviewToken;
+            set => SetProperty(ref _interviewToken, value);
         }
 
         public ObservableCollection<Journey> Journeys { get; set; }
         public List<string> Environments { get; set; }
         public List<string> Brands { get; set; }
 
+        #endregion
+
         public MainViewModel()
         {
-            LaunchJourneyCommand = new RelayCommand(Launch);
-            StopJourneyCommand = new RelayCommand(() => _driver.Quit());
-            PauseJourneyCommand = new RelayCommand(Pause);
+            StopJourneyCommand = new RelayCommand(Stop);
+            RunOrPauseJourneyCommand = new RelayCommand(RunOrPause);
 
             GoBackCommand = new RelayCommand(() => _driver.Navigate().Back());
             GoForwardCommand = new RelayCommand(() => _driver.Navigate().Forward());
@@ -99,6 +115,42 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
             _backgroundWorker.DoWork += BackgroundWorkerOnDoWork;
         }
 
+        private bool _isPause;
+        private void Pause()
+        {
+            if (!IsJourneyRunning)
+                return;
+
+            if (!_isPause)
+            {
+                _pauseEvent.Reset();
+            }
+            else
+            {
+                _pauseEvent.Set();
+            }
+
+            _isPause = !_isPause;
+        }
+
+        private void Stop()
+        {
+            IsJourneyRunning = false;
+            _driver.Quit();
+        }
+
+        private void RunOrPause()
+        {
+            if (IsJourneyRunning)
+            {
+                Pause();
+            }
+            else
+            {
+                Launch();
+            }
+        }
+
         private void AddJourney()
         {
             var journeyBuilderViewModel = new JourneyBuilderViewModel();
@@ -110,9 +162,21 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
 
         private void BackgroundWorkerOnDoWork(object sender, DoWorkEventArgs doWorkEventArgs)
         {
-            JourneyRunner.RunApplication(_browser, _pauseEvent, SelectedJourney);
+            var journeyRunner = new JourneyRunner(_browser, _pauseEvent, SelectedJourney);
+            var runApplicationTask = Task.Factory.StartNew(() => journeyRunner.RunApplication());
+            var populateInterviewDataTask = Task.Factory.StartNew(PopulateJourneyData);
 
-            //_driver.Quit();
+            Task.WaitAll(runApplicationTask, populateInterviewDataTask);
+
+            IsJourneyRunning = false;
+        }
+
+        private void PopulateJourneyData()
+        {
+            var interviewTokenCookie = _driver.Manage().Cookies.AllCookies.ToList().First(cookie => cookie.Name == "InterviewToken"); 
+
+            InterviewToken = interviewTokenCookie != null ? interviewTokenCookie.Value : "-";
+            InterviewId = _browser.GetText("#appId");
         }
 
         private void PopulateDefaultEnvironments()
@@ -144,11 +208,13 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
 
             _driver.Manage().Window.Maximize();
             _driver.Url = JourneyBaseUrl;
-            _browser = new WebDriverBrowser(_driver);
+
+            _browser = new JourneyBrowser(_driver);
         }
 
         private void Launch()
         {
+            IsJourneyRunning = true;
             InitialiseBrowser();
             _backgroundWorker.RunWorkerAsync();
         }
@@ -165,22 +231,6 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
             };
 
             SelectedJourney = Journeys.FirstOrDefault();
-        }
-        
-        private void Pause()
-        {
-            if (_isPause)
-            {
-                _pauseEvent.Reset();
-                PauseButtonText = "Resume";
-            }
-            else
-            {
-                _pauseEvent.Set();
-                PauseButtonText = "Pause";
-            }
-
-            _isPause = !_isPause;
         }
     }
 }

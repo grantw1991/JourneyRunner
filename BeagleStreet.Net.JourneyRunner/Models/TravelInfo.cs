@@ -6,6 +6,7 @@ namespace BeagleStreet.Net.JourneyRunner.Models
     {
         public bool KnowsWhichCountryTheyWillTravelTo { get; set; }
         public string Country { get; set; }
+        public bool IntendToLiveInCountrySelected { get; set; }
 
         public static int GetIndexOfCountry(string country)
         {

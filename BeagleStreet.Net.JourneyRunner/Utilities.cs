@@ -8,8 +8,8 @@
             if (environment == "INT" || environment == "REG")
             {
                 return brand == "Beagle Street"
-                    ? $"http://pbo-lifedevap01:801​0/BS-{environment}/"
-                    : $"http://pbo-lifedevap01:801​0/BS-{environment}-{brand}/";
+                    ? $"http://pbo-lifedevap01:8010/BS-{environment}/"
+                    : $"http://pbo-lifedevap01:8010/BS-{environment}-{brand}/";
             }
 
             if (brand == "Beagle Street")

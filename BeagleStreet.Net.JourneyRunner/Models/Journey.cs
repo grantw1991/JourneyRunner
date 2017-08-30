@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BeagleStreet.Net.JourneyRunner.Pages;
 
 namespace BeagleStreet.Net.JourneyRunner.Models
@@ -22,7 +23,130 @@ namespace BeagleStreet.Net.JourneyRunner.Models
         {
             return new Journey
             {
-                Name = "Single tester",
+                Name = "Single - china",
+                Description = "Single application",
+                CoverDuration = 10,
+                SingleOrJoint = WhoPage.SingleOrJoint.Single,
+                TermType = TermTypePage.TermType.Decreasing,
+                CoverAmount = 100000,
+                RequiresCriticalIllness = true,
+                CriticalIllnessAmount = 10000,
+
+                Person1Details = new PersonDetails
+                {
+                    DateOfBirth = new DateTime(1991, 11, 25),
+                    Gender = GenderPage.Gender.Male,
+                    IsSmoker = true,
+                    DoorNumber = "3",
+                    EmailAddress = $"grant{new Random().Next(9999999)}@egg.com",
+                    FirstName = "Wright",
+                    Postcode = "pe28gy",
+                    Surname = "wright",
+                    Title = PersonDetails.TitleType.Dr,
+                    PhoneNumber = "01023456789",
+                    Weight = new Weight
+                    {
+                        Stone = 10,
+                        Pounds = 5
+                    },
+                    Height = new Height
+                    {
+                        Feet = 5,
+                        Inches = 7
+                    },
+                    InchesInWaistSize = 36,
+                    HasUsedRecreationalInLast5Years = false,
+                    IsRegularDrinker = false,
+                    SmokerDetails = new SmokerDetails
+                    {
+                        IsNicotineOnly = false,
+                        NumberOfCigarettesADay = 5,
+                        NumberOfCigarsADay = 2,
+                        NumberOfGramsOfChewingTobacco = 3,
+                        NumberOfGramsOfPipeTobacco = 4,
+                        NumberOfPanatelasADay = 7
+                    },
+                    IntendToLiveOutsideOfUkInNext2Years = true,
+                    IsHIVPositive = true,
+                    HIVCondition = PersonDetails.ConditionType.Hepatitis,
+                    IsDiabetic = true,
+                    HasHeartCondition = true,
+                    HasStroke = true,
+                    HasLivedInAfricaInLast2Years = true,
+                    TravelInfo = new TravelInfo
+                    {
+                        Country = "Croatia",
+                        KnowsWhichCountryTheyWillTravelTo = true,
+                        IntendToLiveInCountrySelected = true,
+                    },
+                    HeartConditionDetails = new HeartConditionDetails
+                    {
+                        HeartConditions = new List<HeartConditionDetails.HeartConditionType>
+                        {
+                            HeartConditionDetails.HeartConditionType.ChestPain,
+                            HeartConditionDetails.HeartConditionType.HeartAttack,
+                            HeartConditionDetails.HeartConditionType.RaisedBloodPressure,
+                            HeartConditionDetails.HeartConditionType.HeartValveDisorder
+                        }
+                    },
+                    StrokeConditionDetails = new StrokeConditionDetails
+                    {
+                        StrokeConditions = new List<StrokeConditionDetails.StrokeConditionType>
+                        {
+                            StrokeConditionDetails.StrokeConditionType.HeadInjury,
+                            StrokeConditionDetails.StrokeConditionType.CerebrovascularAccident,
+                            StrokeConditionDetails.StrokeConditionType.BrainInjury
+                        }
+                    }
+                }
+            };
+        }
+
+        public static Journey TestSingleMaleApplication1()
+        {
+            return new Journey
+            {
+                Name = "Single - china",
+                Description = "Single application",
+                CoverDuration = 10,
+                SingleOrJoint = WhoPage.SingleOrJoint.Single,
+                TermType = TermTypePage.TermType.Decreasing,
+                CoverAmount = 250000,
+                RequiresCriticalIllness = false,
+                CriticalIllnessAmount = 10000,
+
+                Person1Details = new PersonDetails
+                {
+                    DateOfBirth = new DateTime(1991, 11, 25),
+                    Gender = GenderPage.Gender.Male,
+                    IsSmoker = false,
+                    DoorNumber = "3",
+                    EmailAddress = $"grant{new Random().Next(9999999)}@egg.com",
+                    FirstName = "Wright",
+                    Postcode = "pe28gy",
+                    Surname = "wright",
+                    Title = PersonDetails.TitleType.Dr,
+                    PhoneNumber = "01023456789",
+                    Weight = new Weight
+                    {
+                        Stone = 10,
+                        Pounds = 5
+                    },
+                    Height = new Height
+                    {
+                        Feet = 5,
+                        Inches = 7
+                    },
+                    InchesInWaistSize = 36
+                }
+            };
+        }
+
+        public static Journey TestSingleMaleChinaApplication()
+        {
+            return new Journey
+            {
+                Name = "Single - china",
                 Description = "Single application",
                 CoverDuration = 10,
                 SingleOrJoint = WhoPage.SingleOrJoint.Single,

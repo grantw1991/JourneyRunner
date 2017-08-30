@@ -1,4 +1,6 @@
-﻿using Ninject;
+﻿using System.Collections.Generic;
+using BeagleStreet.Net.JourneyRunner.Dependency.Modules;
+using Ninject;
 using Ninject.Modules;
 
 namespace BeagleStreet.Net.JourneyRunner.Dependency
@@ -9,7 +11,10 @@ namespace BeagleStreet.Net.JourneyRunner.Dependency
         {
             IKernel kernel = new StandardKernel();
 
-            //kernel.Load();
+            kernel.Load(new List<INinjectModule>
+            {
+                new JourneyModule()
+            });
         }
     }
 }

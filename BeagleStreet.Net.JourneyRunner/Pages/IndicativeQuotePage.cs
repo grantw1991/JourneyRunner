@@ -9,6 +9,7 @@ namespace BeagleStreet.Net.JourneyRunner.Pages
         public void Run(IBrowser browser, ManualResetEvent manualResetEvent, Journey journey)
         {
             browser.ClickElementWithCss("#nextPageButton");
+
         }
     }
 }

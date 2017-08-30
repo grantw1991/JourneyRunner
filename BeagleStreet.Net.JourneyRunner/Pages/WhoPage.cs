@@ -19,10 +19,10 @@ namespace BeagleStreet.Net.JourneyRunner.Pages
         public void Run(IBrowser browser, ManualResetEvent manualResetEvent, Journey journey)
         {
             var selectedItem = journey.SingleOrJoint == SingleOrJoint.Single ? JustMeButton : MeAndAPartnerButton;
-
+            
             browser.ClickElementWithCss(selectedItem);
             browser.ClickElementWithCss(NextButtonId);
-
+            
             manualResetEvent.WaitOne(Timeout.Infinite);
         }
     }

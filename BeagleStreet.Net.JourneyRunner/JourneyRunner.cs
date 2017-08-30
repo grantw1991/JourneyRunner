@@ -1,62 +1,87 @@
 ﻿using System.Threading;
+using System.Windows;
 using BeagleStreet.Net.JourneyRunner.Models;
 using BeagleStreet.Net.JourneyRunner.Pages;
 using BeagleStreet.Test.Support;
 
 namespace BeagleStreet.Net.JourneyRunner
 {
-    public class JourneyRunner
+    public class JourneyRunner : IJourneyRunner
     {
-        public static void RunApplication(IBrowser browser, ManualResetEvent pauseEvent, Journey journey)
+        private readonly IBrowser _browser;
+        private readonly ManualResetEvent _pauseEvent;
+        private readonly Journey _journey;
+
+        public JourneyRunner(IBrowser browser, ManualResetEvent pauseEvent, Journey journey)
         {
-            new WhoPage().Run(browser, pauseEvent, journey);
-
-            HandleUserDetails(browser, pauseEvent, journey.Person1Details);
-
-            if (journey.SingleOrJoint == WhoPage.SingleOrJoint.Joint)
-            {
-                HandleUserDetails(browser, pauseEvent, journey.Person2Details);
-            }
-
-            new TermTypePage().Run(browser, pauseEvent, journey);
-            new CoverAmountPage().Run(browser, pauseEvent, journey);
-            new CoverTermPage().Run(browser, pauseEvent, journey);
-            new CriticalIllnessPage().Run(browser, pauseEvent, journey);
-            new YourDetailsPage().Run(browser, pauseEvent, journey);
-            new IndicativeQuotePage().Run(browser, pauseEvent, journey);
-            new PasswordPage().Run(browser, pauseEvent, journey);
-            new QuestionPage1().Run(browser, pauseEvent, journey);
-
-            HandleUserQuestionSets(browser, pauseEvent, journey.Person1Details);
-
-            if (journey.SingleOrJoint == WhoPage.SingleOrJoint.Joint)
-            {
-                HandleUserQuestionSets(browser, pauseEvent, journey.Person2Details);
-            }
-
-            new ReviewPage().Run(browser, pauseEvent, journey);
+            _browser = browser;
+            _pauseEvent = pauseEvent;
+            _journey = journey;
         }
 
-        private static void HandleUserDetails(IBrowser browser, ManualResetEvent pauseEvent, PersonDetails personDetails)
+        public void RunApplication()
         {
-            new GenderPage().Run(browser, pauseEvent, personDetails);
-            new DateOfBirthPage().Run(browser, pauseEvent, personDetails);
-            new SmokerPage().Run(browser, pauseEvent, personDetails);
+            try
+            {
+                new WhoPage().Run(_browser, _pauseEvent, _journey);
+                HandleUserDetails();
+                new TermTypePage().Run(_browser, _pauseEvent, _journey);
+                new CoverAmountPage().Run(_browser, _pauseEvent, _journey);
+                new CoverTermPage().Run(_browser, _pauseEvent, _journey);
+                new CriticalIllnessPage().Run(_browser, _pauseEvent, _journey);
+                new YourDetailsPage().Run(_browser, _pauseEvent, _journey);
+                new IndicativeQuotePage().Run(_browser, _pauseEvent, _journey);
+                new PasswordPage().Run(_browser, _pauseEvent, _journey);
+                new QuestionPage1().Run(_browser, _pauseEvent, _journey);
+                HandleUserQuestionSets();
+                new ReviewPage().Run(_browser, _pauseEvent, _journey);
+            }
+            catch (ElementNotFoundException e)
+            {
+                MessageBox.Show(e.Message, $"Element not found on page {_browser.PageTitle}", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
-        private static void HandleUserQuestionSets(IBrowser browser, ManualResetEvent pauseEvent, PersonDetails details)
+        private void HandleUserDetails()
         {
-            new YourSizePage().Run(browser, pauseEvent, details);
-            new NarcoticsPage().Run(browser, pauseEvent, details);
-            new YourLocationPage().Run(browser, pauseEvent, details);
-            new YourHealthQuestion1Page().Run(browser, pauseEvent, details);
-            new YourHealthQuestion2Page().Run(browser, pauseEvent, details);
-            new YourHealthQuestion3Page().Run(browser, pauseEvent, details);
-            new YourHealthQuestion4Page().Run(browser, pauseEvent, details);
-            new YourHealthQuestion5Page().Run(browser, pauseEvent, details);
-            new YourHealthQuestion6Page().Run(browser, pauseEvent, details);
-            new YourFamilyQuestionPage().Run(browser, pauseEvent, details);
-            new YourJobQuestionPage().Run(browser, pauseEvent, details);
+            ProcessUserDetails(_journey.Person1Details);
+
+            if (_journey.SingleOrJoint == WhoPage.SingleOrJoint.Joint)
+            {
+                ProcessUserDetails(_journey.Person2Details);
+            }
+        }
+
+        private void ProcessUserDetails(PersonDetails personDetails)
+        {
+            new GenderPage().Run(_browser, _pauseEvent, personDetails);
+            new DateOfBirthPage().Run(_browser, _pauseEvent, personDetails);
+            new SmokerPage().Run(_browser, _pauseEvent, personDetails);
+        }
+
+        private void HandleUserQuestionSets()
+        {
+            ProcessUserQuestionSets(_journey.Person1Details);
+
+            if (_journey.SingleOrJoint == WhoPage.SingleOrJoint.Joint)
+            {
+                ProcessUserQuestionSets(_journey.Person2Details);
+            }
+        }
+
+        private void ProcessUserQuestionSets(PersonDetails personDetails)
+        {
+            new YourSizePage().Run(_browser, _pauseEvent, personDetails);
+            new NarcoticsPage().Run(_browser, _pauseEvent, personDetails);
+            new YourLocationPage().Run(_browser, _pauseEvent, personDetails);
+            new YourHealthQuestion1Page().Run(_browser, _pauseEvent, personDetails);
+            new YourHealthQuestion2Page().Run(_browser, _pauseEvent, personDetails);
+            new YourHealthQuestion3Page().Run(_browser, _pauseEvent, personDetails);
+            new YourHealthQuestion4Page().Run(_browser, _pauseEvent, personDetails);
+            new YourHealthQuestion5Page().Run(_browser, _pauseEvent, personDetails);
+            new YourHealthQuestion6Page().Run(_browser, _pauseEvent, personDetails);
+            new YourFamilyQuestionPage().Run(_browser, _pauseEvent, personDetails);
+            new YourJobQuestionPage().Run(_browser, _pauseEvent, personDetails);
         }
     }
 }

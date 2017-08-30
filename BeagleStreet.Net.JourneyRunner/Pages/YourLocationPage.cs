@@ -24,6 +24,9 @@ namespace BeagleStreet.Net.JourneyRunner.Pages
                     browser.FindElements(".option").Skip(TravelInfo.GetIndexOfCountry(personDetails.TravelInfo.Country)).First().Click();
                     browser.ClickElementWithCss("#INC8_1-answer");
                     browser.ClickElementWithCss("#nextPageButton");
+
+                    browser.ClickElementWithCss($"[for='Sections_0_Questions_Grp1_1_Answers_{Utilities.ReturnFormattedDecision(personDetails.TravelInfo.IntendToLiveInCountrySelected)}']");
+                    browser.ClickElementWithCss("#nextPageButton");
                 }
             }
             
