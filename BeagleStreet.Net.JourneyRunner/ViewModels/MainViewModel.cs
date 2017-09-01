@@ -39,7 +39,7 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
         public ICommand AddJourneyCommand { get; set; }
         public ICommand RunOrPauseJourneyCommand { get; set; }
 
-        public string SelectedBrowser { get; set; } = "Chrome";
+        public string SelectedBrowser { get; set; }
         public Journey SelectedJourney { get; set; }
 
         public string SelectedEnvironment
@@ -49,7 +49,7 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
             {
                 if (SetProperty(ref _selectedEnvironment, value))
                 {
-                    JourneyBaseUrl = Utilities.GenerateJourneyUrl(SelectedEnvironment, SelectedBrand);
+                    JourneyBaseUrl = UrlGenerator.GenerateBaseUrl(SelectedEnvironment, SelectedBrand);
                 }
             }
         }
@@ -61,7 +61,7 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
             {
                 if (SetProperty(ref _selectedBrand, value))
                 {
-                    JourneyBaseUrl = Utilities.GenerateJourneyUrl(SelectedEnvironment, SelectedBrand);
+                    JourneyBaseUrl = UrlGenerator.GenerateBaseUrl(SelectedEnvironment, SelectedBrand);
                 }
             }
         }
@@ -93,6 +93,7 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
         public ObservableCollection<Journey> Journeys { get; set; }
         public List<string> Environments { get; set; }
         public List<string> Brands { get; set; }
+        public List<string> Browsers { get; set; }
 
         #endregion
 
@@ -106,6 +107,7 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
 
             AddJourneyCommand = new RelayCommand(AddJourney);
 
+            PopulateBrowsers();
             PopulateDefaultEnvironments();
             PopulateBrands();
             PopulateJourneys();
@@ -115,22 +117,18 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
             _backgroundWorker.DoWork += BackgroundWorkerOnDoWork;
         }
 
-        private bool _isPause;
+        private bool _isPaused;
         private void Pause()
         {
             if (!IsJourneyRunning)
                 return;
 
-            if (!_isPause)
-            {
+            if (!_isPaused)
                 _pauseEvent.Reset();
-            }
             else
-            {
                 _pauseEvent.Set();
-            }
-
-            _isPause = !_isPause;
+            
+            _isPaused = !_isPaused;
         }
 
         private void Stop()
@@ -142,13 +140,9 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
         private void RunOrPause()
         {
             if (IsJourneyRunning)
-            {
                 Pause();
-            }
             else
-            {
                 Launch();
-            }
         }
 
         private void AddJourney()
@@ -156,13 +150,14 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
             var journeyBuilderViewModel = new JourneyBuilderViewModel();
             if (_windowService.ShowDialog<JourneyBuilderWindow>(journeyBuilderViewModel) == true)
             {
-                Journeys.Add(new Journey{Name = "poopoo"});
+                Journeys.Add(new Journey { Name = "poopoo" });
             }
         }
 
         private void BackgroundWorkerOnDoWork(object sender, DoWorkEventArgs doWorkEventArgs)
         {
             var journeyRunner = new JourneyRunner(_browser, _pauseEvent, SelectedJourney);
+
             var runApplicationTask = Task.Factory.StartNew(() => journeyRunner.RunApplication());
             var populateInterviewDataTask = Task.Factory.StartNew(PopulateJourneyData);
 
@@ -189,6 +184,12 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
         {
             Brands = new List<string>{ "Beagle Street", "Budget", "Virgin Money" };
             SelectedBrand = Brands.First();
+        }
+
+        private void PopulateBrowsers()
+        {
+            Browsers = new List<string> { "Chrome", "Firefox", "IE" };
+            SelectedBrowser = Browsers.First();
         }
 
         private void InitialiseBrowser()

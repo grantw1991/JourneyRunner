@@ -11,12 +11,7 @@
 
     <controls:MetroWindow.IconTemplate>
         <DataTemplate>
-            <Grid Width="20"
-                  Height="20"
-                  Margin="4"
-                  Background="Transparent"
-                  RenderOptions.EdgeMode="Aliased"
-                  RenderOptions.BitmapScalingMode="HighQuality">
+            <Grid Width="20" Height="20" Margin="4" Background="Transparent" RenderOptions.EdgeMode="Aliased" RenderOptions.BitmapScalingMode="HighQuality">
                 <Image Source="../Resources/smallIcon.png"></Image>
             </Grid>
         </DataTemplate>
@@ -58,8 +53,13 @@
                         <TextBlock Margin="5" Foreground="White" FontWeight="DemiBold">Journeys:</TextBlock>
                     </Border>
 
-
-                    <ListBox Grid.Row="1" ItemsSource="{Binding Journeys}" SelectedItem="{Binding SelectedJourney}" DisplayMemberPath="Name"></ListBox>
+                    <ListBox Grid.Row="1" ItemsSource="{Binding Journeys}" SelectedItem="{Binding SelectedJourney}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Name}" ToolTipService.ToolTip="{Binding Path=Description}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </Grid>
 
                 <Border Grid.Column="0" Grid.Row="1" BorderThickness="0,1,0,0" BorderBrush="White">
@@ -75,7 +75,7 @@
 
         </Border>
 
-        <Border Grid.Column="1" Grid.Row="0"  BorderBrush="White" BorderThickness="0,1,1,1">
+        <Border Grid.Column="1" Grid.Row="0"  BorderBrush="White" BorderThickness="0,1,1,1" Padding="10">
 
             <Grid>
 
@@ -95,14 +95,9 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Text="{Binding SelectedJourney.Description}" Margin="5" TextWrapping="Wrap"></TextBlock>
-
-                <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
-                    <TextBlock Text="Chrome" Margin="5" />
-                    <TextBlock Text="IE" Margin="5" />
-                    <TextBlock Text="FireFox" Margin="5" />
-                </StackPanel>
-
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Browser:" Height="30" Margin="5" VerticalAlignment="Center" Padding="0,5,0,0" HorizontalAlignment="Right" />
+                <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Browsers}" SelectedItem="{Binding SelectedBrowser}" Height="25" Margin="5" />
+                
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="Brand:" Height="30" Margin="5" VerticalAlignment="Center" Padding="0,5,0,0" HorizontalAlignment="Right" />
                 <ComboBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Brands}" SelectedItem="{Binding SelectedBrand}" Height="25" Margin="5" />
 
@@ -110,7 +105,7 @@
                 <ComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Environments}" SelectedItem="{Binding SelectedEnvironment}" Height="25" Margin="5"  />
 
                 <TextBlock Grid.Row="4" Grid.Column="0" Text="Url:" Height="30" Margin="5" VerticalAlignment="Center" Padding="0,5,0,0" HorizontalAlignment="Right" />
-                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding JourneyBaseUrl}" Padding="0,3,0,0" Height="25" Margin="5" />
+                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding JourneyBaseUrl}"  Height="25" Margin="5" />
 
                 <TextBlock Grid.Column="0" Grid.Row="5" Text="Inertview Id:" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
                 
@@ -177,7 +172,11 @@
                                         <Setter Property="Source" Value="../Resources/pauseInvert.gif" TargetName="_image"/>
                                     </DataTrigger>
                                     <Trigger Property="IsMouseOver" Value="true">
-                                        <Setter Property="Source" Value="../Resources/pauseInvert.gif" TargetName="_image"/>
+                                        <Setter Property="Effect" TargetName="_image">
+                                            <Setter.Value>
+                                                <DropShadowEffect Direction="270" Color="White" ShadowDepth="1" BlurRadius="4" />
+                                            </Setter.Value>
+                                        </Setter>
                                     </Trigger>
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>

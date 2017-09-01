@@ -66,11 +66,16 @@ namespace BeagleStreet.Net.JourneyRunner.Models
                         NumberOfGramsOfPipeTobacco = 4,
                         NumberOfPanatelasADay = 7
                     },
-                    IntendToLiveOutsideOfUkInNext2Years = true,
+                    IntendToLiveOutsideOfUkInNext2Years = true, 
+                    IsAwaitingAnyMedicalTest = false,
+                    AnySymptomsInLast3Months = false,
+                    BeenUnderInvestigationForTreatment = false,
+                    IsPermanentUKResident = true,
+                    WillCoverValueExceed750k = false,
                     IsHIVPositive = true,
                     HIVCondition = PersonDetails.ConditionType.Hepatitis,
                     IsDiabetic = true,
-                    HasHeartCondition = true,
+                    HasHeartCondition = false,
                     HasStroke = true,
                     HasLivedInAfricaInLast2Years = true,
                     TravelInfo = new TravelInfo
@@ -83,20 +88,22 @@ namespace BeagleStreet.Net.JourneyRunner.Models
                     {
                         HeartConditions = new List<HeartConditionDetails.HeartConditionType>
                         {
-                            HeartConditionDetails.HeartConditionType.ChestPain,
-                            HeartConditionDetails.HeartConditionType.HeartAttack,
-                            HeartConditionDetails.HeartConditionType.RaisedBloodPressure,
-                            HeartConditionDetails.HeartConditionType.HeartValveDisorder
+                            HeartConditionDetails.HeartConditionType.ChestPain
+                        },
+                        ChestPainDetails = new ChestPainDetails
+                        {
+                            AwaitingResults = false,
+                            YearsSinceMedicalAdvice = ChestPainDetails.YearsSinceAdvice.MoreThanTwo,
+                            HadAbnormalResults = true
                         }
                     },
                     StrokeConditionDetails = new StrokeConditionDetails
                     {
                         StrokeConditions = new List<StrokeConditionDetails.StrokeConditionType>
                         {
-                            StrokeConditionDetails.StrokeConditionType.HeadInjury,
-                            StrokeConditionDetails.StrokeConditionType.CerebrovascularAccident,
-                            StrokeConditionDetails.StrokeConditionType.BrainInjury
-                        }
+                            StrokeConditionDetails.StrokeConditionType.SubarachnoidHaemorrhage
+                        },
+                        TransientIschaemicAttackDetails = new TransientIschaemicAttackDetails { MonthsSinceFirstDiagnosed = 2}
                     }
                 }
             };

@@ -1,50 +1,39 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel;
 
 namespace BeagleStreet.Net.JourneyRunner.Models
 {
     public class StrokeConditionDetails
     {
         public List<StrokeConditionType> StrokeConditions { get; set; }
+        public TransientIschaemicAttackDetails TransientIschaemicAttackDetails { get; set; }
+        public BrainInjuryDetails BrainInjuryDetails { get; set; }
+        public HeadInjuryDetails HeadInjuryDetails { get; set; }
 
         public enum StrokeConditionType
         {
+            [Description("Brain bleed")]
             BrainBleed,
+            [Description("Brain haemorrhage")]
             BrainHaemorrhage,
+            [Description("brain injury")]
             BrainInjury,
+            [Description("cerebral haemorrhage")]
             CerebralHaemorrhage,
+            [Description("cerebrovascular accident")]
             CerebrovascularAccident,
+            [Description("head injury")]
             HeadInjury,
+            [Description("narrowing of the arteries")]
             NarrowingOfArteries,
+            [Description("stroke")]
             Stroke,
+            [Description("subarachnoid haemorrhage")]
             SubarachnoidHaemorrhage,
+            [Description("transient ischaemic attack")]
             TransientIschaemicAttack,
+            [Description("Other")]
             Other
-        }
-
-        public static Dictionary<StrokeConditionType, string> Conditions = new Dictionary<StrokeConditionType, string>
-        {
-            {StrokeConditionType.BrainBleed, "Brain bleed"},
-            {StrokeConditionType.BrainHaemorrhage, "Brain haemorrhage"},
-            {StrokeConditionType.BrainInjury, "brain injury"},
-            {StrokeConditionType.CerebralHaemorrhage, "cerebral haemorrhage"},
-            {StrokeConditionType.CerebrovascularAccident, "cerebrovascular accident"},
-            {StrokeConditionType.HeadInjury, "head injury"},
-            {StrokeConditionType.NarrowingOfArteries, "narrowing of the arteries"},
-            {StrokeConditionType.Stroke, "stroke"},
-            {StrokeConditionType.SubarachnoidHaemorrhage, "subarachnoid haemorrhage"},
-            {StrokeConditionType.TransientIschaemicAttack, "transient ischaemic attack"},
-            {StrokeConditionType.Other, "Other"}
-        };
-
-        public string GetValueFromEnum(StrokeConditionType strokeConditionType)
-        {
-            return Conditions.Single(s => s.Key == strokeConditionType).Value;
-        }
-
-        public int GetIndexOfStrokeCondition(StrokeConditionType heartConditionType)
-        {
-            return Conditions.ToList().IndexOf(Conditions.Single(s => s.Key == heartConditionType));
         }
     }
 }

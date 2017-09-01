@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using System.Windows;
+using BeagleStreet.Net.JourneyRunner.CustomExceptions;
 using BeagleStreet.Net.JourneyRunner.Models;
 using BeagleStreet.Net.JourneyRunner.Pages;
 using BeagleStreet.Test.Support;
@@ -32,7 +33,6 @@ namespace BeagleStreet.Net.JourneyRunner
                 new YourDetailsPage().Run(_browser, _pauseEvent, _journey);
                 new IndicativeQuotePage().Run(_browser, _pauseEvent, _journey);
                 new PasswordPage().Run(_browser, _pauseEvent, _journey);
-                new QuestionPage1().Run(_browser, _pauseEvent, _journey);
                 HandleUserQuestionSets();
                 new ReviewPage().Run(_browser, _pauseEvent, _journey);
             }
@@ -71,6 +71,7 @@ namespace BeagleStreet.Net.JourneyRunner
 
         private void ProcessUserQuestionSets(PersonDetails personDetails)
         {
+            new QuestionPage1().Run(_browser, _pauseEvent, personDetails);
             new YourSizePage().Run(_browser, _pauseEvent, personDetails);
             new NarcoticsPage().Run(_browser, _pauseEvent, personDetails);
             new YourLocationPage().Run(_browser, _pauseEvent, personDetails);

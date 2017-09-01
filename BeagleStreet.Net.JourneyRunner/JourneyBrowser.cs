@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using BeagleStreet.Net.JourneyRunner.CustomExceptions;
 using BeagleStreet.Test.Support;
 using OpenQA.Selenium;
 
@@ -10,10 +11,10 @@ namespace BeagleStreet.Net.JourneyRunner
     {
         private readonly IBrowser _browser;
 
-        public string PageTitle { get; }
-        public string CurrentUrl { get; }
-        public string DisplayedContent { get; }
-        public ReadOnlyCollection<Cookie> Cookies { get; }
+        public string PageTitle => _browser.PageTitle;
+        public string CurrentUrl => _browser.CurrentUrl;
+        public string DisplayedContent => _browser.DisplayedContent;
+        public ReadOnlyCollection<Cookie> Cookies => _browser.Cookies;
 
         public JourneyBrowser(IWebDriver driver)
         {
@@ -44,7 +45,7 @@ namespace BeagleStreet.Net.JourneyRunner
         { 
             if (!_browser.ElementIsVisible(cssSelector))
             {
-                throw new ElementNotFoundException($"Cannot find the element '{cssSelector}'");
+                throw new ElementNotFoundException($"Cannot find the element '{cssSelector}'{Environment.NewLine}Page '{_browser.PageTitle}'{Environment.NewLine}Url: {_browser.CurrentUrl}");
             }
 
             _browser.EnterTextIntoElement(cssSelector, text);
@@ -54,7 +55,7 @@ namespace BeagleStreet.Net.JourneyRunner
         {
             if (!_browser.ElementIsVisible(cssSelector))
             {
-                throw new ElementNotFoundException($"Cannot find the element '{cssSelector}'");
+                throw new ElementNotFoundException($"Cannot find the element '{cssSelector}'{Environment.NewLine}Page '{_browser.PageTitle}'{Environment.NewLine}Url: {_browser.CurrentUrl}");
             }
 
             _browser.ClickElementWithCss(cssSelector);
@@ -64,7 +65,7 @@ namespace BeagleStreet.Net.JourneyRunner
         {
             if (!_browser.ElementIsVisible(cssSelector))
             {
-                throw new ElementNotFoundException($"Cannot find the element '{cssSelector}'");
+                throw new ElementNotFoundException($"Cannot find the element '{cssSelector}'{Environment.NewLine}Page '{_browser.PageTitle}'{Environment.NewLine}Url: {_browser.CurrentUrl}");
             }
 
             _browser.ClickElementWithCss(cssSelector, timeout);
@@ -74,7 +75,7 @@ namespace BeagleStreet.Net.JourneyRunner
         {
             if (!_browser.ElementIsVisible(cssSelector))
             {
-                throw new Exception($"Cannot find the element '{cssSelector}'");
+                throw new ElementNotFoundException($"Cannot find the element '{cssSelector}'{Environment.NewLine}Page '{_browser.PageTitle}'{Environment.NewLine}Url: {_browser.CurrentUrl}");
             }
 
             _browser.ClickElementWithCssAtCoordinates(cssSelector, x, y);
@@ -84,7 +85,7 @@ namespace BeagleStreet.Net.JourneyRunner
         {
             if (!_browser.ElementIsVisible(dropdownCssSelector))
             {
-                throw new ElementNotFoundException($"Cannot find the element '{dropdownCssSelector}'");
+                throw new ElementNotFoundException($"Cannot find the element '{dropdownCssSelector}'{Environment.NewLine}Page '{_browser.PageTitle}'{Environment.NewLine}Url: {_browser.CurrentUrl}");
             }
 
             _browser.SelectValueFromDropdown(dropdownCssSelector, value);
@@ -94,7 +95,7 @@ namespace BeagleStreet.Net.JourneyRunner
         {
             if (!_browser.ElementIsVisible(dropdownCssSelector))
             {
-                throw new ElementNotFoundException($"Cannot find the element '{dropdownCssSelector}'");
+                throw new ElementNotFoundException($"Cannot find the element '{dropdownCssSelector}'{Environment.NewLine}Page '{_browser.PageTitle}'{Environment.NewLine}Url: {_browser.CurrentUrl}");
             }
 
             _browser.SelectTextFromDropdown(dropdownCssSelector, text);

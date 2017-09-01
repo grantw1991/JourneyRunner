@@ -66,5 +66,10 @@ namespace BeagleStreet.Net.JourneyRunner.Models
         public TravelInfo TravelInfo { get; set; }
         public HeartConditionDetails HeartConditionDetails { get; set; }
         public StrokeConditionDetails StrokeConditionDetails { get; set; }
+        public bool IsAwaitingAnyMedicalTest { get; set; }
+        public bool IsDueToUndergoMedicalInvestigation { get; set; }
+        public bool AnySymptomsInLast3Months { get; set; }
+        public bool WillCoverValueExceed750k { get; set; }
+        public bool IsPermanentUKResident { get; set; }
     }
 }

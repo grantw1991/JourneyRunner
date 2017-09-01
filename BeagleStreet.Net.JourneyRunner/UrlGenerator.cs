@@ -1,8 +1,8 @@
 ﻿namespace BeagleStreet.Net.JourneyRunner
 {
-    public class Utilities
+    public class UrlGenerator
     {
-        public static string GenerateJourneyUrl(string environment, string brand)
+        public static string GenerateBaseUrl(string environment, string brand)
         {
             // this need refactoring!!!
             if (environment == "INT" || environment == "REG")
@@ -22,12 +22,7 @@
                 return "https://life.virginmoney.com/z018";
             }
 
-            return "https://life.budgetinsurance.com/ZB11​";
-        }
-
-        public static string ReturnFormattedDecision(bool value)
-        {
-            return value ? "yes" : "no";
+            return "https://life.budgetinsurance.com/ZB11";
         }
     }
 }

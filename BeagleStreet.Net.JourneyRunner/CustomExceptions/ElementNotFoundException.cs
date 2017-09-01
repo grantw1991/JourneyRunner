@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BeagleStreet.Net.JourneyRunner
+namespace BeagleStreet.Net.JourneyRunner.CustomExceptions
 {
     public class ElementNotFoundException : Exception
     {

@@ -1,50 +1,43 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel;
 
 namespace BeagleStreet.Net.JourneyRunner.Models
 {
     public class HeartConditionDetails
     {
         public List<HeartConditionType> HeartConditions { get; set; }
+        public AnginaDetails AnginaDetails { get; set; }
+        public ChestPainDetails ChestPainDetails { get; set; }
+        public CoronaryArteryDetails CoronaryArteryDetails { get; set; }
+        public HeartAttackDetails HeartAttackDetails { get; set; }
+        public HeartRhythmDisorderDetails HeartRhythmDisorderDetails { get; set; }
+        public HeartValveDisorderDetails HeartValveDisorderDetails { get; set; }
+        public BloodPressureDetails BloodPressureDetails { get; set; }
 
         public enum HeartConditionType
         {
+            [Description("Angina")]
             Angina,
+            [Description("Cardiomyopathy")]
             Cardiomyopathy,
+            [Description("Chest pain")]
             ChestPain,
+            [Description("Coronary artery disease")]
             CoronaryArteryDisease,
+            [Description("Heart attack")]
             HeartAttack,
+            [Description("Heart rhythm disorder")]
             HeartRhythmDisorder,
+            [Description("Heart valve disorder")]
             HeartValveDisorder,
+            [Description("Irregular heartbeat")]
             IrregularHeartbeat,
+            [Description("Raised blood pressure")]
             RaisedBloodPressure,
+            [Description("Raised cholesterol")]
             RaisedCholesterol,
+            [Description("Other")]
             Other
-        }
-
-        public static Dictionary<HeartConditionType, string> Conditions = new Dictionary<HeartConditionType, string>
-        {
-            {HeartConditionType.Angina, "Angina"},
-            {HeartConditionType.Cardiomyopathy, "Cardiomyopathy"},
-            {HeartConditionType.ChestPain, "Chest pain"},
-            {HeartConditionType.CoronaryArteryDisease, "Coronary artery disease"},
-            {HeartConditionType.HeartAttack, "Heart attack"},
-            {HeartConditionType.HeartRhythmDisorder, "Heart rhythm disorder"},
-            {HeartConditionType.HeartValveDisorder, "Heart valve disorder"},
-            {HeartConditionType.IrregularHeartbeat, "Irregular heartbeat"},
-            {HeartConditionType.RaisedBloodPressure, "Raised blood pressure"},
-            {HeartConditionType.RaisedCholesterol, "Raised cholesterol"},
-            {HeartConditionType.Other, "Other"}
-        };
-
-        public int GetIndexOfHeartCondition(HeartConditionType heartConditionType)
-        {
-            return Conditions.ToList().IndexOf(Conditions.Single(s => s.Key == heartConditionType));
-        }
-
-        public string GetValueFromEnum(HeartConditionType condition)
-        {
-            return Conditions.Single(s => s.Key == condition).Value;
         }
     }
 }

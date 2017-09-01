@@ -1,4 +1,5 @@
 ﻿using System.Threading;
+using BeagleStreet.Net.JourneyRunner.Extensions;
 using BeagleStreet.Net.JourneyRunner.Models;
 using BeagleStreet.Test.Support;
 
@@ -8,15 +9,15 @@ namespace BeagleStreet.Net.JourneyRunner.Pages
     {
         public void Run(IBrowser browser, ManualResetEvent pausEvent, PersonDetails personDetails)
         {
-            browser.ClickElementWithCss($"[for='Question_INC1_1_{Utilities.ReturnFormattedDecision(personDetails.IsSmoker)}']");
-            browser.ClickElementWithCss($"[for='Question_INC1_2_{Utilities.ReturnFormattedDecision(personDetails.HasUsedRecreationalInLast5Years)}']");
-            browser.ClickElementWithCss($"[for='Question_INC1_3_{Utilities.ReturnFormattedDecision(personDetails.IsRegularDrinker)}']");
+            browser.ClickElementWithCss($"[for='Question_INC1_1_{personDetails.IsSmoker.ToYesNo()}']");
+            browser.ClickElementWithCss($"[for='Question_INC1_2_{personDetails.HasUsedRecreationalInLast5Years.ToYesNo()}']");
+            browser.ClickElementWithCss($"[for='Question_INC1_3_{personDetails.IsRegularDrinker.ToYesNo()}']");
             browser.ClickElementWithCss("#nextPageButton");
             pausEvent.WaitOne(Timeout.Infinite);
 
             if (personDetails.IsSmoker)
             {
-                browser.ClickElementWithCss($"[for='Sections_0_Questions_Tob0_Answers_{Utilities.ReturnFormattedDecision(personDetails.SmokerDetails.IsNicotineOnly)}']");
+                browser.ClickElementWithCss($"[for='Sections_0_Questions_Tob0_Answers_{personDetails.SmokerDetails.IsNicotineOnly.ToYesNo()}']");
                 browser.ClickElementWithCss("#nextPageButton");
                 pausEvent.WaitOne(Timeout.Infinite);
 

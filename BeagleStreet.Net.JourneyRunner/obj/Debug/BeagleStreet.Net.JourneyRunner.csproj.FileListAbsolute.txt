@@ -71,4 +71,3 @@ C:\projects\Personal\BeagleStreet.Net.JourneyRunner\BeagleStreet.Net.JourneyRunn
 C:\projects\Personal\BeagleStreet.Net.JourneyRunner\BeagleStreet.Net.JourneyRunner\obj\Debug\BeagleStreet.Net.JourneyRunner.exe
 C:\projects\Personal\BeagleStreet.Net.JourneyRunner\BeagleStreet.Net.JourneyRunner\obj\Debug\BeagleStreet.Net.JourneyRunner.pdb
 C:\projects\Personal\BeagleStreet.Net.JourneyRunner\BeagleStreet.Net.JourneyRunner\bin\Debug\Resources\smallIcon.png
-C:\projects\Personal\BeagleStreet.Net.JourneyRunner\BeagleStreet.Net.JourneyRunner\obj\Debug\BeagleStreet.Net.JourneyRunner.csprojResolveAssemblyReference.cache
