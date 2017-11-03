@@ -103,6 +103,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\EnumBooleanConverter.cs" />
     <Compile Include="CustomExceptions\ElementNotFoundException.cs" />
     <Compile Include="Dependency\Modules\JourneyModule.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
@@ -160,6 +161,16 @@
     <Compile Include="Pages\YourLocationPage.cs" />
     <Compile Include="Pages\YourSizePage.cs" />
     <Compile Include="UrlGenerator.cs" />
+    <Compile Include="ViewModels\JourneyPages\GenderViewModel.cs" />
+    <Compile Include="ViewModels\JourneyPages\JourneyBaseViewModel.cs" />
+    <Compile Include="ViewModels\JourneyPages\PageBaseViewModel.cs" />
+    <Compile Include="ViewModels\JourneyPages\WhoViewModel.cs" />
+    <Compile Include="Views\JourneyPages\GenderUserControl.xaml.cs">
+      <DependentUpon>GenderUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JourneyPages\WhoUserControl.xaml.cs">
+      <DependentUpon>WhoUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WpfHelpers\BindableBase.cs" />
     <Compile Include="Dependency\Configuration.cs" />
     <Compile Include="Dependency\Modules\SeleniumDriverModule.cs" />
@@ -186,6 +197,14 @@
     <Compile Include="WpfHelpers\WindowService.cs" />
     <Compile Include="XmlSerializer.cs" />
     <Page Include="Views\JourneyBuilderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\JourneyPages\GenderUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\JourneyPages\WhoUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

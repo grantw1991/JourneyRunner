@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using BeagleStreet.Net.JourneyRunner.Models;
+using BeagleStreet.Net.JourneyRunner.ViewModels.JourneyPages;
 using BeagleStreet.Net.JourneyRunner.Views;
 using BeagleStreet.Net.JourneyRunner.WpfHelpers;
 using BeagleStreet.Test.Support;
@@ -31,8 +32,9 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
         private string _journeyBaseUrl;
         private bool _isJourneyRunning;
         private string _interviewId;
-        private string _interviewToken; 
-        
+        private string _interviewToken;
+        private string _selectedApplication;
+
         public ICommand GoForwardCommand { get; set; }
         public ICommand GoBackCommand { get; set; }
         public ICommand StopJourneyCommand { get; set; }
@@ -41,6 +43,12 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
 
         public string SelectedBrowser { get; set; }
         public Journey SelectedJourney { get; set; }
+
+        public string SelectedApplication
+        {
+            get => _selectedApplication;
+            set => SetProperty(ref _selectedApplication, value);
+        }
 
         public string SelectedEnvironment
         {
@@ -91,6 +99,7 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
         }
 
         public ObservableCollection<Journey> Journeys { get; set; }
+        public List<string> Applications { get; set; }
         public List<string> Environments { get; set; }
         public List<string> Brands { get; set; }
         public List<string> Browsers { get; set; }
@@ -108,6 +117,7 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
             AddJourneyCommand = new RelayCommand(AddJourney);
 
             PopulateBrowsers();
+            PopulateDefaultApplications();
             PopulateDefaultEnvironments();
             PopulateBrands();
             PopulateJourneys();
@@ -118,6 +128,7 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
         }
 
         private bool _isPaused;
+
         private void Pause()
         {
             if (!IsJourneyRunning)
@@ -150,7 +161,7 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
             var journeyBuilderViewModel = new JourneyBuilderViewModel();
             if (_windowService.ShowDialog<JourneyBuilderWindow>(journeyBuilderViewModel) == true)
             {
-                Journeys.Add(new Journey { Name = "poopoo" });
+                Journeys.Add(JourneyBaseViewModel.Journey);
             }
         }
 
@@ -172,6 +183,12 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
 
             InterviewToken = interviewTokenCookie != null ? interviewTokenCookie.Value : "-";
             InterviewId = _browser.GetText("#appId");
+        }
+
+        private void PopulateDefaultApplications()
+        {
+            Applications = new List<string> { "Curiosity", "Fifty Life" };
+            SelectedApplication = Applications.First();
         }
 
         private void PopulateDefaultEnvironments()
@@ -200,7 +217,7 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
                     _driver = new ChromeDriver();
                     break;
                 case "IE":
-                    _driver = new InternetExplorerDriver();
+                    _driver = new InternetExplorerDriver(new InternetExplorerOptions{ IgnoreZoomLevel = true});
                     break;
                 case "Firefox":
                     _driver = new FirefoxDriver();

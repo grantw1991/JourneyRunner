@@ -1,13 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using BeagleStreet.Net.JourneyRunner.Pages;
+using BeagleStreet.Net.JourneyRunner.WpfHelpers;
 
 namespace BeagleStreet.Net.JourneyRunner.Models
 {
-    public class Journey
+    public class Journey : BindableBase
     {
+        private string _description;
+
         public string Name { get; set; }
-        public string Description { get; set; }
+
+        public string Description
+        {
+            get => _description;
+            set => SetProperty(ref _description, value);
+        }
+
         public DateTime LastModified { get; set; }
 
         public WhoPage.SingleOrJoint SingleOrJoint { get; set; }

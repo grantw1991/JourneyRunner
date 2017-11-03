@@ -27,7 +27,7 @@ namespace BeagleStreet.Net.JourneyRunner.Pages
                 browser.ClickElementWithCss(".Contact_telephone");
                 browser.ClickElementWithCss(".Contact_post");
             }
-
+            
             if (journey.SingleOrJoint == WhoPage.SingleOrJoint.Joint)
             {
                 browser.SelectValueFromDropdown("#PD20a_Select", journey.Person2Details.Title.ToString().ToLower());
