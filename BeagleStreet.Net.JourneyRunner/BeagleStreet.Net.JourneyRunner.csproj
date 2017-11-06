@@ -161,12 +161,17 @@
     <Compile Include="Pages\YourLocationPage.cs" />
     <Compile Include="Pages\YourSizePage.cs" />
     <Compile Include="UrlGenerator.cs" />
-    <Compile Include="ViewModels\JourneyPages\GenderViewModel.cs" />
+    <Compile Include="ViewModels\JourneyPages\PersonDetails2ViewModel.cs" />
+    <Compile Include="ViewModels\JourneyPages\PersonDetailsViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\JourneyBaseViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\PageBaseViewModel.cs" />
+    <Compile Include="ViewModels\JourneyPages\TermTypeViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\WhoViewModel.cs" />
-    <Compile Include="Views\JourneyPages\GenderUserControl.xaml.cs">
-      <DependentUpon>GenderUserControl.xaml</DependentUpon>
+    <Compile Include="Views\JourneyPages\PersonDetailsUserControl.xaml.cs">
+      <DependentUpon>PersonDetailsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JourneyPages\TermTypeUserControl.xaml.cs">
+      <DependentUpon>TermTypeUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\JourneyPages\WhoUserControl.xaml.cs">
       <DependentUpon>WhoUserControl.xaml</DependentUpon>
@@ -200,7 +205,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\JourneyPages\GenderUserControl.xaml">
+    <Page Include="Views\JourneyPages\PersonDetailsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\JourneyPages\TermTypeUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows.Input;
 using BeagleStreet.Net.JourneyRunner.Models;
+using BeagleStreet.Net.JourneyRunner.Pages;
 using BeagleStreet.Net.JourneyRunner.ViewModels.JourneyPages;
 using BeagleStreet.Net.JourneyRunner.WpfHelpers;
 
@@ -12,7 +13,7 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
         private bool? _dialogResult;
         private ObservableCollection<PageBaseViewModel> _pages;
         private int _selectedPageIndex;
-        private PageBaseViewModel _selectedPage;
+        private PageBaseViewModel _selectedPage; 
 
         public bool? DialogResult
         {
@@ -39,24 +40,19 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
         }
 
         public ICommand OkCommand { get; set; }
-        public ICommand NextCommand { get; set; }
-        public ICommand PreviousCommand { get; set; }
+        public ICommand NextPageCommand { get; set; }
+        public ICommand PreviousPageCommand { get; set; }
 
         public JourneyBuilderViewModel()
         {
-            Journey = new Journey();
+            Journey = new Journey { Person1Details = new PersonDetails() };
             OkCommand = new RelayCommand(SaveJourney);
-            NextCommand = new RelayCommand(HandleNextPage);
-            PreviousCommand = new RelayCommand(HandlePreviousPage);
+            NextPageCommand = new RelayCommand(HandleNextPage);
+            PreviousPageCommand = new RelayCommand(HandlePreviousPage);
 
-            Pages = new ObservableCollection<PageBaseViewModel>
-            {
-                new WhoViewModel(),
-                new GenderViewModel()
-            };
-
+            Pages = new ObservableCollection<PageBaseViewModel> { new WhoViewModel() };
+            
             SelectedPage = Pages.First();
-            SelectedPageIndex = 0;
         }
 
         private void HandlePreviousPage()
@@ -66,13 +62,24 @@ namespace BeagleStreet.Net.JourneyRunner.ViewModels
 
         private void HandleNextPage()
         {
-            SelectedPageIndex++;
+            if (!SelectedPage.IsValid)
+            {
+                // show error message
+                return;
+            }
+
+            if (Pages.All(page => page.Name != SelectedPage.NextPage.Name))
+            {
+                Pages.Add(SelectedPage.NextPage);
+            }
+
+            SelectedPage = Pages.Single(page => page.Name == SelectedPage.NextPage.Name);
         }
 
         private void SaveJourney()
         {
             Journey.Name = "foobar";
-
+            var egg = Journey.TermType;
             DialogResult = true;
         }
     }

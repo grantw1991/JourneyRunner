@@ -1,8 +1,8 @@
 ﻿namespace BeagleStreet.Net.JourneyRunner.Views.JourneyPages
 {
-    public partial class GenderUserControl
+    public partial class PersonDetailsUserControl
     {
-        public GenderUserControl()
+        public PersonDetailsUserControl()
         {
             InitializeComponent();
         }

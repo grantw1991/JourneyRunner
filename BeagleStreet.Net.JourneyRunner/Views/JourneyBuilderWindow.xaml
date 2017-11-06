@@ -20,8 +20,14 @@
         <DataTemplate DataType="{x:Type viewModel:WhoViewModel}">
             <journeyPages:WhoUserControl/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:GenderViewModel}">
-            <journeyPages:GenderUserControl/>
+        <DataTemplate DataType="{x:Type viewModel:PersonDetailsViewModel}">
+            <journeyPages:PersonDetailsUserControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:PersonDetails2ViewModel}">
+            <journeyPages:PersonDetailsUserControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:TermTypeViewModel}">
+            <journeyPages:TermTypeUserControl/>
         </DataTemplate>
     </Window.Resources>
 
@@ -57,7 +63,8 @@
 
                         <ListBox x:Name="ListBoxMenu" Grid.Column="0" Grid.Row="1"
                                  ItemsSource="{Binding Pages, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                                 SelectedIndex="{Binding SelectedPageIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                 SelectedIndex="{Binding SelectedPageIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                 SelectedItem="{Binding SelectedPage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Name}" />
@@ -70,16 +77,9 @@
 
 
                 <Border Grid.Column="1" Grid.Row="0" BorderBrush="White" BorderThickness="0,0,0,1">
-
                     <Grid>
-
                         <ContentControl Content="{Binding ElementName=ListBoxMenu, Path=SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-
-                        <!--<journeyPages:WhoUserControl></journeyPages:WhoUserControl>
-                        <journeyPages:GenderUserControl></journeyPages:GenderUserControl>-->
                     </Grid>
-
-
                 </Border>
 
             </Grid>
