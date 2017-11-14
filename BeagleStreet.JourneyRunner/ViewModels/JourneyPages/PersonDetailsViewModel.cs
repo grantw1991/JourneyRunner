@@ -50,7 +50,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
 
             if (Journey.SingleOrJoint == WhoPage.SingleOrJoint.Single)
             {
-                NextPage = new TermTypeViewModel();
+                NextPage = new TermDetailsViewModel();
             }
             else
             {

@@ -3,11 +3,11 @@
 namespace BeagleStreet.JourneyRunner.Views.JourneyPages
 {
     /// <summary>
-    /// Interaction logic for TermTypeUserControl.xaml
+    /// Interaction logic for YourDetailsUserControl.xaml
     /// </summary>
-    public partial class TermTypeUserControl : UserControl
+    public partial class YourDetailsUserControl : UserControl
     {
-        public TermTypeUserControl()
+        public YourDetailsUserControl()
         {
             InitializeComponent();
         }

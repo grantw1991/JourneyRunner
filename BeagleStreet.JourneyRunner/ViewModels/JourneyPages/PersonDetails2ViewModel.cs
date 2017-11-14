@@ -12,7 +12,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         public override string Name => "Person Details 2";
         public override string Title => "Second Person Details";
         public override bool IsValid => true;
-        public override PageBaseViewModel NextPage => new TermTypeViewModel();
+        public override PageBaseViewModel NextPage => new TermDetailsViewModel();
 
         public GenderPage.Gender HandleMaleOrFemale
         {

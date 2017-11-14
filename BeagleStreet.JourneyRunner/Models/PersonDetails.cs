@@ -17,6 +17,7 @@ namespace BeagleStreet.JourneyRunner.Models
         {
             Mr,
             Mrs,
+            Ms,
             Miss,
             Dr
         }

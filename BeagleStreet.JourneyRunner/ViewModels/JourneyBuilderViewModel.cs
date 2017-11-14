@@ -1,5 +1,7 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 using BeagleStreet.JourneyRunner.Models;
 using BeagleStreet.JourneyRunner.ViewModels.JourneyPages;
@@ -11,8 +13,8 @@ namespace BeagleStreet.JourneyRunner.ViewModels
     {
         private bool? _dialogResult;
         private ObservableCollection<PageBaseViewModel> _pages;
-        private int _selectedPageIndex;
-        private PageBaseViewModel _selectedPage; 
+        private PageBaseViewModel _selectedPage;
+        private string _journeyName; 
 
         public bool? DialogResult
         {
@@ -32,10 +34,14 @@ namespace BeagleStreet.JourneyRunner.ViewModels
             set => SetProperty(ref _selectedPage, value);
         }
 
-        public int SelectedPageIndex
+        public string JourneyName
         {
-            get => _selectedPageIndex;
-            set => SetProperty(ref _selectedPageIndex, value);
+            get => _journeyName;
+            set
+            {
+                SetProperty(ref _journeyName, value);
+                Journey.Name = JourneyName;
+            } 
         }
 
         public ICommand OkCommand { get; set; }
@@ -56,7 +62,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels
 
         private void HandlePreviousPage()
         {
-            SelectedPageIndex--;
+            SelectedPage = Pages[Pages.IndexOf(SelectedPage) - 1];
         }
 
         private void HandleNextPage()
@@ -77,8 +83,13 @@ namespace BeagleStreet.JourneyRunner.ViewModels
 
         private void SaveJourney()
         {
-            Journey.Name = "foobar";
-            var egg = Journey.TermType;
+            if (string.IsNullOrEmpty(Journey.Name))
+            {
+                MessageBox.Show("A name for the journey must be provided", "Empty journey name", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            JourneySerializer.SerializeJourneyToFile(Journey);
             DialogResult = true;
         }
     }
