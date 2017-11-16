@@ -32,6 +32,12 @@
         <DataTemplate DataType="{x:Type viewModel:YourDetailsViewModel}">
             <journeyPages1:YourDetailsUserControl/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:QuestionPage1ViewModel}">
+            <journeyPages1:QuestionPage1UserControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:YourSizeViewModel}">
+            <journeyPages1:YourSizeUserControl/>
+        </DataTemplate>
     </Window.Resources>
 
     <Grid>

@@ -165,11 +165,16 @@
     <Compile Include="ViewModels\JourneyPages\PersonDetailsViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\JourneyBaseViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\PageBaseViewModel.cs" />
+    <Compile Include="ViewModels\JourneyPages\QuestionPage1ViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\TermDetailsViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\WhoViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\YourDetailsViewModel.cs" />
+    <Compile Include="ViewModels\JourneyPages\YourSizeViewModel.cs" />
     <Compile Include="Views\JourneyPages\PersonDetailsUserControl.xaml.cs">
       <DependentUpon>PersonDetailsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JourneyPages\QuestionPage1UserControl.xaml.cs">
+      <DependentUpon>QuestionPage1UserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\JourneyPages\TermDetailsUserControl.xaml.cs">
       <DependentUpon>TermDetailsUserControl.xaml</DependentUpon>
@@ -179,6 +184,9 @@
     </Compile>
     <Compile Include="Views\JourneyPages\YourDetailsUserControl.xaml.cs">
       <DependentUpon>YourDetailsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JourneyPages\YourSizeUserControl.xaml.cs">
+      <DependentUpon>YourSizeUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="WpfHelpers\BindableBase.cs" />
     <Compile Include="Dependency\Configuration.cs" />
@@ -213,6 +221,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\JourneyPages\QuestionPage1UserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\JourneyPages\TermDetailsUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -222,6 +234,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\JourneyPages\YourDetailsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\JourneyPages\YourSizeUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

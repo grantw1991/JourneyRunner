@@ -26,7 +26,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         public override string Name => "Contact Details";
         public override string Title => "Contact Details";
         public override bool IsValid => true;
-        public override PageBaseViewModel NextPage { get; }
+        public override PageBaseViewModel NextPage => new QuestionPage1ViewModel();
 
         public string FirstName
         {
