@@ -15,7 +15,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         public override string Name => "Your size";
         public override string Title => "Person 1 size";
         public override bool IsValid => true;
-        public override PageBaseViewModel NextPage { get; }
+        public override PageBaseViewModel NextPage => new QuestionPageNarcoticsViewModel();
 
         public int Feet
         {
