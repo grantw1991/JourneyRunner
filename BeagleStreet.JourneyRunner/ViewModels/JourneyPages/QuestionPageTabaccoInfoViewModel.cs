@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
+﻿namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
 {
     public class QuestionPageTabaccoInfoViewModel : PageBaseViewModel
     {
@@ -13,8 +7,8 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         public override string Name => "Smoker Info";
         public override string Title => "Smoker Info";
         public override bool IsValid => true;
-        public override PageBaseViewModel NextPage => new QuestionPageFutureTravelViewModel();
-        
+        public override PageBaseViewModel NextPage => HandleNextPage();
+
         public bool IsNicotineReplacement
         {
             get => _isNicotineReplacement;
@@ -23,6 +17,21 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
                 SetProperty(ref _isNicotineReplacement, value);
                 Journey.Person1Details.SmokerDetails.IsNicotineOnly = IsNicotineReplacement;
             }
+        }
+
+        private PageBaseViewModel HandleNextPage()
+        {
+            if (Journey.Person1Details.HasUsedRecreationalInLast5Years)
+            {
+                return new QuestionPageDrugMisuseViewModel();
+            }
+
+            if (Journey.Person1Details.IsRegularDrinker)
+            {
+                return new QuestionPageAlcoholViewModel();
+            }
+
+            return new QuestionPageFutureTravelViewModel();
         }
     }
 }

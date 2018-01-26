@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using BeagleStreet.JourneyRunner.Models;
 using BeagleStreet.JourneyRunner.Pages;
-using NUnit.Framework;
 
 namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
 {
@@ -54,7 +52,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
             set
             {
                 SetProperty(ref _selectedTitle, value);
-                Journey.Person1Details.Title = (PersonDetails.TitleType) Enum.Parse(typeof(PersonDetails.TitleType), SelectedTitle);
+                Journey.Person1Details.Title = (PersonDetails.TitleType)Enum.Parse(typeof(PersonDetails.TitleType), SelectedTitle);
             }
         }
 
@@ -130,7 +128,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
 
         public YourDetailsViewModel()
         {
-            Titles = Journey.Person1Details.Gender == GenderPage.Gender.Male ? new List<string> {"Mr", "Dr"} : new List<string> {"Mrs", "Miss", "Ms", "Dr"};
+            Titles = Journey.Person1Details.Gender == GenderPage.Gender.Male ? new List<string> { "Mr", "Dr" } : new List<string> { "Mrs", "Miss", "Ms", "Dr" };
 
             SelectedTitle = Titles.First();
         }

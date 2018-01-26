@@ -15,7 +15,7 @@
     <Window.DataContext>
         <viewModels:JourneyBuilderViewModel />
     </Window.DataContext>
-    
+
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewModel:WhoViewModel}">
             <journeyPages1:WhoUserControl/>
@@ -44,11 +44,16 @@
         <DataTemplate DataType="{x:Type viewModel:QuestionPageTabaccoInfoViewModel}">
             <journeyPages1:QuestionPageTabaccoInfoUserControl/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:QuestionPageAlcoholViewModel}">
+            <journeyPages1:QuestionPageAlcoholUserControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:QuestionPageDrugMisuseViewModel}">
+            <journeyPages1:QuestionPageDrugMisuseUserControlUserControl/>
+        </DataTemplate>
         <DataTemplate DataType="{x:Type viewModel:QuestionPageFutureTravelViewModel}">
             <journeyPages1:QuestionPageFutureTravelUserControl/>
         </DataTemplate>
     </Window.Resources>
-
     <Grid>
         
         <Border BorderBrush="White" BorderThickness="1">

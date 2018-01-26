@@ -4,12 +4,16 @@
     {
         public static string GenerateBaseUrl(string environment, string brand)
         {
-            // this need refactoring!!!
             if (environment == "INT" || environment == "REG")
             {
                 return brand == "Beagle Street"
                     ? $"http://pbo-lifedevap01:8010/BS-{environment}/"
                     : $"http://pbo-lifedevap01:8010/BS-{environment}-{brand}/";
+            }
+
+            if (environment == "UAT")
+            {
+                return $"https://testltd.doodleinsurance.co.uk/{brand}";
             }
 
             if (brand == "Beagle Street")

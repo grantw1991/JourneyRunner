@@ -52,7 +52,17 @@
             {
                 return new QuestionPageTabaccoInfoViewModel();
             }
-            
+
+            if (Journey.Person1Details.HasUsedRecreationalInLast5Years)
+            {
+                return new QuestionPageDrugMisuseViewModel();
+            }
+
+            if (Journey.Person1Details.IsRegularDrinker)
+            {
+                return new QuestionPageAlcoholViewModel();
+            }
+
             return new QuestionPageFutureTravelViewModel();
         }
     }

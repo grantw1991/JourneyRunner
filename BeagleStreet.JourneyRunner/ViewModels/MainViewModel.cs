@@ -193,7 +193,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels
 
         private void PopulateDefaultEnvironments()
         {
-            Environments = new List<string> { "LIVE", "INT","REG" };
+            Environments = new List<string> { "LIVE", "INT", "UAT", "REG" };
             SelectedEnvironment = Environments.First();
         }
 

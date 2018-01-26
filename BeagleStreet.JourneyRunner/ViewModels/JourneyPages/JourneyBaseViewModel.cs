@@ -6,5 +6,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
     public abstract class JourneyBaseViewModel : BindableBase
     {
         public static Journey Journey { get; set; }
+
+        public static PersonDetails ActivePerson { get; set; }
     }
 }
