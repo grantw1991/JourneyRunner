@@ -3,10 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                      mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:viewModels="clr-namespace:BeagleStreet.JourneyRunner.ViewModels"
-        Title="Beagle Street Journey Launcher" Height="360" MinHeight="360" Width="550" MinWidth="525"
+        Title="BGL Life Journey Launcher" Height="360" MinHeight="360" Width="550" MinWidth="525"
         ShowIconOnTitleBar="True" ShowTitleBar="True">
 
     <controls:MetroWindow.IconTemplate>

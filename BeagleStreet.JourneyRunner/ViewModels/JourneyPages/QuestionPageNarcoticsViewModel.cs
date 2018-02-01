@@ -6,10 +6,13 @@
         private bool _hasUsedDrugs;
         private bool _drinksAlcoholRegularly;
 
+        public override int PageId => 7;
         public override string Name => "Narcotics";
         public override string Title => "Narcotics";
         public override bool IsValid => true;
+        public override bool PageRequiresJointInput => true;
         public override PageBaseViewModel NextPage => HandleNextPage();
+        public override bool HasStateChanged { get; }
 
         public bool HasUsedTabacco
         {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using BeagleStreet.JourneyRunner.Pages;
 
 namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
@@ -9,11 +10,15 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         private DateTime _selectedDateOfBirth;
         private bool _smokerStatus;
 
+        public override int PageId => 2;
         public override string Name => "Person Details";
         public override string Title => "Person Details";
         public override bool IsValid => true;
-        public override PageBaseViewModel NextPage { get; }
-        
+        public override bool PageRequiresJointInput => true;
+        public override PageBaseViewModel NextPage => HandleNextPage();
+
+        public override bool HasStateChanged { get; }
+
         public GenderPage.Gender HandleMaleOrFemale
         {
             get => _handleMaleOrFemale;
@@ -43,19 +48,20 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
                 Journey.Person1Details.DateOfBirth = SelectedDateOfBirth;
             } 
         }
-
+        
         public PersonDetailsViewModel()
         {
             SelectedDateOfBirth = DateTime.Now.AddYears(-30);
+        }
 
-            if (Journey.SingleOrJoint == WhoPage.SingleOrJoint.Single)
+        private PageBaseViewModel HandleNextPage()
+        {
+            if (Journey.SingleOrJoint == WhoPage.SingleOrJoint.Single || PageCollection.Any(c => c.PageId == PageId))
             {
-                NextPage = new TermDetailsViewModel();
+                return new TermDetailsViewModel();
             }
-            else
-            {
-                NextPage = new PersonDetails2ViewModel();
-            }
+
+            return new PersonDetailsViewModel();
         }
     }
 }

@@ -21,10 +21,13 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         private bool _isPhoneChecked;
         private bool _isLetterChecked;
 
+        public override int PageId => 4;
         public override string Name => "Contact Details";
         public override string Title => "Contact Details";
         public override bool IsValid => true;
+        public override bool PageRequiresJointInput => true;
         public override PageBaseViewModel NextPage => new QuestionPage1ViewModel();
+        public override bool HasStateChanged { get; }
 
         public string FirstName
         {

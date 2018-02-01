@@ -1,8 +1,11 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using BeagleStreet.JourneyRunner.Models;
+using BeagleStreet.JourneyRunner.Pages;
 using BeagleStreet.JourneyRunner.ViewModels.JourneyPages;
 using BeagleStreet.JourneyRunner.WpfHelpers;
 
@@ -53,9 +56,9 @@ namespace BeagleStreet.JourneyRunner.ViewModels
             OkCommand = new RelayCommand(SaveJourney);
             NextPageCommand = new RelayCommand(HandleNextPage);
             PreviousPageCommand = new RelayCommand(HandlePreviousPage);
-
+            PageCollection = new List<PageBaseViewModel>();
             Pages = new ObservableCollection<PageBaseViewModel> { new WhoViewModel() };
-            
+            PageCollection.Add(Pages.First());
             SelectedPage = Pages.First();
         }
 
@@ -72,12 +75,21 @@ namespace BeagleStreet.JourneyRunner.ViewModels
                 return;
             }
 
-            if (Pages.All(page => page.Name != SelectedPage.NextPage.Name))
+            if (Journey.SingleOrJoint == WhoPage.SingleOrJoint.Joint && Pages.Count(p => p.PageId == SelectedPage.PageId) == 1 && SelectedPage.PageRequiresJointInput)
             {
-                Pages.Add(SelectedPage.NextPage);
+                // if the journey is joint and the pages collection contains one page of the same type then add it. 
+                var instance = (PageBaseViewModel)Activator.CreateInstance(SelectedPage.GetType());
+                PageCollection.Add(instance);
+                Pages.Add(instance);
+                SelectedPage = Pages.Last();
             }
-
-            SelectedPage = Pages.Single(page => page.Name == SelectedPage.NextPage.Name);
+            else if (Pages.All(p => p.PageId != SelectedPage.NextPage.PageId))
+            {
+                // if the pages collection does not contain the next page then add it.
+                PageCollection.Add(SelectedPage.NextPage);
+                Pages.Add(SelectedPage.NextPage);
+                SelectedPage = Pages.Last(page => page.Name == SelectedPage.NextPage.Name);
+            }
         }
 
         private void SaveJourney()

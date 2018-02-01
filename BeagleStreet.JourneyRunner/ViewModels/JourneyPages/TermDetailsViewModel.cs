@@ -10,10 +10,13 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         private int _criticalIllnessAmount; 
         private bool _requiresCriticallIllness;
 
+        public override int PageId => 3;
         public override string Name => "Term";
         public override string Title => "Term Type";
         public override bool IsValid => true;
+        public override bool PageRequiresJointInput => false;
         public override PageBaseViewModel NextPage => new YourDetailsViewModel();
+        public override bool HasStateChanged { get; }
 
         public TermTypePage.TermType TermType
         {

@@ -161,7 +161,6 @@
     <Compile Include="Pages\YourLocationPage.cs" />
     <Compile Include="Pages\YourSizePage.cs" />
     <Compile Include="UrlGenerator.cs" />
-    <Compile Include="ViewModels\JourneyPages\PersonDetails2ViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\PersonDetailsViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\JourneyBaseViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\PageBaseViewModel.cs" />

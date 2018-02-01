@@ -23,9 +23,6 @@
         <DataTemplate DataType="{x:Type viewModel:PersonDetailsViewModel}">
             <journeyPages1:PersonDetailsUserControl/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:PersonDetails2ViewModel}">
-            <journeyPages1:PersonDetailsUserControl/>
-        </DataTemplate>
         <DataTemplate DataType="{x:Type viewModel:TermDetailsViewModel}">
             <journeyPages1:TermDetailsUserControl/>
         </DataTemplate>

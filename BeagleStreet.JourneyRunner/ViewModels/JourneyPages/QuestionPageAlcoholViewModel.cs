@@ -6,10 +6,13 @@
         private int _glassesOfWine;
         private int _shots;
 
+        public override int PageId => 9;
         public override string Name => "Alcohol Intake";
         public override string Title => "Alcohol Intake";
         public override bool IsValid => true;
+        public override bool PageRequiresJointInput => true;
         public override PageBaseViewModel NextPage => new QuestionPageFutureTravelViewModel();
+        public override bool HasStateChanged { get; }
 
         public int PintsOfBeer
         {

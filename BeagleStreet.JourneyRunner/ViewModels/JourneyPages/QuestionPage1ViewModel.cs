@@ -6,12 +6,15 @@
         private bool _isPermanentUkResident;
         private bool _isAwaitingAnyMedicalTest;
         private bool _isDueToUndergoMedicalInvestigation;
-        private bool _anySymptomsInLast3Months;  
+        private bool _anySymptomsInLast3Months;
 
+        public override int PageId => 5;
         public override string Name => "Question 1 Page";
         public override string Title => "Question 1 Page";
         public override bool IsValid => true;
+        public override bool PageRequiresJointInput => true;
         public override PageBaseViewModel NextPage => new YourSizeViewModel();
+        public override bool HasStateChanged { get; }
 
         public bool WillCoverValueExceed750K
         {
