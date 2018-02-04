@@ -13,8 +13,18 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         private int _size;
 
         public override int PageId => 6;
-        public override string Name => "Your size";
-        public override string Title => "Person 1 size";
+        public override string Name
+        {
+            get => "Your size";
+            set { }
+        }
+
+        public override string Title
+        {
+            get => "Person 1 size";
+            set { }
+        }
+
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => true;
         public override PageBaseViewModel NextPage => new QuestionPageNarcoticsViewModel();
@@ -26,7 +36,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
             set
             {
                 SetProperty(ref _feet, value);
-                Journey.Person1Details.Height.Feet = Feet;
+                ActivePerson.Height.Feet = Feet;
             }
         }
 
@@ -36,7 +46,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
             set
             {
                 SetProperty(ref _inches, value);
-                Journey.Person1Details.Height.Inches = Inches;
+                ActivePerson.Height.Inches = Inches;
             }
         }
 
@@ -46,7 +56,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
             set
             {
                 SetProperty(ref _stone, value);
-                Journey.Person1Details.Weight.Stone = Stone;
+                ActivePerson.Weight.Stone = Stone;
             }
         }
 
@@ -56,7 +66,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
             set
             {
                 SetProperty(ref _pounds, value);
-                Journey.Person1Details.Weight.Pounds = Pounds;
+                ActivePerson.Weight.Pounds = Pounds;
             }
         }
 
@@ -67,10 +77,10 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
             {
                 SetProperty(ref _size, value);
 
-                if (Journey.Person1Details.Gender == GenderPage.Gender.Male)
-                    Journey.Person1Details.InchesInWaistSize = Size;
+                if (ActivePerson.Gender == GenderPage.Gender.Male)
+                    ActivePerson.InchesInWaistSize = Size;
                 else
-                    Journey.Person1Details.DressSize = Size;
+                    ActivePerson.DressSize = Size;
             }
         }
 
@@ -82,10 +92,10 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
 
         public YourSizeViewModel()
         {
-            Journey.Person1Details.Height = new Height();
-            Journey.Person1Details.Weight = new Weight();
+            ActivePerson.Height = new Height();
+            ActivePerson.Weight = new Weight();
 
-            SizeDisplayText = Journey.Person1Details.Gender == GenderPage.Gender.Male ? "Waist size:" : "Dress size:";
+            SizeDisplayText = ActivePerson.Gender == GenderPage.Gender.Male ? "Waist size:" : "Dress size:";
         }
     }
 }

@@ -5,8 +5,18 @@
         private bool _isNicotineReplacement;
 
         public override int PageId => 8;
-        public override string Name => "Smoker Info";
-        public override string Title => "Smoker Info";
+        public override string Name
+        {
+            get => "Smoker Info";
+            set { }
+        }
+
+        public override string Title
+        {
+            get => "Smoker Info";
+            set { }
+        }
+
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => true;
         public override PageBaseViewModel NextPage => HandleNextPage();
@@ -18,18 +28,18 @@
             set
             {
                 SetProperty(ref _isNicotineReplacement, value);
-                Journey.Person1Details.SmokerDetails.IsNicotineOnly = IsNicotineReplacement;
+                ActivePerson.SmokerDetails.IsNicotineOnly = IsNicotineReplacement;
             }
         }
 
         private PageBaseViewModel HandleNextPage()
         {
-            if (Journey.Person1Details.HasUsedRecreationalInLast5Years)
+            if (ActivePerson.HasUsedRecreationalInLast5Years)
             {
                 return new QuestionPageDrugMisuseViewModel();
             }
 
-            if (Journey.Person1Details.IsRegularDrinker)
+            if (ActivePerson.IsRegularDrinker)
             {
                 return new QuestionPageAlcoholViewModel();
             }

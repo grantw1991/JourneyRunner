@@ -7,8 +7,18 @@
         private int _shots;
 
         public override int PageId => 9;
-        public override string Name => "Alcohol Intake";
-        public override string Title => "Alcohol Intake";
+        public override string Name
+        {
+            get => "Alcohol Intake";
+            set { }
+        }
+
+        public override string Title
+        {
+            get => "Alcohol Intake";
+            set { }
+        }
+
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => true;
         public override PageBaseViewModel NextPage => new QuestionPageFutureTravelViewModel();

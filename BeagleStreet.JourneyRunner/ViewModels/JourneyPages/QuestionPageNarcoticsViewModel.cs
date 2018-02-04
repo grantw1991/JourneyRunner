@@ -7,8 +7,18 @@
         private bool _drinksAlcoholRegularly;
 
         public override int PageId => 7;
-        public override string Name => "Narcotics";
-        public override string Title => "Narcotics";
+        public override string Name
+        {
+            get => "Narcotics";
+            set { }
+        }
+
+        public override string Title
+        {
+            get => "Narcotics";
+            set { }
+        }
+
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => true;
         public override PageBaseViewModel NextPage => HandleNextPage();
@@ -20,7 +30,7 @@
             set
             {
                 SetProperty(ref _hasUsedTabacco, value);
-                Journey.Person1Details.IsSmoker = HasUsedTabacco;
+                ActivePerson.IsSmoker = HasUsedTabacco;
             }
         }
 
@@ -30,7 +40,7 @@
             set
             {
                 SetProperty(ref _hasUsedDrugs, value);
-                Journey.Person1Details.HasUsedRecreationalInLast5Years = HasUsedDrugs;
+                ActivePerson.HasUsedRecreationalInLast5Years = HasUsedDrugs;
             }
         }
 
@@ -40,13 +50,13 @@
             set
             {
                 SetProperty(ref _drinksAlcoholRegularly, value);
-                Journey.Person1Details.IsRegularDrinker = DrinksAlcoholRegularly;
+                ActivePerson.IsRegularDrinker = DrinksAlcoholRegularly;
             }
         }
 
         public QuestionPageNarcoticsViewModel()
         {
-            HasUsedTabacco = Journey.Person1Details.IsSmoker;
+            HasUsedTabacco = ActivePerson.IsSmoker;
         }
 
         private PageBaseViewModel HandleNextPage()

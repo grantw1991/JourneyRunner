@@ -9,10 +9,22 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         private GenderPage.Gender _handleMaleOrFemale;
         private DateTime _selectedDateOfBirth;
         private bool _smokerStatus;
+        private string _name;
+        private string _title; 
 
         public override int PageId => 2;
-        public override string Name => "Person Details";
-        public override string Title => "Person Details";
+        public override string Name
+        {
+            get => "Person Details";
+            set => SetProperty(ref _name, value);
+        }
+
+        public override string Title
+        {
+            get => "Person Details";
+            set => SetProperty(ref _title, value);
+        }
+
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => true;
         public override PageBaseViewModel NextPage => HandleNextPage();
@@ -25,7 +37,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
             set
             {
                 SetProperty(ref _handleMaleOrFemale, value);
-                Journey.Person1Details.Gender = HandleMaleOrFemale;
+                ActivePerson.Gender = HandleMaleOrFemale;
             }
         }
 
@@ -35,7 +47,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
             set
             {
                 SetProperty(ref _smokerStatus, value);
-                Journey.Person1Details.IsSmoker = SmokerStatus;
+                ActivePerson.IsSmoker = SmokerStatus;
             }
         }
 
@@ -45,7 +57,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
             set
             {
                 SetProperty(ref _selectedDateOfBirth, value);
-                Journey.Person1Details.DateOfBirth = SelectedDateOfBirth;
+                ActivePerson.DateOfBirth = SelectedDateOfBirth;
             } 
         }
         
@@ -61,7 +73,11 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
                 return new TermDetailsViewModel();
             }
 
-            return new PersonDetailsViewModel();
+            return new PersonDetailsViewModel
+            {
+                Name = "Person 2 Details",
+                Title = "Person 2 Details"
+            };
         }
     }
 }

@@ -9,8 +9,18 @@
         private bool _anySymptomsInLast3Months;
 
         public override int PageId => 5;
-        public override string Name => "Question 1 Page";
-        public override string Title => "Question 1 Page";
+        public override string Name
+        {
+            get => "Question 1 Page";
+            set { }
+        }
+
+        public override string Title
+        {
+            get => "Question 1 Page";
+            set { }
+        }
+
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => true;
         public override PageBaseViewModel NextPage => new YourSizeViewModel();
@@ -22,7 +32,7 @@
             set
             {
                 SetProperty(ref _willCoverValueExceed750K, value);
-                Journey.Person1Details.WillCoverValueExceed750k = WillCoverValueExceed750K;
+                ActivePerson.WillCoverValueExceed750k = WillCoverValueExceed750K;
             }
         }
 
@@ -32,7 +42,7 @@
             set
             {
                 SetProperty(ref _isPermanentUkResident, value);
-                Journey.Person1Details.IsPermanentUKResident = IsPermanentUkResident;
+                ActivePerson.IsPermanentUKResident = IsPermanentUkResident;
             }
         }
 
@@ -42,7 +52,7 @@
             set
             {
                 SetProperty(ref _isAwaitingAnyMedicalTest, value);
-                Journey.Person1Details.IsAwaitingAnyMedicalTest = IsAwaitingAnyMedicalTest;
+                ActivePerson.IsAwaitingAnyMedicalTest = IsAwaitingAnyMedicalTest;
             }
         }
 
@@ -52,7 +62,7 @@
             set
             {
                 SetProperty(ref _isDueToUndergoMedicalInvestigation, value);
-                Journey.Person1Details.IsDueToUndergoMedicalInvestigation = IsDueToUndergoMedicalInvestigation;
+                ActivePerson.IsDueToUndergoMedicalInvestigation = IsDueToUndergoMedicalInvestigation;
             }
         }
 
@@ -62,7 +72,7 @@
             set
             {
                 SetProperty(ref _anySymptomsInLast3Months, value);
-                Journey.Person1Details.AnySymptomsInLast3Months = AnySymptomsInLast3Months;
+                ActivePerson.AnySymptomsInLast3Months = AnySymptomsInLast3Months;
             }
         }
     }

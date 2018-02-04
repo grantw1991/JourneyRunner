@@ -52,7 +52,8 @@ namespace BeagleStreet.JourneyRunner.ViewModels
 
         public JourneyBuilderViewModel()
         {
-            Journey = new Journey { Person1Details = new PersonDetails() };
+            Journey = new Journey { Person1Details = new PersonDetails(), Person2Details = new PersonDetails() };
+            ActivePerson = Journey.Person1Details;
             OkCommand = new RelayCommand(SaveJourney);
             NextPageCommand = new RelayCommand(HandleNextPage);
             PreviousPageCommand = new RelayCommand(HandlePreviousPage);
@@ -78,6 +79,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels
             if (Journey.SingleOrJoint == WhoPage.SingleOrJoint.Joint && Pages.Count(p => p.PageId == SelectedPage.PageId) == 1 && SelectedPage.PageRequiresJointInput)
             {
                 // if the journey is joint and the pages collection contains one page of the same type then add it. 
+                ActivePerson = Journey.Person2Details;
                 var instance = (PageBaseViewModel)Activator.CreateInstance(SelectedPage.GetType());
                 PageCollection.Add(instance);
                 Pages.Add(instance);
@@ -86,6 +88,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels
             else if (Pages.All(p => p.PageId != SelectedPage.NextPage.PageId))
             {
                 // if the pages collection does not contain the next page then add it.
+                ActivePerson = Journey.Person1Details;
                 PageCollection.Add(SelectedPage.NextPage);
                 Pages.Add(SelectedPage.NextPage);
                 SelectedPage = Pages.Last(page => page.Name == SelectedPage.NextPage.Name);

@@ -10,8 +10,18 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         private string _drugsText;
 
         public override int PageId => 8;
-        public override string Name => "Drugs";
-        public override string Title => "Drug Misuse";
+        public override string Name
+        {
+            get => "Drugs";
+            set { }
+        }
+
+        public override string Title
+        {
+            get => "Drug Misuse";
+            set { }
+        }
+
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => true;
         public override bool HasStateChanged => false;

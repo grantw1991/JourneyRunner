@@ -22,8 +22,18 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         private bool _isLetterChecked;
 
         public override int PageId => 4;
-        public override string Name => "Contact Details";
-        public override string Title => "Contact Details";
+        public override string Name
+        {
+            get => "Contact Details";
+            set { }
+        }
+
+        public override string Title
+        {
+            get => "Contact Details";
+            set { }
+        }
+
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => true;
         public override PageBaseViewModel NextPage => new QuestionPage1ViewModel();
@@ -35,7 +45,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
             set
             {
                 SetProperty(ref _firstName, value);
-                Journey.Person1Details.FirstName = FirstName;
+                ActivePerson.FirstName = FirstName;
             }
         }
 
@@ -45,7 +55,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
             set
             {
                 SetProperty(ref _surname, value);
-                Journey.Person1Details.Surname = Surname;
+                ActivePerson.Surname = Surname;
             }
         }
 
@@ -55,7 +65,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
             set
             {
                 SetProperty(ref _selectedTitle, value);
-                Journey.Person1Details.Title = (PersonDetails.TitleType)Enum.Parse(typeof(PersonDetails.TitleType), SelectedTitle);
+                ActivePerson.Title = (PersonDetails.TitleType)Enum.Parse(typeof(PersonDetails.TitleType), SelectedTitle);
             }
         }
 
@@ -71,7 +81,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
             set
             {
                 SetProperty(ref _emailAddress, value);
-                Journey.Person1Details.EmailAddress = EmailAddress;
+                ActivePerson.EmailAddress = EmailAddress;
             }
         }
 
@@ -81,7 +91,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
             set
             {
                 SetProperty(ref _addressLine1, value);
-                Journey.Person1Details.DoorNumber = AddressLine1;
+                ActivePerson.DoorNumber = AddressLine1;
             }
         }
 
@@ -91,7 +101,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
             set
             {
                 SetProperty(ref _postcode, value);
-                Journey.Person1Details.Postcode = Postcode;
+                ActivePerson.Postcode = Postcode;
             }
         }
 
@@ -101,7 +111,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
             set
             {
                 SetProperty(ref _phoneNumber, value);
-                Journey.Person1Details.PhoneNumber = PhoneNumber;
+                ActivePerson.PhoneNumber = PhoneNumber;
             }
         }
 

@@ -11,8 +11,19 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         private bool _requiresCriticallIllness;
 
         public override int PageId => 3;
-        public override string Name => "Term";
-        public override string Title => "Term Type";
+
+        public override string Name
+        {
+            get => "Term";
+            set { }
+        }
+
+        public override string Title
+        {
+            get => "Term Type";
+            set { }
+        }
+
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => false;
         public override PageBaseViewModel NextPage => new YourDetailsViewModel();
