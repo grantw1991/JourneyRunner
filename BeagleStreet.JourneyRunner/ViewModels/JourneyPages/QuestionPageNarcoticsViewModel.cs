@@ -7,17 +7,9 @@
         private bool _drinksAlcoholRegularly;
 
         public override int PageId => 7;
-        public override string Name
-        {
-            get => "Narcotics";
-            set { }
-        }
+        public override string Name => $"{ActivePerson.PersonNumber}) Narcotics";
 
-        public override string Title
-        {
-            get => "Narcotics";
-            set { }
-        }
+        public override string Title => $"Person {ActivePerson.PersonNumber} Narcotics";
 
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => true;

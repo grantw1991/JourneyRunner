@@ -22,17 +22,9 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         private bool _isLetterChecked;
 
         public override int PageId => 4;
-        public override string Name
-        {
-            get => "Contact Details";
-            set { }
-        }
+        public override string Name => $"{ActivePerson.PersonNumber}) Contact Details";
 
-        public override string Title
-        {
-            get => "Contact Details";
-            set { }
-        }
+        public override string Title => $"Person {ActivePerson.PersonNumber} Contact Details";
 
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => true;
@@ -118,25 +110,25 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         public string Password
         {
             get => _password;
-            set { SetProperty(ref _password, value); }
+            set => SetProperty(ref _password, value);
         }
 
         public bool IsEmailChecked
         {
             get => _isEmailChecked;
-            set { SetProperty(ref _isEmailChecked, value); }
+            set => SetProperty(ref _isEmailChecked, value);
         }
 
         public bool IsPhoneChecked
         {
             get => _isPhoneChecked;
-            set { SetProperty(ref _isPhoneChecked, value); }
+            set => SetProperty(ref _isPhoneChecked, value);
         }
 
         public bool IsLetterChecked
         {
             get => _isLetterChecked;
-            set { SetProperty(ref _isLetterChecked, value); }
+            set => SetProperty(ref _isLetterChecked, value);
         }
 
         public YourDetailsViewModel()

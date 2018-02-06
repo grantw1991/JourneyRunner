@@ -5,17 +5,9 @@
         private bool _isNicotineReplacement;
 
         public override int PageId => 8;
-        public override string Name
-        {
-            get => "Smoker Info";
-            set { }
-        }
+        public override string Name => $"{ActivePerson.PersonNumber}) Smoker Info";
 
-        public override string Title
-        {
-            get => "Smoker Info";
-            set { }
-        }
+        public override string Title => $"Person {ActivePerson.PersonNumber} Smoker Info";
 
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => true;

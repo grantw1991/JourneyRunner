@@ -4,9 +4,9 @@
     {
         public abstract int PageId { get; }
 
-        public abstract string Name { get; set; }
+        public abstract string Name { get; }
 
-        public abstract string Title { get; set; } 
+        public abstract string Title { get; } 
 
         public abstract bool IsValid { get; }
 

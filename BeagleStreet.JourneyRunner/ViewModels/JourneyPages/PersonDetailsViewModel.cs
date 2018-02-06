@@ -9,21 +9,11 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         private GenderPage.Gender _handleMaleOrFemale;
         private DateTime _selectedDateOfBirth;
         private bool _smokerStatus;
-        private string _name;
-        private string _title; 
 
         public override int PageId => 2;
-        public override string Name
-        {
-            get => "Person Details";
-            set => SetProperty(ref _name, value);
-        }
+        public override string Name => $"Person {ActivePerson.PersonNumber} Details";
 
-        public override string Title
-        {
-            get => "Person Details";
-            set => SetProperty(ref _title, value);
-        }
+        public override string Title => $"Person {ActivePerson.PersonNumber} Details";
 
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => true;
@@ -73,11 +63,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
                 return new TermDetailsViewModel();
             }
 
-            return new PersonDetailsViewModel
-            {
-                Name = "Person 2 Details",
-                Title = "Person 2 Details"
-            };
+            return new PersonDetailsViewModel();
         }
     }
 }

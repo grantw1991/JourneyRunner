@@ -13,17 +13,9 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         private int _size;
 
         public override int PageId => 6;
-        public override string Name
-        {
-            get => "Your size";
-            set { }
-        }
+        public override string Name => "Your size";
 
-        public override string Title
-        {
-            get => "Person 1 size";
-            set { }
-        }
+        public override string Title => $"Person {ActivePerson.PersonNumber} size";
 
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => true;

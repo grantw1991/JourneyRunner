@@ -33,7 +33,13 @@ namespace BeagleStreet.JourneyRunner.ViewModels
         public PageBaseViewModel SelectedPage
         {
             get => _selectedPage;
-            set => SetProperty(ref _selectedPage, value);
+            set
+            {
+                SetProperty(ref _selectedPage, value);
+                
+                // set the active state of the page
+                //ActivePerson = SelectedPage.PageRequiresJointInput && SelectedPage.
+            } 
         }
 
         public string JourneyName
@@ -52,7 +58,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels
 
         public JourneyBuilderViewModel()
         {
-            Journey = new Journey { Person1Details = new PersonDetails(), Person2Details = new PersonDetails() };
+            Journey = new Journey { Person1Details = new PersonDetails { PersonNumber = 1 }, Person2Details = new PersonDetails { PersonNumber = 2 } };
             ActivePerson = Journey.Person1Details;
             OkCommand = new RelayCommand(SaveJourney);
             NextPageCommand = new RelayCommand(HandleNextPage);

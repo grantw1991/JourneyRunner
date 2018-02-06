@@ -168,6 +168,7 @@
     <Compile Include="ViewModels\JourneyPages\QuestionPageAlcoholViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\QuestionPageDrugMisuseViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\QuestionPageFutureTravelViewModel.cs" />
+    <Compile Include="ViewModels\JourneyPages\QuestionPageHealthViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\QuestionPageNarcoticsViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\QuestionPageTabaccoInfoViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\TermDetailsViewModel.cs" />
@@ -188,6 +189,9 @@
     </Compile>
     <Compile Include="Views\JourneyPages\QuestionPageFutureTravelUserControl.xaml.cs">
       <DependentUpon>QuestionPageFutureTravelUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JourneyPages\QuestionPageHealthUserControl.xaml.cs">
+      <DependentUpon>QuestionPageHealthUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\JourneyPages\QuestionPageTabaccoInfoUserControl.xaml.cs">
       <DependentUpon>QuestionPageTabaccoInfoUserControl.xaml</DependentUpon>
@@ -253,6 +257,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\JourneyPages\QuestionPageFutureTravelUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\JourneyPages\QuestionPageHealthUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

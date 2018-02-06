@@ -12,17 +12,9 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
 
         public override int PageId => 3;
 
-        public override string Name
-        {
-            get => "Term";
-            set { }
-        }
+        public override string Name => $"{ActivePerson.PersonNumber}) Term";
 
-        public override string Title
-        {
-            get => "Term Type";
-            set { }
-        }
+        public override string Title => "Term Type";
 
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => false;

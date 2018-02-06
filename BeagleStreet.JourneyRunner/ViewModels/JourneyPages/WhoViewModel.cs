@@ -7,19 +7,11 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         private WhoPage.SingleOrJoint _handleIsSingleOrJoint;
 
         public override int PageId => 1;
-        public override string Name
-        {
-            get => "Who";
-            set { }
-        }
+        public override string Name => "Who";
 
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => false;
-        public override string Title
-        {
-            get => "Person Details";
-            set { }
-        }
+        public override string Title => "Person Details";
 
         public override PageBaseViewModel NextPage => new PersonDetailsViewModel();
         public override bool HasStateChanged { get; }

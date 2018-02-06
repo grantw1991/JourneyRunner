@@ -72,5 +72,6 @@ namespace BeagleStreet.JourneyRunner.Models
         public bool AnySymptomsInLast3Months { get; set; }
         public bool WillCoverValueExceed750k { get; set; }
         public bool IsPermanentUKResident { get; set; }
+        public int PersonNumber { get; set; }
     }
 }

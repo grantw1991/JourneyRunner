@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="BeagleStreet.JourneyRunner.Views.JourneyPages.QuestionPage1UserControl"
+﻿<UserControl x:Class="BeagleStreet.JourneyRunner.Views.JourneyPages.QuestionPageHealthUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,6 @@
              xmlns:local="clr-namespace:BeagleStreet.JourneyRunner.Views.JourneyPages"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-
     <Grid>
 
         <Grid.RowDefinitions>
@@ -34,12 +33,6 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="70" />
             </Grid.ColumnDefinitions>
-
-            <CheckBox Grid.Column="0" Grid.Row="0" Margin="5,15,5,5" IsChecked="{Binding WillCoverValueExceed750K}" Content="Will value exceed £750k?"/>
-            <CheckBox Grid.Column="0" Grid.Row="1" Margin="5,15,5,5" IsChecked="{Binding IsPermanentUkResident, FallbackValue=true}" Content="Are you a permanent UK resident?"/>
-            <CheckBox Grid.Column="0" Grid.Row="2" Margin="5,15,5,5" IsChecked="{Binding IsAwaitingAnyMedicalTest}" Content="Are you awaiting results of any medical test?"/>
-            <CheckBox Grid.Column="0" Grid.Row="3" Margin="5,15,5,5" IsChecked="{Binding IsDueToUndergoMedicalInvestigation}" Content="Are you due to undergo medical investigation?"/>
-            <CheckBox Grid.Column="0" Grid.Row="4" Margin="5,15,5,5" IsChecked="{Binding AnySymptomsInLast3Months}" Content="Do you have any symptoms in the past 3 months?"/>
 
 
         </Grid>

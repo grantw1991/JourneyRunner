@@ -10,17 +10,9 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         private string _drugsText;
 
         public override int PageId => 8;
-        public override string Name
-        {
-            get => "Drugs";
-            set { }
-        }
+        public override string Name => $"{ActivePerson.PersonNumber}) Drugs";
 
-        public override string Title
-        {
-            get => "Drug Misuse";
-            set { }
-        }
+        public override string Title => $"Person {ActivePerson.PersonNumber} Drug Misuse";
 
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => true;
@@ -31,20 +23,13 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         public string DrugsText
         {
             get => _drugsText;
-            set
-            {
-                SetProperty(ref _drugsText, value);
-            }
+            set => SetProperty(ref _drugsText, value);
         }
 
         public ObservableCollection<string> Drugs
         {
             get => _drugs;
-            set
-            {
-                SetProperty(ref _drugs, value);
-                //Journey.Person1Details
-            }
+            set => SetProperty(ref _drugs, value);
         }
 
         public QuestionPageDrugMisuseViewModel()

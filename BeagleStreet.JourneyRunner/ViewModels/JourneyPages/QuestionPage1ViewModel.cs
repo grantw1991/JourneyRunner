@@ -9,17 +9,9 @@
         private bool _anySymptomsInLast3Months;
 
         public override int PageId => 5;
-        public override string Name
-        {
-            get => "Question 1 Page";
-            set { }
-        }
+        public override string Name => $"{ActivePerson.PersonNumber}) Question 1 Page";
 
-        public override string Title
-        {
-            get => "Question 1 Page";
-            set { }
-        }
+        public override string Title => $"Person {ActivePerson.PersonNumber} Question 1 Page";
 
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => true;
