@@ -25,6 +25,9 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -34,6 +37,14 @@
                 <ColumnDefinition Width="70" />
             </Grid.ColumnDefinitions>
 
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="Have you ever had..." Margin="5"></TextBlock>
+            <CheckBox Grid.Column="0" Grid.Row="1" Margin="5,5,5,5" IsChecked="{Binding HasHadHIV}" Content="A positive test for HIV or Hepatitis?"/>
+            <ComboBox Grid.Column="0" Grid.Row="2" Margin="5,5,5,5" Visibility="{Binding HasHadHIV, Converter={StaticResource BooleanToVisibilityConverter}}" ItemsSource="{Binding Aids}" SelectedItem="{Binding Aid}"></ComboBox>
+            <CheckBox Grid.Column="0" Grid.Row="3" Margin="5,5,5,5" IsChecked="{Binding HasHadDiabetes}" Content="Diabetes, mellitus or sugar in the urine?"/>
+            <CheckBox Grid.Column="0" Grid.Row="4" Margin="5,5,5,5" IsChecked="{Binding HasHadHeartCondition}" Content="Heart attack or any heart condition?"/>
+            <ComboBox Grid.Column="0" Grid.Row="5" Margin="5,5,5,5" Visibility="{Binding HasHadHeartCondition, Converter={StaticResource BooleanToVisibilityConverter}}" ItemsSource="{Binding HeartConditions}" SelectedItem="{Binding HeartCondition}"></ComboBox>
+            <CheckBox Grid.Column="0" Grid.Row="6" Margin="5,5,5,5" IsChecked="{Binding HasHadStroke}" Content="Stroke, brain bleed or narrowing of the arteris in the head?"/>
+            <ComboBox Grid.Column="0" Grid.Row="7" Margin="5,5,5,5" Visibility="{Binding HasHadStroke, Converter={StaticResource BooleanToVisibilityConverter}}" ItemsSource="{Binding HeadInjuries}" SelectedItem="{Binding HeadInjury}"></ComboBox>
 
         </Grid>
 

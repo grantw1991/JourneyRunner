@@ -19,7 +19,16 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
 
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => true;
-        public override PageBaseViewModel NextPage { get; }
+
+        public override PageBaseViewModel NextPage
+        {
+            get
+            {
+                PopulateCountriesList();
+                return new QuestionPageHealthViewModel();
+            }
+        } 
+
         public override bool HasStateChanged { get; }
 
         public bool MoreThanThreeMonthsInAfrica
@@ -59,9 +68,9 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
             if (string.IsNullOrEmpty(CountriesText))
                 return;
 
-            foreach (var drug in CountriesText.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList())
+            foreach (var country in CountriesText.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList())
             {
-                Countries.Add(drug);
+                Countries.Add(country);
             }
         }
     }

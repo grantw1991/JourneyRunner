@@ -17,7 +17,7 @@ namespace BeagleStreet.JourneyRunner.Pages
             browser.ClickElementWithCss($"[for='Sections_0_Questions_INC11_Answers_{personDetails.IsDiabetic.ToYesNo()}']");
             browser.ClickElementWithCss($"[for='Sections_0_Questions_INC12_Answers_{personDetails.HasHeartCondition.ToYesNo()}']");
             browser.ClickElementWithCss($"[for='Sections_0_Questions_INC13_Answers_{personDetails.HasStroke.ToYesNo()}']");
-                
+            
             browser.ClickElementWithCss("#nextPageButton");
             pauseEvent.WaitOne(Timeout.Infinite);
 

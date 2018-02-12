@@ -239,8 +239,9 @@ namespace BeagleStreet.JourneyRunner.ViewModels
 
         private void PopulateJourneys()
         {
-            Journeys = new ObservableCollection<Journey>(JourneySerializer.DeserializeJourniesFromFiles())
+            Journeys = new ObservableCollection<Journey>(/*JourneySerializer.DeserializeJourniesFromFiles()*/)
             {
+                Journey.TestSingleIllMaleApplication(),
                 Journey.TestSingleMaleApplication(),
                 Journey.TestSingleApplication(),
                 Journey.TestJointApplication()

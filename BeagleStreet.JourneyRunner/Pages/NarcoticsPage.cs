@@ -1,4 +1,6 @@
-﻿using System.Threading;
+﻿using System;
+using System.Linq;
+using System.Threading;
 using BeagleStreet.JourneyRunner.Extensions;
 using BeagleStreet.JourneyRunner.Models;
 using BeagleStreet.Test.Support;
@@ -31,6 +33,53 @@ namespace BeagleStreet.JourneyRunner.Pages
                     browser.ClickElementWithCss("#nextPageButton");
                     pausEvent.WaitOne(Timeout.Infinite);
                 }
+            }
+
+            if (personDetails.HasUsedRecreationalInLast5Years)
+            {
+                personDetails.Drugs.ForEach(drug =>
+                {
+                    browser.ClickElementWithCss("#questionCodeDMR2 .selectize-control");
+                    browser.WaitForJQueryProcessing(TimeSpan.FromSeconds(5000));
+                    browser.FindElements(".selectize-dropdown-content div").Single(x => x.Text.Contains(drug)).Click();
+                });
+
+                browser.ClickElementWithCss(".sessioncamhidetext");
+
+                if (personDetails.Drugs.Any())
+                {
+                    browser.ClickElementWithCss("#nextPageButton");
+                    pausEvent.WaitOne(Timeout.Infinite);
+                }
+
+                if (personDetails.Drugs.Contains("Cannabis"))
+                {
+                    browser.EnterTextIntoElement("#Sections_1__Questions_0__Answer", personDetails.DaysSinceCannabisIntake.ToString());
+                }
+
+                if (personDetails.Drugs.Contains("Ecstasy, Speed, Cocaine, LSD") || 
+                    personDetails.Drugs.Contains("Sedatives, Stimulants, Tranquilizers") || 
+                    personDetails.Drugs.Contains("Anabolic Steroids"))
+                {
+                    browser.ClickElementWithCss($"#Sections_2_Questions_DM2_Answers_{personDetails.HasRequiredProfessionalCareForDrugs.ToYesNo()}");
+                }
+
+                if (personDetails.Drugs.Contains("Heroin, Methadone, Morphine"))
+                {
+                    browser.SelectValueFromDropdown("#Sections_3_Questions_DM5_Answers_Select", personDetails.WasItLessThan5YearsSinceHeroin ? "less" : "5");
+                }
+
+                browser.ClickElementWithCss("#nextPageButton");
+                pausEvent.WaitOne(Timeout.Infinite);
+            }
+
+            if (personDetails.IsRegularDrinker)
+            {
+                browser.EnterTextIntoElement("#Sections_1__Questions_0__Answer", personDetails.PintsOfBeer.ToString());
+                browser.EnterTextIntoElement("#Sections_1__Questions_1__Answer", personDetails.GlassesOfWine.ToString());
+                browser.EnterTextIntoElement("#Sections_1__Questions_2__Answer", personDetails.NumberOfShots.ToString());
+                browser.ClickElementWithCss("#nextPageButton");
+                pausEvent.WaitOne(Timeout.Infinite);
             }
         }
     }

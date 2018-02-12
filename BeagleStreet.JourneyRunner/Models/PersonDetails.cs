@@ -73,5 +73,12 @@ namespace BeagleStreet.JourneyRunner.Models
         public bool WillCoverValueExceed750k { get; set; }
         public bool IsPermanentUKResident { get; set; }
         public int PersonNumber { get; set; }
+        public List<string> Drugs { get; set; }
+        public int PintsOfBeer { get; set; } 
+        public int GlassesOfWine { get; set; }
+        public int NumberOfShots { get; set; }
+        public int DaysSinceCannabisIntake { get; set; }
+        public bool WasItLessThan5YearsSinceHeroin { get; set; }
+        public bool HasRequiredProfessionalCareForDrugs { get; set; }
     }
 }

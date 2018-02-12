@@ -324,5 +324,67 @@ namespace BeagleStreet.JourneyRunner.Models
                 }
             };
         }
+
+        public static Journey TestSingleIllMaleApplication()
+        {
+            return new Journey
+            {
+                Name = "Ill bloke",
+                Description = "Single application",
+                CoverDuration = 10,
+                SingleOrJoint = WhoPage.SingleOrJoint.Single,
+                TermType = TermTypePage.TermType.Decreasing,
+                CoverAmount = 100000,
+                RequiresCriticalIllness = true,
+                CriticalIllnessAmount = 10000,
+
+                Person1Details = new PersonDetails
+                {
+                    DateOfBirth = new DateTime(1991, 11, 25),
+                    Gender = GenderPage.Gender.Female,
+                    IsSmoker = true,
+                    DoorNumber = "3",
+                    EmailAddress = $"grant{new Random().Next(9999999)}@egg.com",
+                    FirstName = "Wright",
+                    Postcode = "pe28gy",
+                    Surname = "wright",
+                    Title = PersonDetails.TitleType.Dr,
+                    PhoneNumber = "01023456789",
+                    Weight = new Weight
+                    {
+                        Stone = 10,
+                        Pounds = 5
+                    },
+                    Height = new Height
+                    {
+                        Feet = 5,
+                        Inches = 7
+                    },
+                    DressSize = 6,
+                    HasUsedRecreationalInLast5Years = true,
+                    IsRegularDrinker = true, 
+                    IsPermanentUKResident = true,
+                    PintsOfBeer = 1,
+                    GlassesOfWine = 2,
+                    NumberOfShots = 3,
+                    DaysSinceCannabisIntake = 25,
+                    WasItLessThan5YearsSinceHeroin = true,
+                    HasRequiredProfessionalCareForDrugs = true,
+                    Drugs = new List<string>
+                    {
+                       "Cannabis"
+                    },
+                    SmokerDetails = new SmokerDetails
+                    {
+                        IsNicotineOnly = false,
+                        NumberOfCigarettesADay = 1,
+                        NumberOfCigarsADay = 2,
+                        NumberOfPanatelasADay = 3,
+                        NumberOfGramsOfPipeTobacco = 4,
+                        NumberOfGramsOfChewingTobacco = 5
+                    },
+                }
+            };
+        }
     }
 }

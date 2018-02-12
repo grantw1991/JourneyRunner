@@ -17,6 +17,7 @@
             </ResourceDictionary.MergedDictionaries>
             
             <converters:EnumBooleanConverter x:Key="enumBooleanConverter" />
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
             
         </ResourceDictionary>
 
