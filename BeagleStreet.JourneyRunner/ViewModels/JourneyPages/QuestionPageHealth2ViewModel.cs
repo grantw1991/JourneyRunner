@@ -15,7 +15,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         public override string Title => "About your health";
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => true;
-        public override PageBaseViewModel NextPage { get; }
+        public override PageBaseViewModel NextPage => new QuestionPageHealth3ViewModel();
         public override bool HasStateChanged { get; }
 
         public bool HasHadCancer

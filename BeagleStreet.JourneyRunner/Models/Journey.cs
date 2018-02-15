@@ -370,6 +370,19 @@ namespace BeagleStreet.JourneyRunner.Models
                     DaysSinceCannabisIntake = 25,
                     WasItLessThan5YearsSinceHeroin = true,
                     HasRequiredProfessionalCareForDrugs = true,
+                    HadTreatmentOnHeart = true,
+                    HadAsthma = true,
+                    HadAnyLiverDisorder = true,
+                    LiverDisorder = "Liver disorder",
+                    AsthmaDisorder = "Asthma",
+                    HeartDisorder = "Coronary artery disease",
+                    //IsHIVPositive = true,
+                    //IsDiabetic = true,
+                    //HasHeartCondition = true,
+                    //HasStroke = true,
+                    //HasCancer = true,
+                    //HasMultipleSclerosis = true,
+                    //HasMentalIllness = true,
                     Drugs = new List<string>
                     {
                        "Cannabis"
@@ -382,7 +395,7 @@ namespace BeagleStreet.JourneyRunner.Models
                         NumberOfPanatelasADay = 3,
                         NumberOfGramsOfPipeTobacco = 4,
                         NumberOfGramsOfChewingTobacco = 5
-                    },
+                    }
                 }
             };
         }

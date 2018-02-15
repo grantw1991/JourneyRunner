@@ -80,5 +80,8 @@ namespace BeagleStreet.JourneyRunner.Models
         public int DaysSinceCannabisIntake { get; set; }
         public bool WasItLessThan5YearsSinceHeroin { get; set; }
         public bool HasRequiredProfessionalCareForDrugs { get; set; }
+        public string LiverDisorder { get; set; }
+        public string AsthmaDisorder { get; set; }
+        public string HeartDisorder { get; set; } 
     }
 }
