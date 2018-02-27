@@ -376,17 +376,53 @@ namespace BeagleStreet.JourneyRunner.Models
                     LiverDisorder = "Liver disorder",
                     AsthmaDisorder = "Asthma",
                     HeartDisorder = "Coronary artery disease",
-                    //IsHIVPositive = true,
-                    //IsDiabetic = true,
-                    //HasHeartCondition = true,
-                    //HasStroke = true,
-                    //HasCancer = true,
-                    //HasMultipleSclerosis = true,
-                    //HasMentalIllness = true,
+                    IsHIVPositive = true,
+                    IsDiabetic = true,
+                    IsGestationalDiabetes = true,
+                    HasHeartCondition = true,
+                    HasStroke = true,
+                    HasCancer = true,
+                    HasMultipleSclerosis = true,
+                    HasMentalIllness = true,
+                    CancerTypes = new List<string>{ "Cancer" },
+                    MultipleSclerosisConditions = new List<string>{ "Brain disorder" },
+                    WaitingForCancerTreatment = false,
+                    MalignantTumorOrGrowth = false,
+                    DurationSinceGrowthDiagnosis = "5",
+                    CurrentlyOnTreatmentForTheTumour = false,
+                    DurationSinceTumorTreatment = "more",
+                    StrokeConditionDetails = new StrokeConditionDetails
+                    {
+                        StrokeConditions = new List<StrokeConditionDetails.StrokeConditionType>
+                        {
+                            StrokeConditionDetails.StrokeConditionType.BrainBleed
+                        },
+                        TransientIschaemicAttackDetails = new TransientIschaemicAttackDetails { MonthsSinceFirstDiagnosed = 2 }
+                    },
+                    HeartConditionDetails = new HeartConditionDetails
+                    {
+                        HeartConditions = new List<HeartConditionDetails.HeartConditionType>
+                        {
+                            HeartConditionDetails.HeartConditionType.ChestPain 
+                        },
+                        ChestPainDetails = new ChestPainDetails
+                        {
+                            AwaitingResults = false,
+                            YearsSinceMedicalAdvice = ChestPainDetails.YearsSinceAdvice.MoreThanTwo,
+                            HadAbnormalResults = true
+                        },
+                    },
                     Drugs = new List<string>
                     {
                        "Cannabis"
                     },
+                    HivDetails = new HIVDetails
+                    {
+                        TestedPositiveForHepatitisBOrC = false,
+                        CurrentlyReceivingTherapy = true,
+                        ReceivingTreatmentFor24WeeksOrMore = false
+                    },
+                    HasConditionHadNoOnGoingTreatment = true,
                     SmokerDetails = new SmokerDetails
                     {
                         IsNicotineOnly = false,

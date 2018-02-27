@@ -125,6 +125,7 @@
     <Compile Include="Models\HeartRhythmDisorderDetails.cs" />
     <Compile Include="Models\HeartValveDisorderDetails.cs" />
     <Compile Include="Models\Height.cs" />
+    <Compile Include="Models\HIVDetails.cs" />
     <Compile Include="Models\IValidator.cs" />
     <Compile Include="Models\PersonDetails.cs" />
     <Compile Include="Models\Question.cs" />

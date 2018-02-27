@@ -10,6 +10,7 @@ namespace BeagleStreet.JourneyRunner.Pages.HealthSubsequentPages.HeartPages
         public void Run(IBrowser browser, ManualResetEvent pauseEvent, PersonDetails personDetails)
         {
             var chestPainDetails = personDetails.HeartConditionDetails.ChestPainDetails;
+
             browser.ClickElementWithCss($"[for='Sections_0_Questions_HRUKCPR1_Answers_{chestPainDetails.AwaitingResults.ToYesNo()}']");
             browser.ClickElementWithCss("#nextPageButton");
             pauseEvent.WaitOne(Timeout.Infinite);
@@ -20,7 +21,9 @@ namespace BeagleStreet.JourneyRunner.Pages.HealthSubsequentPages.HeartPages
                 browser.ClickElementWithCss("#nextPageButton");
                 pauseEvent.WaitOne(Timeout.Infinite);
 
-                browser.ClickElementWithCss($"[for='Sections_0_Questions_HRUKCPR3_Answers_{chestPainDetails.HadAbnormalResults.ToYesNo()}']");
+                var questionNumber = chestPainDetails.YearsSinceMedicalAdvice == ChestPainDetails.YearsSinceAdvice.MoreThanTwo ? "4" : "3";
+
+                browser.ClickElementWithCss($"[for='Sections_0_Questions_HRUKCPR{questionNumber}_Answers_{chestPainDetails.HadAbnormalResults.ToYesNo()}']");
                 browser.ClickElementWithCss("#nextPageButton");
                 pauseEvent.WaitOne(Timeout.Infinite);
             }

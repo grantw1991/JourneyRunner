@@ -82,6 +82,17 @@ namespace BeagleStreet.JourneyRunner.Models
         public bool HasRequiredProfessionalCareForDrugs { get; set; }
         public string LiverDisorder { get; set; }
         public string AsthmaDisorder { get; set; }
-        public string HeartDisorder { get; set; } 
+        public string HeartDisorder { get; set; }
+        public bool IsGestationalDiabetes { get; set; }
+        public bool HeartStrokeOrKidneyProblems { get; set; }
+        public HIVDetails HivDetails { get; set; }
+        public bool HasConditionHadNoOnGoingTreatment { get; set; }
+        public List<string> CancerTypes { get; set; }
+        public List<string> MultipleSclerosisConditions { get; set; }
+        public bool WaitingForCancerTreatment { get; set; }
+        public bool MalignantTumorOrGrowth { get; set; }
+        public string DurationSinceGrowthDiagnosis { get; set; }
+        public bool CurrentlyOnTreatmentForTheTumour { get; set; }
+        public string DurationSinceTumorTreatment { get; set; }
     }
 }

@@ -29,6 +29,11 @@ namespace BeagleStreet.JourneyRunner.Pages
                 browser.SelectValueFromDropdown("#Sections_0_Questions_HIV_Answers_Select", personDetails.HIVCondition.ToString().ToLower());
             }
 
+            if (personDetails.IsDiabetic)
+            {
+                browser.ClickElementWithCss($"[for='Sections_0_Questions_INC11a_Answers_{personDetails.IsGestationalDiabetes.ToYesNo()}']");
+            }
+
             if (personDetails.HasHeartCondition)
             {
                 var details = personDetails.HeartConditionDetails;
@@ -57,8 +62,54 @@ namespace BeagleStreet.JourneyRunner.Pages
             browser.ClickElementWithCss("#nextPageButton");
             pauseEvent.WaitOne(Timeout.Infinite);
 
+            HandleSubsequentHIVPages(browser, pauseEvent, personDetails);
+            HandleSubsequentDiabetesConditionPages(browser, pauseEvent, personDetails);
             HandleSubsequentHeartConditionPages(browser, pauseEvent, personDetails);
             HandleSubsequentStrokeConditionPages(browser, pauseEvent, personDetails);
+        }
+
+        private void HandleSubsequentHIVPages(IBrowser browser, ManualResetEvent pauseEvent, PersonDetails personDetails)
+        {
+            if (!personDetails.IsHIVPositive)
+                return;
+
+            browser.ClickElementWithCss($"[for='Sections_0_Questions_HIV2_Answers_{personDetails.HivDetails.TestedPositiveForHepatitisBOrC.ToYesNo()}']");
+
+            if (!personDetails.HivDetails.TestedPositiveForHepatitisBOrC)
+            {
+                browser.ClickElementWithCss("#nextPageButton");
+                pauseEvent.WaitOne(Timeout.Infinite);
+            }
+
+            browser.ClickElementWithCss($"[for='Sections_0_Questions_HIV3_Answers_{personDetails.HivDetails.CurrentlyReceivingTherapy.ToYesNo()}']");
+
+            if (personDetails.HivDetails.CurrentlyReceivingTherapy)
+            {
+                browser.ClickElementWithCss("#nextPageButton");
+                pauseEvent.WaitOne(Timeout.Infinite);
+            }
+
+            browser.ClickElementWithCss($"[for='Sections_0_Questions_HIV4_Answers_{personDetails.HivDetails.ReceivingTreatmentFor24WeeksOrMore.ToYesNo()}']");
+
+            browser.ClickElementWithCss("#nextPageButton");
+            pauseEvent.WaitOne(Timeout.Infinite);
+        }
+
+        private void HandleSubsequentDiabetesConditionPages(IBrowser browser, ManualResetEvent pauseEvent, PersonDetails personDetails)
+        {
+            if (!personDetails.IsDiabetic || !personDetails.IsGestationalDiabetes)
+                return;
+
+            browser.ClickElementWithCss($"[for='Sections_0_Questions_GD2_Answers_{personDetails.HeartStrokeOrKidneyProblems.ToYesNo()}']");
+            browser.ClickElementWithCss("#nextPageButton");
+            pauseEvent.WaitOne(Timeout.Infinite);
+
+            if (!personDetails.HeartStrokeOrKidneyProblems)
+            {
+                browser.ClickElementWithCss($"[for='Sections_0_Questions_GD3_Answers_{personDetails.HasConditionHadNoOnGoingTreatment.ToYesNo()}']");
+                browser.ClickElementWithCss("#nextPageButton");
+                pauseEvent.WaitOne(Timeout.Infinite);
+            }
         }
 
         private void HandleSubsequentHeartConditionPages(IBrowser browser, ManualResetEvent pauseEvent, PersonDetails personDetails)
