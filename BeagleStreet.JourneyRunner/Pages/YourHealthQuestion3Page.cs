@@ -44,9 +44,23 @@ namespace BeagleStreet.JourneyRunner.Pages
                 browser.FindElements(".selectize-dropdown-content div").Single(x => x.Text.Contains(personDetails.LiverDisorder)).Click();
                 browser.ClickElementWithCss("#questionCodeNQ1_INC22");
             }
-
+            
             browser.ClickElementWithCss("#nextPageButton");
             manualResetEvent.WaitOne(Timeout.Infinite);
+
+            if (personDetails.HeartDisorder == "Coronary artery disease")
+            {
+                browser.ClickElementWithCss("[for=Sections_0_Questions_HRUKCAD1_Answers_yes]");
+                browser.ClickElementWithCss("#nextPageButton");
+                manualResetEvent.WaitOne(Timeout.Infinite);
+            }
+
+            if (personDetails.AsthmaDisorder == "Asthma")
+            {
+                browser.ClickElementWithCss("[for=Sections_0_Questions_ASTH1_Answers_yes]");
+                browser.ClickElementWithCss("#nextPageButton");
+                manualResetEvent.WaitOne(Timeout.Infinite);
+            }
         }
     }
 }
