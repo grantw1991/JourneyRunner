@@ -9,7 +9,7 @@
         xmlns:viewModel="clr-namespace:BeagleStreet.JourneyRunner.ViewModels.JourneyPages"
         xmlns:journeyPages1="clr-namespace:BeagleStreet.JourneyRunner.Views.JourneyPages"
         mc:Ignorable="d" WindowStartupLocation="CenterOwner" 
-        Title="Journey Builder" Height="400" Width="580"
+        Title="Journey Builder" Height="410" Width="580"
         wpfHelpers:DialogCloser.DialogResult="{Binding DialogResult}">
 
     <Window.DataContext>
@@ -64,6 +64,9 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModel:QuestionPageHealth5ViewModel}">
             <journeyPages1:QuestionPageHealth5UserControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:QuestionPageHealth6ViewModel}">
+            <journeyPages1:QuestionPageHealth6UserControl/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModel:QuestionPageHealthHIVViewModel}">
             <journeyPages1:QuestionPageHealthHIVUserControl/>

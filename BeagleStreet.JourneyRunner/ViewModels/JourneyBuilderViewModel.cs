@@ -76,6 +76,13 @@ namespace BeagleStreet.JourneyRunner.ViewModels
                 return;
             }
 
+            // final page id
+            if (SelectedPage.PageId == 17)
+            {
+                SaveJourney();
+                return;
+            }
+
             if (Journey.SingleOrJoint == WhoPage.SingleOrJoint.Joint && Pages.Count(p => p.PageId == SelectedPage.PageId) == 1 && SelectedPage.PageRequiresJointInput)
             {
                 // if the journey is joint and the pages collection contains one page of the same type then add it. 

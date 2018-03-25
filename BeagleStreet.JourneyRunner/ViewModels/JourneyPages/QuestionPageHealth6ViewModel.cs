@@ -2,20 +2,12 @@
 {
     public class QuestionPageHealth6ViewModel : PageBaseViewModel
     {
-        /*
-         *
-         *personDetails.HadGout
-         *personDetails.BeenPerscribedTreatment
-         *personDetails.BeenUnderInvestigationForTreatment
-         */
-
-
         private bool _hadGout;
         private bool _beenPerscribedTreatment;
         private bool _beenUnderInvestigationForTreatment;
 
-        public override int PageId => 16;
-        public override string Name => $"Person {ActivePerson.PersonNumber} Health 5";
+        public override int PageId => 17;
+        public override string Name => $"Person {ActivePerson.PersonNumber} Health 6";
         public override string Title => "About your health";
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => true;
