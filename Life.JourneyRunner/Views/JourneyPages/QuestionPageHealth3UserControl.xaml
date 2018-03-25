@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="Life.JourneyRunner.Views.JourneyPages.QuestionPageHealth3UserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Life.JourneyRunner.Views.JourneyPages"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="{Binding Title}" Margin="5" HorizontalAlignment="Left" FontSize="16" />
+
+        <Grid Grid.Row="1" VerticalAlignment="Center">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="70" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="Have you ever had..." Margin="5"></TextBlock>
+            <CheckBox Grid.Column="0" Grid.Row="1" Margin="5,5,5,5" IsChecked="{Binding HasHeartProblem}" Content="Irregular heartbeat, raised blood pressure or cholesterol?"/>
+            <ComboBox Grid.Column="0" Grid.Row="2" Margin="5,5,5,5" Visibility="{Binding HasHeartProblem, Converter={StaticResource BooleanToVisibilityConverter}}" ItemsSource="{Binding HeartProblems}" SelectedItem="{Binding HeartProblem}"></ComboBox>
+            <CheckBox Grid.Column="0" Grid.Row="3" Margin="5,5,5,5" IsChecked="{Binding HasHadAsthma}" Content="Has had asthma?"/>
+            <ComboBox Grid.Column="0" Grid.Row="4" Margin="5,5,5,5" Visibility="{Binding HasHadAsthma, Converter={StaticResource BooleanToVisibilityConverter}}" ItemsSource="{Binding AsthmaDisorders}" SelectedItem="{Binding AsthmaDisorder}"></ComboBox>
+            <CheckBox Grid.Column="0" Grid.Row="5" Margin="5,5,5,5" IsChecked="{Binding HasHadLiverDisorder}" Content="Had any disorder of the liver, stomach or pancreas?"/>
+            <ComboBox Grid.Column="0" Grid.Row="6" Margin="5,5,5,5" Visibility="{Binding HasHadLiverDisorder, Converter={StaticResource BooleanToVisibilityConverter}}" ItemsSource="{Binding LiverDisorders}" SelectedItem="{Binding LiverDisorder}"></ComboBox>
+
+        </Grid>
+
+        <Button Grid.Column="0" Grid.Row="2" Content="Previous" Height="25" Width="75" HorizontalAlignment="Left" Margin="5" 
+                Command="{Binding DataContext.PreviousPageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}, 
+                             Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Button Grid.Row="2" Content="Next" Height="25" Width="75" HorizontalAlignment="Right" Margin="5" 
+                Command="{Binding DataContext.NextPageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}, 
+                            Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+    </Grid>
+
+</UserControl>
