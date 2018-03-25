@@ -15,34 +15,25 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         public override string Title => "About your health";
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => true;
-        public override PageBaseViewModel NextPage => new QuestionPageHealth3ViewModel();
+        public override PageBaseViewModel NextPage => HandleNextPage();
         public override bool HasStateChanged { get; }
 
         public bool HasHadCancer
         {
             get => _hasHadCancer;
-            set
-            {
-                SetProperty(ref _hasHadCancer, value);
-            }
+            set => SetProperty(ref _hasHadCancer, value);
         }
 
         public bool HasNervousSystemDisorder
         {
             get => _hasNervousSystemDisorder;
-            set
-            {
-                SetProperty(ref _hasNervousSystemDisorder, value);
-            }
+            set => SetProperty(ref _hasNervousSystemDisorder, value);
         }
 
         public bool HasMentalIllness
         {
             get => _hasMentalIllness;
-            set
-            {
-                SetProperty(ref _hasMentalIllness, value);
-            }
+            set => SetProperty(ref _hasMentalIllness, value);
         }
 
         public List<string> NervousSystemDisorders { get; set; }
@@ -52,19 +43,13 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         public string Cancer
         {
             get => _cancer;
-            set
-            {
-                SetProperty(ref _cancer, value);
-            }
+            set => SetProperty(ref _cancer, value);
         }
 
         public string NervousSystemDisorder
         {
             get => _nervousSystemDisorder;
-            set
-            {
-                SetProperty(ref _nervousSystemDisorder, value);
-            }
+            set => SetProperty(ref _nervousSystemDisorder, value);
         }
 
         public QuestionPageHealth2ViewModel()
@@ -97,5 +82,16 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
                 "Other"
             };
         }
+
+        private PageBaseViewModel HandleNextPage()
+        {
+            if (HasHadCancer)
+            {
+                return new QuestionPageHealthHIVViewModel();
+            }
+
+            return new QuestionPageHealth3ViewModel();
+        }
+
     }
 }

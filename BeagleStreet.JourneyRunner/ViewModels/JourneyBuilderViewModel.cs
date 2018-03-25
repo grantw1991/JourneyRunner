@@ -33,13 +33,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels
         public PageBaseViewModel SelectedPage
         {
             get => _selectedPage;
-            set
-            {
-                SetProperty(ref _selectedPage, value);
-                
-                // set the active state of the page
-                //ActivePerson = SelectedPage.PageRequiresJointInput && SelectedPage.
-            } 
+            set => SetProperty(ref _selectedPage, value);
         }
 
         public string JourneyName

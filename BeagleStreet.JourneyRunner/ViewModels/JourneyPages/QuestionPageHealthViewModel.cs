@@ -69,28 +69,19 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         public string Aid
         {
             get => _aid;
-            set
-            {
-                SetProperty(ref _aid, value);
-            }
+            set => SetProperty(ref _aid, value);
         }
 
         public string HeartCondition
         {
             get => _heartCondition;
-            set
-            {
-                SetProperty(ref _heartCondition, value);
-            }
+            set => SetProperty(ref _heartCondition, value);
         }
 
         public string HeadInjury
         {
             get => _headInjury;
-            set
-            {
-                SetProperty(ref _headInjury, value);
-            }
+            set => SetProperty(ref _headInjury, value);
         }
 
         public QuestionPageHealthViewModel()

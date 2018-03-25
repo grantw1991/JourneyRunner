@@ -169,8 +169,11 @@
     <Compile Include="ViewModels\JourneyPages\QuestionPageAlcoholViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\QuestionPageDrugMisuseViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\QuestionPageFutureTravelViewModel.cs" />
+    <Compile Include="ViewModels\JourneyPages\QuestionPageHealth5ViewModel.cs" />
+    <Compile Include="ViewModels\JourneyPages\QuestionPageHealth4ViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\QuestionPageHealth3ViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\QuestionPageHealth2ViewModel.cs" />
+    <Compile Include="ViewModels\JourneyPages\QuestionPageHealthHIVViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\QuestionPageHealthViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\QuestionPageNarcoticsViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\QuestionPageTabaccoInfoViewModel.cs" />
@@ -192,6 +195,15 @@
     </Compile>
     <Compile Include="Views\JourneyPages\QuestionPageFutureTravelUserControl.xaml.cs">
       <DependentUpon>QuestionPageFutureTravelUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JourneyPages\QuestionPageHealth5UserControl.xaml.cs">
+      <DependentUpon>QuestionPageHealth5UserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JourneyPages\QuestionPageHealth4UserControl.xaml.cs">
+      <DependentUpon>QuestionPageHealth4UserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JourneyPages\QuestionPageHealthHIVUserControl.xaml.cs">
+      <DependentUpon>QuestionPageHealthHIVUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\JourneyPages\QuestionPageHealth3UserControl.xaml.cs">
       <DependentUpon>QuestionPageHealth3UserControl.xaml</DependentUpon>
@@ -268,6 +280,18 @@
     <Page Include="Views\JourneyPages\QuestionPageFutureTravelUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\JourneyPages\QuestionPageHealth5UserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\JourneyPages\QuestionPageHealth4UserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\JourneyPages\QuestionPageHealthHIVUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\JourneyPages\QuestionPageHealth3UserControl.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -56,6 +56,18 @@
         <DataTemplate DataType="{x:Type viewModel:QuestionPageHealth2ViewModel}">
             <journeyPages1:QuestionPageHealth2UserControl/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:QuestionPageHealth3ViewModel}">
+            <journeyPages1:QuestionPageHealth3UserControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:QuestionPageHealth4ViewModel}">
+            <journeyPages1:QuestionPageHealth4UserControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:QuestionPageHealth5ViewModel}">
+            <journeyPages1:QuestionPageHealth5UserControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:QuestionPageHealthHIVViewModel}">
+            <journeyPages1:QuestionPageHealthHIVUserControl/>
+        </DataTemplate>
     </Window.Resources>
     <Grid>
         

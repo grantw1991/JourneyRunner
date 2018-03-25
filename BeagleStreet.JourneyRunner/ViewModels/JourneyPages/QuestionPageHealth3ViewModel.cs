@@ -16,7 +16,7 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         public override string Title => "About your health";
         public override bool IsValid => true;
         public override bool PageRequiresJointInput => true;
-        public override PageBaseViewModel NextPage { get; }
+        public override PageBaseViewModel NextPage => new QuestionPageHealth4ViewModel();
         public override bool HasStateChanged { get; }
 
         public bool HasHadLiverDisorder
@@ -58,28 +58,19 @@ namespace BeagleStreet.JourneyRunner.ViewModels.JourneyPages
         public string HeartProblem
         {
             get => _heartProblem;
-            set
-            {
-                SetProperty(ref _heartProblem, value);
-            }
+            set => SetProperty(ref _heartProblem, value);
         }
 
         public string LiverDisorder
         {
             get => _liverDisorder;
-            set
-            {
-                SetProperty(ref _liverDisorder, value);
-            }
+            set => SetProperty(ref _liverDisorder, value);
         }
 
         public string AsthmaDisorder
         {
             get => _asthmaDisorder;
-            set
-            {
-                SetProperty(ref _asthmaDisorder, value);
-            }
+            set => SetProperty(ref _asthmaDisorder, value);
         }
 
         public QuestionPageHealth3ViewModel()
