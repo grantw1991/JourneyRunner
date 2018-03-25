@@ -15,6 +15,18 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_009423365338435FA1ABCA375E65ACB1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_04C64A3BA0E146FEBD0AAE5187F99F22"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_05C3EE7B4D4C6F0069822AFE3FC4365B"
         "OwnerKey" = "8:_8BABCCA86374594DD9A8294ED51D6D4D"
         "MsmSig" = "8:_UNDEFINED"
@@ -27,6 +39,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_3E24D7DD5EB84491942695279E9B5D88"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_4B40E82543A9F07870F3A11E319DA725"
         "OwnerKey" = "8:_B42826E987CA67FE7D8B004E42C13ABF"
         "MsmSig" = "8:_UNDEFINED"
@@ -35,6 +53,18 @@
         {
         "MsmKey" = "8:_4B40E82543A9F07870F3A11E319DA725"
         "OwnerKey" = "8:_630D8E471BEC4886AFB9EB324074B9EA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4F78C3B6149C4E98B65B599C4C9D29FD"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_596A92485BA34F72A9D9CA880FB17EB1"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -69,6 +99,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_8C601FF38CE84DC0812EDE489CE205FC"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A9C85C9F0CD649D5A586A484744FB436"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_AD75411DE41A4438DA907B1830567A43"
         "OwnerKey" = "8:_B42826E987CA67FE7D8B004E42C13ABF"
         "MsmSig" = "8:_UNDEFINED"
@@ -81,8 +123,38 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_AEE7AF753FF146A78AD3C8B1C5E48E2C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_B42826E987CA67FE7D8B004E42C13ABF"
         "OwnerKey" = "8:_630D8E471BEC4886AFB9EB324074B9EA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CC4F0C6524F148D0A39E74132FB10D73"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CF5732D69B914EF3B16C2199A7114B17"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DCB3F903C46F4BFC81B5C9FC2DA21223"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DF0A9E64BBDD45BBB9F6EBD1785FB86E"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -99,14 +171,20 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_FFCF73928428BFB90F81B1FBA9CA0348"
-        "OwnerKey" = "8:_630D8E471BEC4886AFB9EB324074B9EA"
+        "MsmKey" = "8:_EDE7E886516F4185A33F5141C9588779"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_EB87DD3AA150DEA4F00135B4A157BB69"
+        "MsmKey" = "8:_F2A1E7FA92EA42D49BCDCF87F5AFCEF1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FFCF73928428BFB90F81B1FBA9CA0348"
+        "OwnerKey" = "8:_630D8E471BEC4886AFB9EB324074B9EA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -163,6 +241,12 @@
         "OwnerKey" = "8:_4B40E82543A9F07870F3A11E319DA725"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_EB87DD3AA150DEA4F00135B4A157BB69"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -181,6 +265,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -197,6 +297,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -226,6 +334,46 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_009423365338435FA1ABCA375E65ACB1"
+            {
+            "SourcePath" = "8:..\\Life.JourneyRunner\\Resources\\smallIcon.png"
+            "TargetName" = "8:smallIcon.png"
+            "Tag" = "8:"
+            "Folder" = "8:_E9B336C0F20B445F83404485591273FD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_04C64A3BA0E146FEBD0AAE5187F99F22"
+            {
+            "SourcePath" = "8:..\\Life.JourneyRunner\\Resources\\firefox.png"
+            "TargetName" = "8:firefox.png"
+            "Tag" = "8:"
+            "Folder" = "8:_E9B336C0F20B445F83404485591273FD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_05C3EE7B4D4C6F0069822AFE3FC4365B"
             {
             "AssemblyRegister" = "3:1"
@@ -257,6 +405,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3E24D7DD5EB84491942695279E9B5D88"
+            {
+            "SourcePath" = "8:..\\Life.JourneyRunner\\Resources\\prev.gif"
+            "TargetName" = "8:prev.gif"
+            "Tag" = "8:"
+            "Folder" = "8:_E9B336C0F20B445F83404485591273FD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4B40E82543A9F07870F3A11E319DA725"
             {
             "AssemblyRegister" = "3:1"
@@ -286,6 +454,46 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4F78C3B6149C4E98B65B599C4C9D29FD"
+            {
+            "SourcePath" = "8:..\\Life.JourneyRunner\\Resources\\stopInvert.gif"
+            "TargetName" = "8:stopInvert.gif"
+            "Tag" = "8:"
+            "Folder" = "8:_E9B336C0F20B445F83404485591273FD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_596A92485BA34F72A9D9CA880FB17EB1"
+            {
+            "SourcePath" = "8:..\\Life.JourneyRunner\\Resources\\pauseInvert.gif"
+            "TargetName" = "8:pauseInvert.gif"
+            "Tag" = "8:"
+            "Folder" = "8:_E9B336C0F20B445F83404485591273FD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_61E92947B1B2BF20965FA04647C37617"
@@ -350,6 +558,46 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8C601FF38CE84DC0812EDE489CE205FC"
+            {
+            "SourcePath" = "8:..\\Life.JourneyRunner\\Resources\\stop.gif"
+            "TargetName" = "8:stop.gif"
+            "Tag" = "8:"
+            "Folder" = "8:_E9B336C0F20B445F83404485591273FD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A9C85C9F0CD649D5A586A484744FB436"
+            {
+            "SourcePath" = "8:..\\Life.JourneyRunner\\Resources\\pause.gif"
+            "TargetName" = "8:pause.gif"
+            "Tag" = "8:"
+            "Folder" = "8:_E9B336C0F20B445F83404485591273FD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AD75411DE41A4438DA907B1830567A43"
             {
             "AssemblyRegister" = "3:1"
@@ -381,6 +629,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AEE7AF753FF146A78AD3C8B1C5E48E2C"
+            {
+            "SourcePath" = "8:..\\Life.JourneyRunner\\Resources\\play.gif"
+            "TargetName" = "8:play.gif"
+            "Tag" = "8:"
+            "Folder" = "8:_E9B336C0F20B445F83404485591273FD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B42826E987CA67FE7D8B004E42C13ABF"
             {
             "AssemblyRegister" = "3:1"
@@ -410,6 +678,86 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CC4F0C6524F148D0A39E74132FB10D73"
+            {
+            "SourcePath" = "8:..\\Life.JourneyRunner\\Resources\\chrome.png"
+            "TargetName" = "8:chrome.png"
+            "Tag" = "8:"
+            "Folder" = "8:_E9B336C0F20B445F83404485591273FD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CF5732D69B914EF3B16C2199A7114B17"
+            {
+            "SourcePath" = "8:..\\Life.JourneyRunner\\Resources\\IE.png"
+            "TargetName" = "8:IE.png"
+            "Tag" = "8:"
+            "Folder" = "8:_E9B336C0F20B445F83404485591273FD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DCB3F903C46F4BFC81B5C9FC2DA21223"
+            {
+            "SourcePath" = "8:..\\Life.JourneyRunner\\Resources\\prevInvert.gif"
+            "TargetName" = "8:prevInvert.gif"
+            "Tag" = "8:"
+            "Folder" = "8:_E9B336C0F20B445F83404485591273FD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DF0A9E64BBDD45BBB9F6EBD1785FB86E"
+            {
+            "SourcePath" = "8:..\\Life.JourneyRunner\\Resources\\playInvert.gif"
+            "TargetName" = "8:playInvert.gif"
+            "Tag" = "8:"
+            "Folder" = "8:_E9B336C0F20B445F83404485591273FD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EB87DD3AA150DEA4F00135B4A157BB69"
@@ -474,6 +822,46 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EDE7E886516F4185A33F5141C9588779"
+            {
+            "SourcePath" = "8:..\\Life.JourneyRunner\\Resources\\next.gif"
+            "TargetName" = "8:next.gif"
+            "Tag" = "8:"
+            "Folder" = "8:_E9B336C0F20B445F83404485591273FD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F2A1E7FA92EA42D49BCDCF87F5AFCEF1"
+            {
+            "SourcePath" = "8:..\\Life.JourneyRunner\\Resources\\nextInvert.gif"
+            "TargetName" = "8:nextInvert.gif"
+            "Tag" = "8:"
+            "Folder" = "8:_E9B336C0F20B445F83404485591273FD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FFCF73928428BFB90F81B1FBA9CA0348"
             {
             "AssemblyRegister" = "3:1"
@@ -521,6 +909,17 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_E9B336C0F20B445F83404485591273FD"
+                    {
+                    "Name" = "8:Resources"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_EC662F674A0446719406009A62313DAF"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_88842963DF9F439C969F6D9D8B1F1D97"
@@ -537,6 +936,13 @@
         }
         "LaunchCondition"
         {
+            "{836E08B8-0285-4809-BA42-01DB6754A45D}:_222CED9CC57642C2B451EF6B631EF7C1"
+            {
+            "Name" = "8:Admin"
+            "Condition" = "8:AdminUser"
+            "Message" = "8:<Error Message>"
+            "InstallUrl" = "8:"
+            }
         }
         "Locator"
         {
@@ -551,7 +957,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Setup"
         "ProductCode" = "8:{F617D09C-1177-4935-9E6F-304CE0A6FF7C}"
-        "PackageCode" = "8:{13831FA8-6463-4936-9D54-E624ABAB1C77}"
+        "PackageCode" = "8:{EB32399A-2E2F-4966-9192-EBF522199734}"
         "UpgradeCode" = "8:{F93314AD-2C48-4375-8E60-E5C93FB319BF}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1072,7 +1478,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_630D8E471BEC4886AFB9EB324074B9EA"
             {
-            "SourcePath" = "8:..\\BeagleStreet.JourneyRunner\\obj\\Debug\\Life.JourneyRunner.exe"
+            "SourcePath" = "8:..\\Life.JourneyRunner\\obj\\Debug\\Life.JourneyRunner.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_6E0AAF0F7A8C45C7B335A091EC22DD89"
