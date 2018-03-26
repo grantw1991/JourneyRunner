@@ -10,7 +10,7 @@ namespace Life.JourneyRunner.Pages
 
         public void Run(IBrowser browser, ManualResetEvent pauseEvent, Journey journey)
         {
-            browser.ClickElementWithCss(".cover-amount__item");
+            browser.EnterTextIntoElement("#AssuredAmount", journey.CoverAmount.ToString());
             browser.ClickElementWithCss(NextButtonId);
 
             pauseEvent.WaitOne(Timeout.Infinite);

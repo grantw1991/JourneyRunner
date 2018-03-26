@@ -1,0 +1,133 @@
+{
+  "Name": "Ill bloke",
+  "Description": "Single application",
+  "LastModified": "0001-01-01T00:00:00",
+  "SingleOrJoint": 0,
+  "TermType": 1,
+  "CoverAmount": 100000,
+  "CoverDuration": 10,
+  "RequiresCriticalIllness": true,
+  "CriticalIllnessAmount": 10000,
+  "Person1Details": {
+    "Title": 4,
+    "FirstName": "Wright",
+    "Surname": "wright",
+    "EmailAddress": "grant8438525@egg.com",
+    "DoorNumber": "3",
+    "Postcode": "pe28gy",
+    "Gender": 1,
+    "DateOfBirth": "1991-11-25T00:00:00",
+    "IsSmoker": true,
+    "PhoneNumber": "01023456789",
+    "Questions": null,
+    "Height": {
+      "Feet": 5,
+      "Inches": 7
+    },
+    "Weight": {
+      "Stone": 10,
+      "Pounds": 5
+    },
+    "DressSize": 6,
+    "InchesInWaistSize": 0,
+    "IsRegularDrinker": true,
+    "HasUsedRecreationalInLast5Years": true,
+    "HasLivedInAfricaInLast2Years": false,
+    "IntendToLiveOutsideOfUkInNext2Years": false,
+    "IsDiabetic": true,
+    "HasHeartCondition": true,
+    "HasStroke": true,
+    "IsHIVPositive": true,
+    "HIVCondition": 0,
+    "HasCancer": true,
+    "HasMultipleSclerosis": true,
+    "HasMentalIllness": true,
+    "HadTreatmentOnHeart": true,
+    "HadAsthma": true,
+    "HadAnyLiverDisorder": true,
+    "HadKidneyOrBladderSymptoms": false,
+    "HadDepression": false,
+    "HadDoubleVision": false,
+    "AdvisedToLowerAlcoholIntake": false,
+    "HasEyeSymptoms": false,
+    "HadLumpOrGrowth": false,
+    "HadColitis": false,
+    "HadBloodCondition": false,
+    "HadGout": false,
+    "BeenPerscribedTreatment": false,
+    "BeenUnderInvestigationForTreatment": false,
+    "SmokerDetails": {
+      "IsNicotineOnly": false,
+      "NumberOfCigarettesADay": 1,
+      "NumberOfCigarsADay": 2,
+      "NumberOfPanatelasADay": 3,
+      "NumberOfGramsOfPipeTobacco": 4,
+      "NumberOfGramsOfChewingTobacco": 5
+    },
+    "TravelInfo": null,
+    "HeartConditionDetails": {
+      "HeartConditions": [
+        2
+      ],
+      "AnginaDetails": null,
+      "ChestPainDetails": {
+        "AwaitingResults": false,
+        "YearsSinceMedicalAdvice": 1,
+        "HadAbnormalResults": true
+      },
+      "CoronaryArteryDetails": null,
+      "HeartAttackDetails": null,
+      "HeartRhythmDisorderDetails": null,
+      "HeartValveDisorderDetails": null,
+      "BloodPressureDetails": null
+    },
+    "StrokeConditionDetails": {
+      "StrokeConditions": [
+        0
+      ],
+      "TransientIschaemicAttackDetails": {
+        "MonthsSinceFirstDiagnosed": 2
+      },
+      "BrainInjuryDetails": null,
+      "HeadInjuryDetails": null
+    },
+    "IsAwaitingAnyMedicalTest": false,
+    "IsDueToUndergoMedicalInvestigation": false,
+    "AnySymptomsInLast3Months": false,
+    "WillCoverValueExceed750k": false,
+    "IsPermanentUKResident": true,
+    "PersonNumber": 0,
+    "Drugs": [
+      "Cannabis"
+    ],
+    "PintsOfBeer": 1,
+    "GlassesOfWine": 2,
+    "NumberOfShots": 3,
+    "DaysSinceCannabisIntake": 25,
+    "WasItLessThan5YearsSinceHeroin": true,
+    "HasRequiredProfessionalCareForDrugs": true,
+    "LiverDisorder": "Liver disorder",
+    "AsthmaDisorder": "Asthma",
+    "HeartDisorder": "Coronary artery disease",
+    "IsGestationalDiabetes": true,
+    "HeartStrokeOrKidneyProblems": false,
+    "HivDetails": {
+      "TestedPositiveForHepatitisBOrC": false,
+      "CurrentlyReceivingTherapy": true,
+      "ReceivingTreatmentFor24WeeksOrMore": false
+    },
+    "HasConditionHadNoOnGoingTreatment": true,
+    "CancerTypes": [
+      "Cancer"
+    ],
+    "MultipleSclerosisConditions": [
+      "Brain disorder"
+    ],
+    "WaitingForCancerTreatment": false,
+    "MalignantTumorOrGrowth": false,
+    "DurationSinceGrowthDiagnosis": "5",
+    "CurrentlyOnTreatmentForTheTumour": false,
+    "DurationSinceTumorTreatment": "more"
+  },
+  "Person2Details": null
+}

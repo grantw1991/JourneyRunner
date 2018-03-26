@@ -39,6 +39,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_30CB781590214A84ACEECF6FB6DBA03F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_3E24D7DD5EB84491942695279E9B5D88"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -58,6 +64,12 @@
         "Entry"
         {
         "MsmKey" = "8:_4F78C3B6149C4E98B65B599C4C9D29FD"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_54831D4FA7BE4BE48F54878C046EC832"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -88,6 +100,18 @@
         "Entry"
         {
         "MsmKey" = "8:_630D8E471BEC4886AFB9EB324074B9EA"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_70A9DF3049BE44B9A972625E0C3F28A5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_874F2B626C124827BEAFD9C0B51A3768"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -135,13 +159,31 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_BBE64287481640E5B84FBD61DE4BD970"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_CC4F0C6524F148D0A39E74132FB10D73"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
+        "MsmKey" = "8:_CD9A5C555E1B4F8F903685C878982141"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_CF5732D69B914EF3B16C2199A7114B17"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DC60CD5BFC1649A9A2700A76C1681059"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -171,7 +213,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_EDAF27A1118945BC8A4688B5D7B031AA"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_EDE7E886516F4185A33F5141C9588779"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F198DC34BEA344FE881C10A3A312E891"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -405,6 +459,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_30CB781590214A84ACEECF6FB6DBA03F"
+            {
+            "SourcePath" = "8:..\\Life.JourneyRunner\\bin\\Debug\\geckodriver.exe"
+            "TargetName" = "8:geckodriver.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_6E0AAF0F7A8C45C7B335A091EC22DD89"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3E24D7DD5EB84491942695279E9B5D88"
             {
             "SourcePath" = "8:..\\Life.JourneyRunner\\Resources\\prev.gif"
@@ -476,6 +550,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_54831D4FA7BE4BE48F54878C046EC832"
+            {
+            "SourcePath" = "8:..\\Life.JourneyRunner\\Journeys\\Ill bloke.json"
+            "TargetName" = "8:Ill bloke.json"
+            "Tag" = "8:"
+            "Folder" = "8:_5EDFFE5132A34B06A0B020F6F52DDD7C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_596A92485BA34F72A9D9CA880FB17EB1"
             {
             "SourcePath" = "8:..\\Life.JourneyRunner\\Resources\\pauseInvert.gif"
@@ -525,6 +619,46 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_70A9DF3049BE44B9A972625E0C3F28A5"
+            {
+            "SourcePath" = "8:C:\\Users\\grant\\Pictures\\Beagle.png"
+            "TargetName" = "8:Beagle.png"
+            "Tag" = "8:"
+            "Folder" = "8:_3A0D3574F9794A88B19242A62501FE66"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_874F2B626C124827BEAFD9C0B51A3768"
+            {
+            "SourcePath" = "8:..\\Life.JourneyRunner\\Journeys\\Single Smoker DTA.json"
+            "TargetName" = "8:Single Smoker DTA.json"
+            "Tag" = "8:"
+            "Folder" = "8:_5EDFFE5132A34B06A0B020F6F52DDD7C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8BABCCA86374594DD9A8294ED51D6D4D"
@@ -680,6 +814,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BBE64287481640E5B84FBD61DE4BD970"
+            {
+            "SourcePath" = "8:..\\Life.JourneyRunner\\bin\\Debug\\IEDriverServer.exe"
+            "TargetName" = "8:IEDriverServer.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_6E0AAF0F7A8C45C7B335A091EC22DD89"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CC4F0C6524F148D0A39E74132FB10D73"
             {
             "SourcePath" = "8:..\\Life.JourneyRunner\\Resources\\chrome.png"
@@ -700,12 +854,52 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CD9A5C555E1B4F8F903685C878982141"
+            {
+            "SourcePath" = "8:..\\Life.JourneyRunner\\bin\\Debug\\chromedriver.exe"
+            "TargetName" = "8:chromedriver.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_6E0AAF0F7A8C45C7B335A091EC22DD89"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CF5732D69B914EF3B16C2199A7114B17"
             {
             "SourcePath" = "8:..\\Life.JourneyRunner\\Resources\\IE.png"
             "TargetName" = "8:IE.png"
             "Tag" = "8:"
             "Folder" = "8:_E9B336C0F20B445F83404485591273FD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DC60CD5BFC1649A9A2700A76C1681059"
+            {
+            "SourcePath" = "8:..\\Life.JourneyRunner\\Journeys\\Single - china.json"
+            "TargetName" = "8:Single - china.json"
+            "Tag" = "8:"
+            "Folder" = "8:_5EDFFE5132A34B06A0B020F6F52DDD7C"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -822,12 +1016,52 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EDAF27A1118945BC8A4688B5D7B031AA"
+            {
+            "SourcePath" = "8:..\\Life.JourneyRunner\\Journeys\\Joint App.json"
+            "TargetName" = "8:Joint App.json"
+            "Tag" = "8:"
+            "Folder" = "8:_5EDFFE5132A34B06A0B020F6F52DDD7C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EDE7E886516F4185A33F5141C9588779"
             {
             "SourcePath" = "8:..\\Life.JourneyRunner\\Resources\\next.gif"
             "TargetName" = "8:next.gif"
             "Tag" = "8:"
             "Folder" = "8:_E9B336C0F20B445F83404485591273FD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F198DC34BEA344FE881C10A3A312E891"
+            {
+            "SourcePath" = "8:C:\\Users\\grant\\Pictures\\BeagleStreet\\favicon.ico"
+            "TargetName" = "8:favicon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_3A0D3574F9794A88B19242A62501FE66"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -899,6 +1133,29 @@
         }
         "Folder"
         {
+            "{1525181F-901A-416C-8A58-119130FE478E}:_290C53D0BFBA46E8A6EF9F05ABCF27FC"
+            {
+            "Name" = "8:#1916"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:DesktopFolder"
+                "Folders"
+                {
+                }
+            }
+            "{994432C3-9487-495D-8656-3E829A8DBDDE}:_3A0D3574F9794A88B19242A62501FE66"
+            {
+            "DefaultLocation" = "8:[TARGETDIR]"
+            "Name" = "8:Icon"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:NEWPROPERTY1"
+                "Folders"
+                {
+                }
+            }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_6E0AAF0F7A8C45C7B335A091EC22DD89"
             {
             "DefaultLocation" = "8:[ProgramFilesFolder]\\BGL\\LifeJourneyRunner"
@@ -909,6 +1166,17 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_5EDFFE5132A34B06A0B020F6F52DDD7C"
+                    {
+                    "Name" = "8:Journeys"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_4CBC7304D2574D7E90B0867631F3FB9E"
+                        "Folders"
+                        {
+                        }
+                    }
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_E9B336C0F20B445F83404485591273FD"
                     {
                     "Name" = "8:Resources"
@@ -931,6 +1199,17 @@
             "Property" = "8:ProgramMenuFolder"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_0787D76814CF4C5D9FF2F0CF11C0FB45"
+                    {
+                    "Name" = "8:BGL Life"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_11C9C97D4536459C8D779024557FA0C5"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
         }
@@ -957,7 +1236,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Setup"
         "ProductCode" = "8:{F617D09C-1177-4935-9E6F-304CE0A6FF7C}"
-        "PackageCode" = "8:{EB32399A-2E2F-4966-9192-EBF522199734}"
+        "PackageCode" = "8:{4C6A6A9C-2EC5-48FD-9396-3464E1138F2A}"
         "UpgradeCode" = "8:{F93314AD-2C48-4375-8E60-E5C93FB319BF}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1077,6 +1356,20 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_5183312089094C168D8DD67936826E1B"
+            {
+            "Name" = "8:Journey Runner"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_630D8E471BEC4886AFB9EB324074B9EA"
+            "Folder" = "8:_0787D76814CF4C5D9FF2F0CF11C0FB45"
+            "WorkingFolder" = "8:_6E0AAF0F7A8C45C7B335A091EC22DD89"
+            "Icon" = "8:_F198DC34BEA344FE881C10A3A312E891"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {

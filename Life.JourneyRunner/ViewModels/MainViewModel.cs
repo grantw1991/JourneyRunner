@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -39,6 +40,8 @@ namespace Life.JourneyRunner.ViewModels
         public ICommand GoBackCommand { get; set; }
         public ICommand StopJourneyCommand { get; set; }
         public ICommand AddJourneyCommand { get; set; }
+        public ICommand ViewJourneyCommand { get; set; }
+        public ICommand DeleteJourneyCommand { get; set; }
         public ICommand RunOrPauseJourneyCommand { get; set; }
 
         public string SelectedBrowser { get; set; }
@@ -115,6 +118,8 @@ namespace Life.JourneyRunner.ViewModels
             GoForwardCommand = new RelayCommand(() => _driver.Navigate().Forward());
 
             AddJourneyCommand = new RelayCommand(AddJourney);
+            ViewJourneyCommand = new RelayCommand(ViewJourney);
+            DeleteJourneyCommand = new RelayCommand(DeleteJourney);
 
             PopulateBrowsers();
             PopulateDefaultApplications();
@@ -162,6 +167,28 @@ namespace Life.JourneyRunner.ViewModels
             if (_windowService.ShowDialog<JourneyBuilderWindow>(journeyBuilderViewModel) == true)
             {
                 Journeys.Add(JourneyBaseViewModel.Journey);
+            }
+        }
+
+        private void DeleteJourney()
+        {
+            try
+            {
+                // file delete
+            }
+            catch (Exception e)
+            {
+                
+            }
+        }
+
+        private void ViewJourney()
+        {
+            var journeyBuilderViewModel = new JourneyBuilderViewModel(SelectedJourney);
+            if (_windowService.ShowDialog<JourneyBuilderWindow>(journeyBuilderViewModel) == true)
+            {
+                // change the existing journey
+                //Journeys.Add(JourneyBaseViewModel.Journey);
             }
         }
 
@@ -239,13 +266,7 @@ namespace Life.JourneyRunner.ViewModels
 
         private void PopulateJourneys()
         {
-            Journeys = new ObservableCollection<Journey>(/*JourneySerializer.DeserializeJourniesFromFiles()*/)
-            {
-                Journey.TestSingleIllMaleApplication(),
-                Journey.TestSingleMaleApplication(),
-                Journey.TestSingleApplication(),
-                Journey.TestJointApplication()
-            };
+            Journeys = new ObservableCollection<Journey>(JourneySerializer.DeserializeJourniesFromFiles().OrderBy(journey => journey.Name));
             
             SelectedJourney = Journeys.FirstOrDefault();
         }

@@ -52,7 +52,17 @@ namespace Life.JourneyRunner.ViewModels
 
         public JourneyBuilderViewModel()
         {
-            Journey = new Journey { Person1Details = new PersonDetails { PersonNumber = 1 }, Person2Details = new PersonDetails { PersonNumber = 2 } };
+            Setup(new Journey { Person1Details = new PersonDetails { PersonNumber = 1 }, Person2Details = new PersonDetails { PersonNumber = 2 } });
+        }
+
+        public JourneyBuilderViewModel(Journey journey)
+        {
+            Setup(journey);
+        }
+
+        private void Setup(Journey journey)
+        {
+            Journey = journey;
             ActivePerson = Journey.Person1Details;
             OkCommand = new RelayCommand(SaveJourney);
             NextPageCommand = new RelayCommand(HandleNextPage);
