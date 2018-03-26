@@ -108,8 +108,8 @@
       "Stone": 10,
       "Pounds": 5
     },
-    "DressSize": 6,
-    "InchesInWaistSize": 0,
+    "DressSize": 0,
+    "InchesInWaistSize": 34,
     "IsRegularDrinker": false,
     "HasUsedRecreationalInLast5Years": false,
     "HasLivedInAfricaInLast2Years": false,

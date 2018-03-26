@@ -33,6 +33,7 @@ namespace Life.JourneyRunner
                 new YourDetailsPage().Run(_browser, _pauseEvent, _journey);
                 new IndicativeQuotePage().Run(_browser, _pauseEvent, _journey);
                 new PasswordPage().Run(_browser, _pauseEvent, _journey);
+                new QuestionPage1().Run(_browser, _pauseEvent, _journey);
                 HandleUserQuestionSets();
                 new ReviewPage().Run(_browser, _pauseEvent, _journey);
             }
@@ -71,7 +72,6 @@ namespace Life.JourneyRunner
 
         private void ProcessUserQuestionSets(PersonDetails personDetails)
         {
-            new QuestionPage1().Run(_browser, _pauseEvent, personDetails);
             new YourSizePage().Run(_browser, _pauseEvent, personDetails);
             new NarcoticsPage().Run(_browser, _pauseEvent, personDetails);
             new YourLocationPage().Run(_browser, _pauseEvent, personDetails);

@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using BeagleStreet.Test.Support;
 using Life.JourneyRunner.Models;
@@ -174,11 +177,21 @@ namespace Life.JourneyRunner.ViewModels
         {
             try
             {
-                // file delete
+                if (MessageBox.Show($"Are you sure you want to delete the journey '{SelectedJourney.Name}'", "Deleting Journey",
+                        MessageBoxButton.YesNoCancel, MessageBoxImage.Question) != MessageBoxResult.Yes) return;
+                
+                var path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\journeys\\" + SelectedJourney.Name + ".json";
+
+                if (!File.Exists(path))
+                    return;
+
+                File.Delete(path);
+                Journeys.Remove(SelectedJourney);
+                SelectedJourney = Journeys.Any() ? Journeys.First() : null;
             }
             catch (Exception e)
             {
-                
+                MessageBox.Show(e.Message, "Failed to delete journey", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -187,8 +200,8 @@ namespace Life.JourneyRunner.ViewModels
             var journeyBuilderViewModel = new JourneyBuilderViewModel(SelectedJourney);
             if (_windowService.ShowDialog<JourneyBuilderWindow>(journeyBuilderViewModel) == true)
             {
-                // change the existing journey
-                //Journeys.Add(JourneyBaseViewModel.Journey);
+                var path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\journeys\\" + SelectedJourney.Name + ".json";
+                File.Open(path, FileMode.Open, FileAccess.ReadWrite);
             }
         }
 
