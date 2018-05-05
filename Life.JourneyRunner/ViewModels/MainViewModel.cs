@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using BeagleStreet.Test.Support;
-using Life.JourneyRunner.Models;
+using Life.JourneyRunner.Models.BGL;
 using Life.JourneyRunner.ViewModels.JourneyPages;
 using Life.JourneyRunner.Views;
 using Life.JourneyRunner.WpfHelpers;
@@ -38,6 +39,7 @@ namespace Life.JourneyRunner.ViewModels
         private string _interviewId;
         private string _interviewToken;
         private string _selectedApplication;
+        private bool _showBGLJourneys;
 
         public ICommand GoForwardCommand { get; set; }
         public ICommand GoBackCommand { get; set; }
@@ -49,11 +51,25 @@ namespace Life.JourneyRunner.ViewModels
 
         public string SelectedBrowser { get; set; }
         public Journey SelectedJourney { get; set; }
+        public Models.MSM.Journey SelectedMsmJourney { get; set; }
+
+        public bool ShowBGLJourneys
+        {
+            get => _showBGLJourneys;
+            set => SetProperty(ref _showBGLJourneys, value);
+        }
 
         public string SelectedApplication
         {
             get => _selectedApplication;
-            set => SetProperty(ref _selectedApplication, value);
+            set
+            {
+                if (SetProperty(ref _selectedApplication, value))
+                {
+                    ShowBGLJourneys = SelectedApplication == "BGL (Curiosity)";
+                    JourneyBaseUrl = UrlGenerator.GenerateBaseUrl(SelectedApplication, SelectedEnvironment, SelectedBrand);
+                }
+            }
         }
 
         public string SelectedEnvironment
@@ -63,7 +79,7 @@ namespace Life.JourneyRunner.ViewModels
             {
                 if (SetProperty(ref _selectedEnvironment, value))
                 {
-                    JourneyBaseUrl = UrlGenerator.GenerateBaseUrl(SelectedEnvironment, SelectedBrand);
+                    JourneyBaseUrl = UrlGenerator.GenerateBaseUrl(SelectedApplication, SelectedEnvironment, SelectedBrand);
                 }
             }
         }
@@ -75,7 +91,7 @@ namespace Life.JourneyRunner.ViewModels
             {
                 if (SetProperty(ref _selectedBrand, value))
                 {
-                    JourneyBaseUrl = UrlGenerator.GenerateBaseUrl(SelectedEnvironment, SelectedBrand);
+                    JourneyBaseUrl = UrlGenerator.GenerateBaseUrl(SelectedApplication, SelectedEnvironment, SelectedBrand);
                 }
             }
         }
@@ -105,6 +121,7 @@ namespace Life.JourneyRunner.ViewModels
         }
 
         public ObservableCollection<Journey> Journeys { get; set; }
+        public ObservableCollection<Models.MSM.Journey> MsmJourneys { get; set; }
         public List<string> Applications { get; set; }
         public List<string> Environments { get; set; }
         public List<string> Brands { get; set; }
@@ -207,7 +224,16 @@ namespace Life.JourneyRunner.ViewModels
 
         private void BackgroundWorkerOnDoWork(object sender, DoWorkEventArgs doWorkEventArgs)
         {
-            var journeyRunner = new JourneyRunner(_browser, _pauseEvent, SelectedJourney);
+            IJourneyRunner journeyRunner;
+
+            if (SelectedApplication != "MSM (Buy Now)")
+            {
+                journeyRunner = new JourneyRunner(_browser, _pauseEvent, SelectedJourney);
+            }
+            else
+            {
+                journeyRunner = new MoneySupermarketJourneyRunner(_browser, _pauseEvent, Models.MSM.Journey.CreateDefaultJourney());
+            }
 
             var runApplicationTask = Task.Factory.StartNew(() => journeyRunner.RunApplication());
             var populateInterviewDataTask = Task.Factory.StartNew(PopulateJourneyData);
@@ -227,7 +253,7 @@ namespace Life.JourneyRunner.ViewModels
 
         private void PopulateDefaultApplications()
         {
-            Applications = new List<string> { "Curiosity", "Fifty Life" };
+            Applications = new List<string> { "BGL (Curiosity)", "MSM (Buy Now)" };
             SelectedApplication = Applications.First();
         }
 
@@ -239,7 +265,7 @@ namespace Life.JourneyRunner.ViewModels
 
         private void PopulateBrands()
         {
-            Brands = new List<string>{ "Beagle Street", "Budget", "Virgin Money" };
+            Brands = new List<string>{ "Beagle Street", "Budget", "Virgin Money", "Money Supermarket" };
             SelectedBrand = Brands.First();
         }
 
@@ -257,10 +283,10 @@ namespace Life.JourneyRunner.ViewModels
                     _driver = new ChromeDriver();
                     break;
                 case "IE":
-                    _driver = new InternetExplorerDriver(new InternetExplorerOptions{ IgnoreZoomLevel = true});
+                    _driver = new InternetExplorerDriver("C:\\Program Files\\internet explorer", new InternetExplorerOptions{ IgnoreZoomLevel = true});
                     break;
                 case "Firefox":
-                    _driver = new FirefoxDriver();
+                    _driver = new FirefoxDriver(new FirefoxBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe"), new FirefoxProfile());
                     break;
             }
 
@@ -279,9 +305,11 @@ namespace Life.JourneyRunner.ViewModels
 
         private void PopulateJourneys()
         {
-            Journeys = new ObservableCollection<Journey>(JourneySerializer.DeserializeJourniesFromFiles().OrderBy(journey => journey.Name));
+            Journeys = new ObservableCollection<Journey>(JourneySerializer.DeserializeBGLJourniesFromFiles().OrderBy(journey => journey.Name));
+            MsmJourneys = new ObservableCollection<Models.MSM.Journey>(JourneySerializer.DeserializeMSMJourniesFromFiles().OrderBy(journey => journey.Name));
             
             SelectedJourney = Journeys.FirstOrDefault();
+            SelectedMsmJourney = MsmJourneys.FirstOrDefault();
         }
     }
 }

@@ -18,6 +18,7 @@
             
             <converters:EnumBooleanConverter x:Key="enumBooleanConverter" />
             <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+            <converters:FalseBooleanToVisibilityConverter x:Key="FalseBooleanToVisibilityConverter"/>
             
         </ResourceDictionary>
 

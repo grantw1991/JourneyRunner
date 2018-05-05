@@ -107,6 +107,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters\EnumBooleanConverter.cs" />
+    <Compile Include="Converters\FalseBooleanToVisibilityConverter.cs" />
     <Compile Include="CustomExceptions\ElementNotFoundException.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
@@ -116,53 +117,58 @@
     <Compile Include="JourneyRunner.cs" />
     <Compile Include="JourneySerializer.cs" />
     <Compile Include="JourneyValidator.cs" />
-    <Compile Include="Models\AnginaDetails.cs" />
-    <Compile Include="Models\BloodPressureDetails.cs" />
-    <Compile Include="Models\BrainInjuryDetails.cs" />
-    <Compile Include="Models\ChestPainDetails.cs" />
-    <Compile Include="Models\CoronaryArteryDetails.cs" />
-    <Compile Include="Models\HeadInjuryDetails.cs" />
-    <Compile Include="Models\HeartAttackDetails.cs" />
-    <Compile Include="Models\HeartConditionDetails.cs" />
-    <Compile Include="Models\HeartRhythmDisorderDetails.cs" />
-    <Compile Include="Models\HeartValveDisorderDetails.cs" />
-    <Compile Include="Models\Height.cs" />
-    <Compile Include="Models\HIVDetails.cs" />
-    <Compile Include="Models\IValidator.cs" />
-    <Compile Include="Models\PersonDetails.cs" />
-    <Compile Include="Models\Question.cs" />
-    <Compile Include="Models\SmokerDetails.cs" />
-    <Compile Include="Models\StrokeConditionDetails.cs" />
-    <Compile Include="Models\TransientIschaemicAttackDetails.cs" />
-    <Compile Include="Models\TravelInfo.cs" />
-    <Compile Include="Models\Weight.cs" />
-    <Compile Include="Pages\HealthSubsequentPages\HeartPages\AnginaPage.cs" />
-    <Compile Include="Pages\HealthSubsequentPages\HeartPages\BloodPressurePage.cs" />
-    <Compile Include="Pages\HealthSubsequentPages\HeartPages\ChestPainPage.cs" />
-    <Compile Include="Pages\HealthSubsequentPages\HeartPages\CoronaryHeartDiseasePage.cs" />
-    <Compile Include="Pages\HealthSubsequentPages\HeartPages\HeartAttackPage.cs" />
-    <Compile Include="Pages\HealthSubsequentPages\HeartPages\HeartRhythmDisorderPage.cs" />
-    <Compile Include="Pages\HealthSubsequentPages\HeartPages\HeartValveDisorderPage.cs" />
-    <Compile Include="Pages\HealthSubsequentPages\HeartPages\OtherPage.cs" />
-    <Compile Include="Pages\HealthSubsequentPages\StrokePages\BrainInjuryPage.cs" />
-    <Compile Include="Pages\HealthSubsequentPages\StrokePages\HeadInjuryPage.cs" />
-    <Compile Include="Pages\HealthSubsequentPages\StrokePages\TransientIschaemicAttackPage.cs" />
-    <Compile Include="Pages\ISitePage.cs" />
-    <Compile Include="Pages\NarcoticsPage.cs" />
-    <Compile Include="Pages\NarcoticsPage2.cs" />
-    <Compile Include="Pages\NarcoticsPage3.cs" />
-    <Compile Include="Pages\QuestionPage1.cs" />
-    <Compile Include="Pages\ReviewPage.cs" />
-    <Compile Include="Pages\YourFamilyQuestionPage.cs" />
-    <Compile Include="Pages\YourHealthQuestion1Page.cs" />
-    <Compile Include="Pages\YourHealthQuestion2Page.cs" />
-    <Compile Include="Pages\YourHealthQuestion3Page.cs" />
-    <Compile Include="Pages\YourHealthQuestion4Page.cs" />
-    <Compile Include="Pages\YourHealthQuestion5Page.cs" />
-    <Compile Include="Pages\YourHealthQuestion6Page.cs" />
-    <Compile Include="Pages\YourJobQuestionPage.cs" />
-    <Compile Include="Pages\YourLocationPage.cs" />
-    <Compile Include="Pages\YourSizePage.cs" />
+    <Compile Include="Models\BGL\AnginaDetails.cs" />
+    <Compile Include="Models\BGL\BloodPressureDetails.cs" />
+    <Compile Include="Models\BGL\BrainInjuryDetails.cs" />
+    <Compile Include="Models\BGL\ChestPainDetails.cs" />
+    <Compile Include="Models\BGL\CoronaryArteryDetails.cs" />
+    <Compile Include="Models\BGL\HeadInjuryDetails.cs" />
+    <Compile Include="Models\BGL\HeartAttackDetails.cs" />
+    <Compile Include="Models\BGL\HeartConditionDetails.cs" />
+    <Compile Include="Models\BGL\HeartRhythmDisorderDetails.cs" />
+    <Compile Include="Models\BGL\HeartValveDisorderDetails.cs" />
+    <Compile Include="Models\BGL\Height.cs" />
+    <Compile Include="Models\BGL\HIVDetails.cs" />
+    <Compile Include="Models\BGL\IValidator.cs" />
+    <Compile Include="Models\BGL\PersonDetails.cs" />
+    <Compile Include="Models\BGL\Question.cs" />
+    <Compile Include="Models\BGL\SmokerDetails.cs" />
+    <Compile Include="Models\BGL\StrokeConditionDetails.cs" />
+    <Compile Include="Models\BGL\TransientIschaemicAttackDetails.cs" />
+    <Compile Include="Models\BGL\TravelInfo.cs" />
+    <Compile Include="Models\BGL\Weight.cs" />
+    <Compile Include="Models\MSM\Journey.cs" />
+    <Compile Include="Models\MSM\PersonDetails.cs" />
+    <Compile Include="MoneySupermarketJourneyRunner.cs" />
+    <Compile Include="Pages\BGL\HealthSubsequentPages\HeartPages\AnginaPage.cs" />
+    <Compile Include="Pages\BGL\HealthSubsequentPages\HeartPages\BloodPressurePage.cs" />
+    <Compile Include="Pages\BGL\HealthSubsequentPages\HeartPages\ChestPainPage.cs" />
+    <Compile Include="Pages\BGL\HealthSubsequentPages\HeartPages\CoronaryHeartDiseasePage.cs" />
+    <Compile Include="Pages\BGL\HealthSubsequentPages\HeartPages\HeartAttackPage.cs" />
+    <Compile Include="Pages\BGL\HealthSubsequentPages\HeartPages\HeartRhythmDisorderPage.cs" />
+    <Compile Include="Pages\BGL\HealthSubsequentPages\HeartPages\HeartValveDisorderPage.cs" />
+    <Compile Include="Pages\BGL\HealthSubsequentPages\HeartPages\OtherPage.cs" />
+    <Compile Include="Pages\BGL\HealthSubsequentPages\StrokePages\BrainInjuryPage.cs" />
+    <Compile Include="Pages\BGL\HealthSubsequentPages\StrokePages\HeadInjuryPage.cs" />
+    <Compile Include="Pages\BGL\HealthSubsequentPages\StrokePages\TransientIschaemicAttackPage.cs" />
+    <Compile Include="Pages\BGL\ISitePage.cs" />
+    <Compile Include="Pages\BGL\NarcoticsPage.cs" />
+    <Compile Include="Pages\BGL\NarcoticsPage2.cs" />
+    <Compile Include="Pages\BGL\NarcoticsPage3.cs" />
+    <Compile Include="Pages\BGL\QuestionPage1.cs" />
+    <Compile Include="Pages\BGL\ReviewPage.cs" />
+    <Compile Include="Pages\BGL\YourFamilyQuestionPage.cs" />
+    <Compile Include="Pages\BGL\YourHealthQuestion1Page.cs" />
+    <Compile Include="Pages\BGL\YourHealthQuestion2Page.cs" />
+    <Compile Include="Pages\BGL\YourHealthQuestion3Page.cs" />
+    <Compile Include="Pages\BGL\YourHealthQuestion4Page.cs" />
+    <Compile Include="Pages\BGL\YourHealthQuestion5Page.cs" />
+    <Compile Include="Pages\BGL\YourHealthQuestion6Page.cs" />
+    <Compile Include="Pages\BGL\YourJobQuestionPage.cs" />
+    <Compile Include="Pages\BGL\YourLocationPage.cs" />
+    <Compile Include="Pages\BGL\YourSizePage.cs" />
+    <Compile Include="Pages\MSM\EnquiryPage.cs" />
+    <Compile Include="Pages\MSM\ResultsPage.cs" />
     <Compile Include="UrlGenerator.cs" />
     <Compile Include="ViewModels\JourneyPages\PersonDetailsViewModel.cs" />
     <Compile Include="ViewModels\JourneyPages\JourneyBaseViewModel.cs" />
@@ -241,18 +247,18 @@
     <Compile Include="WpfHelpers\BindableBase.cs" />
     <Compile Include="WpfHelpers\DialogCloser.cs" />
     <Compile Include="WpfHelpers\IWindowService.cs" />
-    <Compile Include="Models\Journey.cs" />
-    <Compile Include="Pages\IndicativeQuotePage.cs" />
-    <Compile Include="Pages\PasswordPage.cs" />
-    <Compile Include="Pages\YourDetailsPage.cs" />
-    <Compile Include="Pages\CoverAmountPage.cs" />
-    <Compile Include="Pages\CoverTermPage.cs" />
-    <Compile Include="Pages\CriticalIllnessPage.cs" />
-    <Compile Include="Pages\DateOfBirthPage.cs" />
-    <Compile Include="Pages\GenderPage.cs" />
-    <Compile Include="Pages\SmokerPage.cs" />
-    <Compile Include="Pages\TermTypePage.cs" />
-    <Compile Include="Pages\WhoPage.cs" />
+    <Compile Include="Models\BGL\Journey.cs" />
+    <Compile Include="Pages\BGL\IndicativeQuotePage.cs" />
+    <Compile Include="Pages\BGL\PasswordPage.cs" />
+    <Compile Include="Pages\BGL\YourDetailsPage.cs" />
+    <Compile Include="Pages\BGL\CoverAmountPage.cs" />
+    <Compile Include="Pages\BGL\CoverTermPage.cs" />
+    <Compile Include="Pages\BGL\CriticalIllnessPage.cs" />
+    <Compile Include="Pages\BGL\DateOfBirthPage.cs" />
+    <Compile Include="Pages\BGL\GenderPage.cs" />
+    <Compile Include="Pages\BGL\SmokerPage.cs" />
+    <Compile Include="Pages\BGL\TermTypePage.cs" />
+    <Compile Include="Pages\BGL\WhoPage.cs" />
     <Compile Include="WpfHelpers\RelayCommand.cs" />
     <Compile Include="ViewModels\JourneyBuilderViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -480,12 +486,12 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Selenium.Chrome.WebDriver.2.30\build\Selenium.Chrome.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Chrome.WebDriver.2.30\build\Selenium.Chrome.WebDriver.targets'))" />
-    <Error Condition="!Exists('..\packages\Selenium.Firefox.WebDriver.0.18.0\build\Selenium.Firefox.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Firefox.WebDriver.0.18.0\build\Selenium.Firefox.WebDriver.targets'))" />
-    <Error Condition="!Exists('..\packages\Selenium.WebDriver.IEDriver.3.5.1\build\Selenium.WebDriver.IEDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.IEDriver.3.5.1\build\Selenium.WebDriver.IEDriver.targets'))" />
     <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.2.35.0\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.2.35.0\build\Selenium.WebDriver.ChromeDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.Firefox.WebDriver.0.20.0\build\Selenium.Firefox.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Firefox.WebDriver.0.20.0\build\Selenium.Firefox.WebDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.IEDriver.3.11.1\build\Selenium.WebDriver.IEDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.IEDriver.3.11.1\build\Selenium.WebDriver.IEDriver.targets'))" />
   </Target>
   <Import Project="..\packages\Selenium.Chrome.WebDriver.2.30\build\Selenium.Chrome.WebDriver.targets" Condition="Exists('..\packages\Selenium.Chrome.WebDriver.2.30\build\Selenium.Chrome.WebDriver.targets')" />
-  <Import Project="..\packages\Selenium.Firefox.WebDriver.0.18.0\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.18.0\build\Selenium.Firefox.WebDriver.targets')" />
-  <Import Project="..\packages\Selenium.WebDriver.IEDriver.3.5.1\build\Selenium.WebDriver.IEDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.IEDriver.3.5.1\build\Selenium.WebDriver.IEDriver.targets')" />
   <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.2.35.0\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.2.35.0\build\Selenium.WebDriver.ChromeDriver.targets')" />
+  <Import Project="..\packages\Selenium.Firefox.WebDriver.0.20.0\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.20.0\build\Selenium.Firefox.WebDriver.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.IEDriver.3.11.1\build\Selenium.WebDriver.IEDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.IEDriver.3.11.1\build\Selenium.WebDriver.IEDriver.targets')" />
 </Project>

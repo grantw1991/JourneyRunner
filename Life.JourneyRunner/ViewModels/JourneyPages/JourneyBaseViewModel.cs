@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Life.JourneyRunner.Models;
+using Life.JourneyRunner.Models.BGL;
 using Life.JourneyRunner.WpfHelpers;
 
 namespace Life.JourneyRunner.ViewModels.JourneyPages

@@ -6,7 +6,7 @@
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:viewModels="clr-namespace:Life.JourneyRunner.ViewModels"
-        Title="BGL Life Journey Launcher" Height="330" MinHeight="330" Width="550" MinWidth="525"
+        Title="BGL Life Journey Launcher" Height="365" MinHeight="365" Width="600" MinWidth="600"
         ShowIconOnTitleBar="True" ShowTitleBar="True">
 
     <controls:MetroWindow.IconTemplate>
@@ -50,10 +50,31 @@
                     </Grid.RowDefinitions>
 
                     <Border BorderThickness="0,0,0,1" BorderBrush="White" Background="Black">
-                        <TextBlock Margin="5" Foreground="White" FontWeight="DemiBold">Journeys:</TextBlock>
+                        <TextBlock Margin="5" Foreground="White" FontWeight="DemiBold">
+                            <TextBlock.Style>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Text" Value="BGL Journeys:"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ShowBGLJourneys}" Value="False" >
+                                            <Setter Property="Text" Value="MSM Journeys:"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
                     </Border>
 
-                    <ListBox Grid.Row="1" ItemsSource="{Binding Journeys}" SelectedItem="{Binding SelectedJourney, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                    <ListBox Grid.Row="1" Visibility="{Binding ShowBGLJourneys, Converter={StaticResource BooleanToVisibilityConverter}}" 
+                             ItemsSource="{Binding Journeys}" SelectedItem="{Binding SelectedJourney, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Name}" ToolTipService.ToolTip="{Binding Path=Description}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <ListBox Grid.Row="1" Visibility="{Binding ShowBGLJourneys, Converter={StaticResource FalseBooleanToVisibilityConverter}}" 
+                             ItemsSource="{Binding MsmJourneys}" SelectedItem="{Binding SelectedMsmJourney, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Path=Name}" ToolTipService.ToolTip="{Binding Path=Description}"/>
@@ -101,17 +122,17 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <!--<TextBlock Grid.Row="1" Grid.Column="0" Text="App:" Height="30" Margin="5" VerticalAlignment="Center" Padding="0,5,0,0" HorizontalAlignment="Right" />
-                <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Applications}" SelectedItem="{Binding SelectedApplication}" Height="25" Margin="5" />-->
-                
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="Browser:" Height="30" Margin="5" VerticalAlignment="Center" Padding="0,5,0,0" HorizontalAlignment="Right" />
-                <ComboBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Browsers}" SelectedItem="{Binding SelectedBrowser}" Height="25" Margin="5" />
-                
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="Brand:" Height="30" Margin="5" VerticalAlignment="Center" Padding="0,5,0,0" HorizontalAlignment="Right" />
-                <ComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Brands}" SelectedItem="{Binding SelectedBrand}" Height="25" Margin="5" />
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="App:" Height="30" Margin="5" VerticalAlignment="Center" Padding="0,5,0,0" HorizontalAlignment="Right" />
+                <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Applications}" SelectedItem="{Binding SelectedApplication}" Height="25" Margin="5" />
 
-                <TextBlock Grid.Row="4" Grid.Column="0" Text="Environment:" Height="30" Margin="5" VerticalAlignment="Center" Padding="0,5,0,0" HorizontalAlignment="Right" />
-                <ComboBox Grid.Row="4" Grid.Column="1" ItemsSource="{Binding Environments}" SelectedItem="{Binding SelectedEnvironment}" Height="25" Margin="5"  />
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Brand:" Height="30" Margin="5" VerticalAlignment="Center" Padding="0,5,0,0" HorizontalAlignment="Right" />
+                <ComboBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Brands}" SelectedItem="{Binding SelectedBrand}" Height="25" Margin="5" />
+
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Environment:" Height="30" Margin="5" VerticalAlignment="Center" Padding="0,5,0,0" HorizontalAlignment="Right" />
+                <ComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Environments}" SelectedItem="{Binding SelectedEnvironment}" Height="25" Margin="5"  />
+
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Browser:" Height="30" Margin="5" VerticalAlignment="Center" Padding="0,5,0,0" HorizontalAlignment="Right" />
+                <ComboBox Grid.Row="4" Grid.Column="1" ItemsSource="{Binding Browsers}" SelectedItem="{Binding SelectedBrowser}" Height="25" Margin="5" />
 
                 <TextBlock Grid.Row="5" Grid.Column="0" Text="Url:" Height="30" Margin="5" VerticalAlignment="Center" Padding="0,5,0,0" HorizontalAlignment="Right" />
                 <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding JourneyBaseUrl}"  Height="25" Margin="5" />

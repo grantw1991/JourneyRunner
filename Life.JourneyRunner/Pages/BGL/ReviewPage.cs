@@ -1,0 +1,16 @@
+﻿using System.Threading;
+using BeagleStreet.Test.Support;
+using Life.JourneyRunner.Models;
+using Life.JourneyRunner.Models.BGL;
+
+namespace Life.JourneyRunner.Pages.BGL
+{
+    public class ReviewPage : ISitePage
+    {
+        public void Run(IBrowser browser, ManualResetEvent manualResetEvent, Journey journey)
+        {
+            browser.ClickElementWithCss("#nextPageButton");
+            manualResetEvent.WaitOne(Timeout.Infinite);
+        }
+    }
+}

@@ -5,7 +5,9 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using Life.JourneyRunner.Models;
+using Life.JourneyRunner.Models.BGL;
 using Life.JourneyRunner.Pages;
+using Life.JourneyRunner.Pages.BGL;
 using Life.JourneyRunner.ViewModels.JourneyPages;
 using Life.JourneyRunner.WpfHelpers;
 
