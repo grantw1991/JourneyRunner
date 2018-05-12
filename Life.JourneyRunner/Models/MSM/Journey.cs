@@ -42,24 +42,77 @@ namespace Life.JourneyRunner.Models.MSM
                 ContactViaEmail = true,
                 ContactViaPhone = true,
                 ContactViaText = true,
+                JourneyType = "MSM",
                 Person1Details = new PersonDetails
                 {
                     Title = PersonDetails.TitleType.Miss,
                     FirstName = "grant",
                     Surname = "wright",
+                    Gender = GenderPage.Gender.Female,
                     DateOfBirth = new DateTime(1991, 11, 25),
                     IsSmoker = true,
+                    HouseNumber = "3",
                     Postcode = "pe28gy",
                     EmailAddress = "grant@egg.com",
-                    PhoneNumber = "01234567890"
+                    PhoneNumber = "01234567890",
+                    MaritalStatus = PersonDetails.MaritalType.Married,
+                    Size = new Size
+                    {
+                        HeightInFeet = 6,
+                        HeightInInches = 1,
+                        WeightInStone = 14,
+                        WeightInPounds = 1
+                    },
+                    SmokerDetails = new SmokerDetails
+                    {
+                        NumberOfCigarettesADay = 2,
+                        NumberOfCigarsADay = 1,
+                        NumberOfOtherTobaccoDay = 1,
+                        UsedAnyOtherReplacementProductsWithinLastYear = true,
+                        LastDateSmoked = new DateTime(2018, 05, 08)
+                    },
+                    RidesAMotorbike = true,
+                    JobTitle = "Software Engineer",
+                    NarcoticsDetails = new NarcoticsDetails
+                    {
+                        HasBeenAdvisedToLowerAlcoholIntake = true,
+                        HasUsedRecreationalDrugsInLast10Years = true,
+                        NumberOfAlcoholicDrinksPerWeek = 1,
+                        NumberOfGlassesOfWineAWeek = 2,
+                        NumberOfPintsAWeek = 3,
+                        NumberOfSpiritsAWeek = 4
+                    },
+                    HealthDetails = new HealthDetails()
                 },
                 Person2Details = new PersonDetails
                 {
                     Title = PersonDetails.TitleType.Mr,
                     FirstName = "dave",
+                    Gender = GenderPage.Gender.Male,
                     Surname = "smith",
                     DateOfBirth = new DateTime(1991, 12, 26),
-                    IsSmoker = true
+                    IsSmoker = false,
+                    MaritalStatus = PersonDetails.MaritalType.Married,
+                    JobTitle = "Accountant",
+                    HasLifePlanWithAnotherInsuranceCompany = false,
+                    HasCriticalIllnessPlanWithAnotherInsuranceCompany = false,
+                    NarcoticsDetails = new NarcoticsDetails
+                    {
+                        NumberOfAlcoholicDrinksPerWeek = 0,
+                        NumberOfGlassesOfWineAWeek = 0,
+                        NumberOfSpiritsAWeek = 0,
+                        NumberOfPintsAWeek = 0,
+                        HasBeenAdvisedToLowerAlcoholIntake = false,
+                        HasUsedRecreationalDrugsInLast10Years = false
+                    },
+                    Size = new Size
+                    {
+                        HeightInFeet = 5,
+                        HeightInInches = 2,
+                        WeightInStone = 13,
+                        WeightInPounds = 2
+                    },
+                    HealthDetails = new HealthDetails()
                 }
             };
 

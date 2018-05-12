@@ -26,7 +26,7 @@
                 return brand == "Virgin Money" ? "https://life.virginmoney.com/z018" : "https://life.budgetinsurance.com/ZB11";
             }
 
-            return "https://www.moneysupermarket.com/life-insurance/enquiry/#no";
+            return environment == "UAT" ? "https://www.sit1.gb.moneysupermarket.com/life-insurance/enquiry/#no" : "https://www.moneysupermarket.com/life-insurance/enquiry/buy-now#no";
         }
     }
 }

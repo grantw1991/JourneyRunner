@@ -23,20 +23,7 @@ namespace Life.JourneyRunner.Pages.MSM
                 HandlePersonDetails(browser, journey.Person2Details, false);
             }
             
-            browser.EnterTextIntoElement("#Enquiry_PostCode", journey.Person1Details.Postcode);
-            browser.EnterTextIntoElement("#Enquiry_EmailAddress", journey.Person1Details.EmailAddress);
-            browser.EnterTextIntoElement("#Enquiry_EmailAddress2", journey.Person1Details.EmailAddress);
-            browser.EnterTextIntoElement("#Enquiry_PhoneNumber", journey.Person1Details.PhoneNumber);
-
-            if(!journey.ContactViaEmail)
-                browser.ClickElementWithCss("[for='Enquiry_ContactByEmail']");
-
-            if(journey.ContactViaText)
-                browser.ClickElementWithCss("[for='Enquiry_ContactByText']");
-
-            if(journey.ContactViaPhone)
-                browser.ClickElementWithCss("[for='Enquiry_ContactByPhone']");
-
+            browser.ClickElementWithCss("[for='Enquiry_ConsentToUseData']");
             browser.ClickElementWithCss("#btnSeeResults");
             manualResetEvent.WaitOne(Timeout.Infinite);
         }
@@ -46,12 +33,27 @@ namespace Life.JourneyRunner.Pages.MSM
             var personNumber = isMainApplicant ? "1" : "2";
             var personType = isMainApplicant ? "Main" : "Second";
 
-            browser.SelectTextFromDropdown($"#Enquiry_{personType}ApplicantTitle", personDetails.Title.ToString());
+            browser.ClickElementWithCss($"[for='applicant-{personNumber}-title-{personDetails.Title.ToString().ToLower()}']");
             browser.EnterTextIntoElement($"#Enquiry_{personType}ApplicantFirstName", personDetails.FirstName);
             browser.EnterTextIntoElement($"#Enquiry_{personType}ApplicantLastName", personDetails.Surname);
+            browser.ClickElementWithCss($"[for='applicant-{personNumber}-gender-{personDetails.Gender.ToString().Substring(0, 1).ToLower()}']");
+            browser.ClickElementWithCss($"[for='applicant-{personNumber}-maritalstatus-{personDetails.MaritalStatus.ToString().ToLower()}']");
             browser.EnterTextIntoElement($"#dob-{personNumber}-dd", personDetails.DateOfBirth.ToString("dd"));
             browser.EnterTextIntoElement($"#dob-{personNumber}-mm", personDetails.DateOfBirth.ToString("MM"));
             browser.EnterTextIntoElement($"#dob-{personNumber}-yyyy", personDetails.DateOfBirth.ToString("yyyy"));
+
+            if (personNumber == "1")
+            {
+                browser.EnterTextIntoElement("#Enquiry_HouseNum", personDetails.HouseNumber);
+                browser.EnterTextIntoElement("#Enquiry_PostCode", personDetails.Postcode);
+                browser.ClickElementWithCss("#Enquiry_FindAddress");
+
+                if (browser.ElementIsVisible("#Enquiry_FullAddressSelect"))
+                {
+                    browser.SelectValueFromDropdown("#Enquiry_FullAddressSelect", "0");
+                }
+            }
+
             browser.ClickElementWithCss($"[for='a{personNumber}-tobacco-{personDetails.IsSmoker.ToYesNo()}']");
         }
     }

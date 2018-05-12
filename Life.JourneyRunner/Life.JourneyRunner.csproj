@@ -137,8 +137,12 @@
     <Compile Include="Models\BGL\TransientIschaemicAttackDetails.cs" />
     <Compile Include="Models\BGL\TravelInfo.cs" />
     <Compile Include="Models\BGL\Weight.cs" />
+    <Compile Include="Models\MSM\HealthDetails.cs" />
     <Compile Include="Models\MSM\Journey.cs" />
+    <Compile Include="Models\MSM\NarcoticsDetails.cs" />
     <Compile Include="Models\MSM\PersonDetails.cs" />
+    <Compile Include="Models\MSM\Size.cs" />
+    <Compile Include="Models\MSM\SmokerDetails.cs" />
     <Compile Include="MoneySupermarketJourneyRunner.cs" />
     <Compile Include="Pages\BGL\HealthSubsequentPages\HeartPages\AnginaPage.cs" />
     <Compile Include="Pages\BGL\HealthSubsequentPages\HeartPages\BloodPressurePage.cs" />
@@ -168,6 +172,8 @@
     <Compile Include="Pages\BGL\YourLocationPage.cs" />
     <Compile Include="Pages\BGL\YourSizePage.cs" />
     <Compile Include="Pages\MSM\EnquiryPage.cs" />
+    <Compile Include="Pages\MSM\HealthPage.cs" />
+    <Compile Include="Pages\MSM\LifestylePage.cs" />
     <Compile Include="Pages\MSM\ResultsPage.cs" />
     <Compile Include="UrlGenerator.cs" />
     <Compile Include="ViewModels\JourneyPages\PersonDetailsViewModel.cs" />

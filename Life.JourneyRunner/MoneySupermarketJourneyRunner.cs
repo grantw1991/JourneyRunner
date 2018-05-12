@@ -21,6 +21,8 @@ namespace Life.JourneyRunner
         public void RunApplication()
         {
             new EnquiryPage().Run(_browser, _pauseEvent, _journey);
+            new LifestylePage().Run(_browser, _pauseEvent, _journey);
+            new HealthPage().Run(_browser, _pauseEvent, _journey);
         }
     }
 }
