@@ -2,9 +2,7 @@
 using System.Windows;
 using BeagleStreet.Test.Support;
 using Life.JourneyRunner.CustomExceptions;
-using Life.JourneyRunner.Models;
 using Life.JourneyRunner.Models.BGL;
-using Life.JourneyRunner.Pages;
 using Life.JourneyRunner.Pages.BGL;
 
 namespace Life.JourneyRunner
@@ -34,7 +32,6 @@ namespace Life.JourneyRunner
                 new CriticalIllnessPage().Run(_browser, _pauseEvent, _journey);
                 new YourDetailsPage().Run(_browser, _pauseEvent, _journey);
                 new IndicativeQuotePage().Run(_browser, _pauseEvent, _journey);
-                new PasswordPage().Run(_browser, _pauseEvent, _journey);
                 new QuestionPage1().Run(_browser, _pauseEvent, _journey);
                 HandleUserQuestionSets();
                 new ReviewPage().Run(_browser, _pauseEvent, _journey);

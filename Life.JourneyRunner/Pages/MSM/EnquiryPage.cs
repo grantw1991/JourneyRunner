@@ -24,6 +24,7 @@ namespace Life.JourneyRunner.Pages.MSM
             }
             
             browser.ClickElementWithCss("[for='Enquiry_ConsentToUseData']");
+            Thread.Sleep(500);
             browser.ClickElementWithCss("#btnSeeResults");
             manualResetEvent.WaitOne(Timeout.Infinite);
         }

@@ -171,6 +171,7 @@
     <Compile Include="Pages\BGL\YourJobQuestionPage.cs" />
     <Compile Include="Pages\BGL\YourLocationPage.cs" />
     <Compile Include="Pages\BGL\YourSizePage.cs" />
+    <Compile Include="Pages\MSM\AdditionalQuestionsPage.cs" />
     <Compile Include="Pages\MSM\EnquiryPage.cs" />
     <Compile Include="Pages\MSM\HealthPage.cs" />
     <Compile Include="Pages\MSM\LifestylePage.cs" />

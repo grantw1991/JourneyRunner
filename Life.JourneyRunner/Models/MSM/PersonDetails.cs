@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Life.JourneyRunner.Pages.BGL;
-using Life.JourneyRunner.Pages.MSM;
-using NUnit.Framework;
 
 namespace Life.JourneyRunner.Models.MSM
 {

@@ -38,7 +38,7 @@ namespace Life.JourneyRunner.Models.MSM
                 CoverDuration = 25,
                 RequiresCriticalIllness = true,
                 SingleOrJoint = WhoPage.SingleOrJoint.Joint,
-                Name = "bacon",
+                Name = "Joint tester",
                 ContactViaEmail = true,
                 ContactViaPhone = true,
                 ContactViaText = true,
@@ -116,7 +116,62 @@ namespace Life.JourneyRunner.Models.MSM
                 }
             };
 
+            var single = new Journey
+            {
+                CoverAmount = 100000,
+                CoverDuration = 25,
+                RequiresCriticalIllness = true,
+                SingleOrJoint = WhoPage.SingleOrJoint.Single,
+                Name = "single tester",
+                ContactViaEmail = true,
+                ContactViaPhone = true,
+                ContactViaText = true,
+                JourneyType = "MSM",
+                Person1Details = new PersonDetails
+                {
+                    Title = PersonDetails.TitleType.Mr,
+                    FirstName = "dave",
+                    Surname = "stained",
+                    Gender = GenderPage.Gender.Male,
+                    DateOfBirth = new DateTime(1991, 11, 25),
+                    IsSmoker = true,
+                    HouseNumber = "3",
+                    Postcode = "pe26ys",
+                    EmailAddress = "bacon@egg.com",
+                    PhoneNumber = "01234567890",
+                    MaritalStatus = PersonDetails.MaritalType.Married,
+                    Size = new Size
+                    {
+                        HeightInFeet = 6,
+                        HeightInInches = 1,
+                        WeightInStone = 14,
+                        WeightInPounds = 1
+                    },
+                    SmokerDetails = new SmokerDetails
+                    {
+                        NumberOfCigarettesADay = 2,
+                        NumberOfCigarsADay = 1,
+                        NumberOfOtherTobaccoDay = 1,
+                        UsedAnyOtherReplacementProductsWithinLastYear = true,
+                        LastDateSmoked = new DateTime(2018, 05, 08)
+                    },
+                    RidesAMotorbike = true,
+                    JobTitle = "Software Engineer",
+                    NarcoticsDetails = new NarcoticsDetails
+                    {
+                        HasBeenAdvisedToLowerAlcoholIntake = true,
+                        HasUsedRecreationalDrugsInLast10Years = true,
+                        NumberOfAlcoholicDrinksPerWeek = 1,
+                        NumberOfGlassesOfWineAWeek = 2,
+                        NumberOfPintsAWeek = 3,
+                        NumberOfSpiritsAWeek = 4
+                    },
+                    HealthDetails = new HealthDetails()
+                }
+            };
+
             JourneySerializer.SerializeJourneyToFile(journey);
+            JourneySerializer.SerializeJourneyToFile(single);
 
             return journey;
         }

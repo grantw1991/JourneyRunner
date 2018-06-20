@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using Life.JourneyRunner.Pages;
 using Life.JourneyRunner.Pages.BGL;
 
 namespace Life.JourneyRunner.ViewModels.JourneyPages

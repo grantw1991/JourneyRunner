@@ -2,7 +2,6 @@
 using System.Threading;
 using BeagleStreet.Test.Support;
 using Life.JourneyRunner.Extensions;
-using Life.JourneyRunner.Models;
 using Life.JourneyRunner.Models.BGL;
 
 namespace Life.JourneyRunner.Pages.BGL

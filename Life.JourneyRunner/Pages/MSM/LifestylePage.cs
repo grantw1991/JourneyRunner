@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using BeagleStreet.Test.Support;
 using Life.JourneyRunner.Extensions;
 using Life.JourneyRunner.Models.MSM;
@@ -19,7 +18,7 @@ namespace Life.JourneyRunner.Pages.MSM
             }
 
             browser.ExecuteJavaScript<string>("window.scrollTo(0,document.querySelector('body').scrollHeight); return '';");
-            Thread.Sleep(5000);
+            Thread.Sleep(7000);
             browser.ClickElementWithCss("#btnSubmitUmeForm");
             manualResetEvent.WaitOne(Timeout.Infinite);
         }

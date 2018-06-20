@@ -1,5 +1,4 @@
-﻿using Life.JourneyRunner.Pages;
-using Life.JourneyRunner.Pages.BGL;
+﻿using Life.JourneyRunner.Pages.BGL;
 
 namespace Life.JourneyRunner.ViewModels.JourneyPages
 {

@@ -1,5 +1,4 @@
 ﻿using Life.JourneyRunner.CustomExceptions;
-using Life.JourneyRunner.Models;
 using Life.JourneyRunner.Models.BGL;
 
 namespace Life.JourneyRunner

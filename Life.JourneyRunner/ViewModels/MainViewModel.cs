@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -232,7 +231,7 @@ namespace Life.JourneyRunner.ViewModels
             }
             else
             {
-                journeyRunner = new MoneySupermarketJourneyRunner(_browser, _pauseEvent, Models.MSM.Journey.CreateDefaultJourney());
+                journeyRunner = new MoneySupermarketJourneyRunner(_browser, _pauseEvent, SelectedMsmJourney);
             }
 
             var runApplicationTask = Task.Factory.StartNew(() => journeyRunner.RunApplication());

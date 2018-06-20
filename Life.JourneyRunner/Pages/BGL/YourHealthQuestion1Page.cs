@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading;
 using BeagleStreet.Test.Support;
 using Life.JourneyRunner.Extensions;
-using Life.JourneyRunner.Models;
 using Life.JourneyRunner.Models.BGL;
 using Life.JourneyRunner.Pages.BGL.HealthSubsequentPages.HeartPages;
 using Life.JourneyRunner.Pages.BGL.HealthSubsequentPages.StrokePages;

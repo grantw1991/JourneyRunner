@@ -16,7 +16,9 @@ namespace Life.JourneyRunner.Pages.MSM
             {
                 HandlePersonDetails(browser, journey.Person2Details, false);
             }
-            
+
+            browser.ExecuteJavaScript<string>("window.scrollTo(0,document.querySelector('body').scrollHeight); return '';");
+            Thread.Sleep(7000);
             browser.ClickElementWithCss("#btnSubmitUmeForm");
             manualResetEvent.WaitOne(Timeout.Infinite);
         }
@@ -30,7 +32,7 @@ namespace Life.JourneyRunner.Pages.MSM
             browser.ClickElementWithCss($"[for='{personNumber}_MENTAL_MINOR_{personDetails.HealthDetails.HasMentalIllness.ToBit()}_{personDetails.HealthDetails.HasMentalIllness.ToYesNo().ToUpper()}']");
             browser.ClickElementWithCss($"[for='{personNumber}_LUNG_{personDetails.HealthDetails.HasAsthma.ToBit()}_{personDetails.HealthDetails.HasAsthma.ToYesNo().ToUpper()}']");
             browser.ClickElementWithCss($"[for='{personNumber}_BOWEL_{personDetails.HealthDetails.HasBowelCondition.ToBit()}_{personDetails.HealthDetails.HasBowelCondition.ToYesNo().ToUpper()}']");
-            browser.ClickElementWithCss($"[for='{personNumber}_KIDNEY_FEMALE_{personDetails.HealthDetails.HasKidneyCondition.ToBit()}_{personDetails.HealthDetails.HasKidneyCondition.ToYesNo().ToUpper()}']");
+            browser.ClickElementWithCss($"[for='{personNumber}_KIDNEY_{personDetails.Gender.ToString().ToUpper()}_{personDetails.HealthDetails.HasKidneyCondition.ToBit()}_{personDetails.HealthDetails.HasKidneyCondition.ToYesNo().ToUpper()}']");
             browser.ClickElementWithCss($"[for='{personNumber}_LIVER_{personDetails.HealthDetails.HasLiverCondition.ToBit()}_{personDetails.HealthDetails.HasLiverCondition.ToYesNo().ToUpper()}']");
             browser.ClickElementWithCss($"[for='{personNumber}_NEURO_{personDetails.HealthDetails.HasNeuroCondition.ToBit()}_{personDetails.HealthDetails.HasNeuroCondition.ToYesNo().ToUpper()}']");
             browser.ClickElementWithCss($"[for='{personNumber}_HEARING_VISION_{personDetails.HealthDetails.HasHearingCondition.ToBit()}_{personDetails.HealthDetails.HasHearingCondition.ToYesNo().ToUpper()}']");

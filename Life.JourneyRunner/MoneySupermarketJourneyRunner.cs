@@ -23,6 +23,7 @@ namespace Life.JourneyRunner
             new EnquiryPage().Run(_browser, _pauseEvent, _journey);
             new LifestylePage().Run(_browser, _pauseEvent, _journey);
             new HealthPage().Run(_browser, _pauseEvent, _journey);
+            new AdditionalQuestionsPage().Run(_browser, _pauseEvent);
         }
     }
 }
